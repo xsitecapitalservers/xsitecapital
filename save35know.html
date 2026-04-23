@@ -161,13 +161,20 @@ input,select{font-family:inherit;}
 .cta-band__title{font-family:var(--fd);font-size:clamp(2rem,3.5vw,3rem);font-weight:400;line-height:1.15;letter-spacing:-.02em;color:var(--cream);margin-bottom:16px;}
 .cta-band__title em{font-style:italic;color:var(--gold-l);}
 .cta-band__sub{font-size:17px;color:rgba(245,241,232,.65);line-height:1.6;margin-bottom:40px;}
-.cta-band__form{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:480px;margin:0 auto;}
-.cta-band__input{flex:1;min-width:200px;padding:14px 18px;background:rgba(255,255,255,.08);border:1.5px solid rgba(217,189,134,.3);border-radius:12px;color:var(--cream);font-size:15px;outline:none;transition:border-color .15s,background .15s;}
-.cta-band__input::placeholder{color:rgba(245,241,232,.4);}
-.cta-band__input:focus{border-color:rgba(217,189,134,.7);background:rgba(255,255,255,.12);}
-.cta-band__btn{padding:14px 28px;border-radius:12px;border:none;background:linear-gradient(180deg,#2d6a3f 0%,#1e3a26 100%);color:#fff;font-size:15px;font-weight:700;letter-spacing:.02em;box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 6px 20px rgba(30,58,38,.4);transition:transform .14s,box-shadow .16s;white-space:nowrap;}
+.cta-band__form{max-width:520px;margin:0 auto;text-align:left;}
+.cta-band__row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.cta-band__field{display:flex;flex-direction:column;gap:5px;margin-bottom:12px;}
+.cta-band__field label{font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(217,189,134,.7);}
+.cta-band__input{width:100%;padding:13px 16px;background:rgba(255,255,255,.08);border:1.5px solid rgba(217,189,134,.25);border-radius:10px;color:var(--cream);font-size:14.5px;outline:none;transition:border-color .15s,background .15s;}
+.cta-band__input::placeholder{color:rgba(245,241,232,.35);}
+.cta-band__input:focus{border-color:rgba(217,189,134,.65);background:rgba(255,255,255,.11);}
+.cta-band__select{width:100%;padding:13px 16px;background:rgba(255,255,255,.08);border:1.5px solid rgba(217,189,134,.25);border-radius:10px;color:rgba(245,241,232,.75);font-size:14.5px;font-family:var(--fb);outline:none;transition:border-color .15s,background .15s;appearance:none;-webkit-appearance:none;}
+.cta-band__select:focus{border-color:rgba(217,189,134,.65);background:rgba(255,255,255,.11);}
+.cta-band__select option{background:#162a1b;color:var(--cream);}
+.cta-band__btn{width:100%;padding:15px;border-radius:12px;border:none;background:linear-gradient(180deg,#2d6a3f 0%,#1e3a26 100%);color:#fff;font-size:15px;font-weight:700;letter-spacing:.03em;box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 6px 20px rgba(30,58,38,.4);transition:transform .14s,box-shadow .16s;margin-top:4px;}
 .cta-band__btn:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 12px 30px rgba(30,58,38,.55);}
-.cta-band__note{font-size:12px;color:rgba(245,241,232,.4);font-style:italic;margin-top:14px;}
+.cta-band__btn:active{transform:scale(.98);}
+.cta-band__note{font-size:12px;color:rgba(245,241,232,.4);font-style:italic;margin-top:12px;text-align:center;}
 .cta-band__success{display:none;margin-top:24px;}
 .cta-band__success p{font-family:var(--fd);font-size:1.2rem;color:var(--cream);}
 
@@ -192,8 +199,7 @@ input,select{font-family:inherit;}
 @media(max-width:600px){
   .hero__headline{font-size:2rem;}
   .hosts__grid{grid-template-columns:1fr;}
-  .cta-band__form{flex-direction:column;}
-  .cta-band__btn,.cta-band__input{width:100%;}
+  .cta-band__row{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -433,8 +439,40 @@ input,select{font-family:inherit;}
     <h2 class="cta-band__title">Stop leaving <em>tens of thousands</em> on the table every April</h2>
     <p class="cta-band__sub">Register free. Takes 30 seconds. This Thursday at 6 PM ET — limited seats.</p>
     <form class="cta-band__form" id="bottomForm">
-      <input class="cta-band__input" type="email" name="email" placeholder="your@email.com" required/>
-      <button type="submit" class="cta-band__btn">Save My Spot →</button>
+      <div class="cta-band__row">
+        <div class="cta-band__field">
+          <label for="bFirst">First Name</label>
+          <input class="cta-band__input" type="text" id="bFirst" name="first_name" placeholder="First name" required/>
+        </div>
+        <div class="cta-band__field">
+          <label for="bLast">Last Name</label>
+          <input class="cta-band__input" type="text" id="bLast" name="last_name" placeholder="Last name" required/>
+        </div>
+      </div>
+      <div class="cta-band__field">
+        <label for="bEmail">Email Address</label>
+        <input class="cta-band__input" type="email" id="bEmail" name="email" placeholder="your@email.com" required/>
+      </div>
+      <div class="cta-band__field">
+        <label for="bPhone">Phone Number</label>
+        <input class="cta-band__input" type="tel" id="bPhone" name="phone" placeholder="+1 (555) 000-0000"/>
+      </div>
+      <div class="cta-band__field">
+        <label for="bSource">How did you hear about us?</label>
+        <select class="cta-band__select" id="bSource" name="heard_from">
+          <option value="">Select an option</option>
+          <option>Instagram</option>
+          <option>Facebook</option>
+          <option>LinkedIn</option>
+          <option>YouTube</option>
+          <option>Google</option>
+          <option>Friend / Referral</option>
+          <option>Podcast</option>
+          <option>Email</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <button type="submit" class="cta-band__btn" id="bottomSubmit">Save My Spot →</button>
     </form>
     <p class="cta-band__note">🔒 No spam. Unsubscribe any time.</p>
     <div class="cta-band__success" id="bottomSuccess">
@@ -527,16 +565,22 @@ const bottomSuccess = document.getElementById('bottomSuccess');
 
 bottomForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const btn = bottomForm.querySelector('button');
-  btn.textContent = 'Registering…';
+  const btn = document.getElementById('bottomSubmit');
+  btn.textContent = 'Reserving your seat…';
   btn.disabled = true;
 
-  const email = new FormData(bottomForm).get('email');
+  const fd = new FormData(bottomForm);
   try {
     await fetch(WEBINAR_FN_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ first_name:'', last_name:'', email, phone:'', heard_from:'' }),
+      body: JSON.stringify({
+        first_name: fd.get('first_name'),
+        last_name:  fd.get('last_name'),
+        email:      fd.get('email'),
+        phone:      fd.get('phone') || '',
+        heard_from: fd.get('heard_from') || '',
+      }),
     });
   } catch (err) {
     console.error('Submission error:', err);
