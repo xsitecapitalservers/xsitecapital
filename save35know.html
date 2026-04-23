@@ -122,6 +122,37 @@ input,select{font-family:inherit;}
 .press__logos span{font-family:var(--fd);font-size:14px;letter-spacing:.05em;color:rgba(245,241,232,.3);white-space:nowrap;transition:color .15s;}
 .press__logos span:hover{color:rgba(245,241,232,.6);}
 
+/* ── DISCOVERY SECTION ────────────────────────────────── */
+.discovery{padding:96px 40px;background:var(--forest-900);}
+.discovery__inner{max-width:860px;margin:0 auto;text-align:center;}
+.discovery__eyebrow{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.discovery__title{font-family:var(--fd);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:400;line-height:1.2;letter-spacing:-.018em;color:var(--cream);margin-bottom:28px;}
+.discovery__highlight{display:inline-block;font-family:var(--fd);font-size:clamp(1.4rem,2.4vw,2rem);font-weight:500;font-style:italic;color:var(--gold-l);margin-bottom:52px;line-height:1.2;}
+
+.discovery__list{display:flex;flex-direction:column;gap:0;margin-bottom:64px;text-align:left;}
+.discovery__item{display:flex;align-items:center;gap:16px;padding:18px 28px;background:rgba(255,255,255,.03);border:1px solid rgba(217,189,134,.1);border-bottom:none;font-size:16px;color:rgba(245,241,232,.85);line-height:1.5;transition:background .2s;}
+.discovery__item:first-child{border-radius:14px 14px 0 0;}
+.discovery__item:last-child{border-bottom:1px solid rgba(217,189,134,.1);border-radius:0 0 14px 14px;}
+.discovery__item:hover{background:rgba(217,189,134,.05);}
+.discovery__check{flex-shrink:0;width:28px;height:28px;}
+.discovery__check svg{width:28px;height:28px;}
+
+.discovery__cta{padding:64px 40px;background:rgba(255,255,255,.025);border:1px solid rgba(217,189,134,.12);border-radius:20px;margin-bottom:60px;}
+.discovery__cta-title{font-family:var(--fd);font-size:clamp(1.7rem,2.8vw,2.3rem);font-weight:400;line-height:1.2;letter-spacing:-.015em;color:var(--cream);margin-bottom:14px;}
+.discovery__cta-sub{font-size:15px;color:rgba(217,189,134,.7);margin-bottom:28px;letter-spacing:.04em;}
+.discovery__btn{display:inline-block;padding:15px 36px;border-radius:12px;background:linear-gradient(180deg,#2d6a3f 0%,#1e3a26 100%);color:#fff;font-size:15px;font-weight:700;letter-spacing:.03em;box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 8px 24px rgba(30,58,38,.4);transition:transform .14s,box-shadow .16s;}
+.discovery__btn:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 14px 36px rgba(30,58,38,.55);}
+
+.discovery__closer{font-family:var(--fd);font-size:clamp(1.4rem,2.2vw,1.9rem);font-weight:400;line-height:1.4;color:var(--cream);text-align:center;}
+.discovery__closer p{margin-bottom:4px;}
+.discovery__closer-em{font-style:italic;color:var(--gold-l);}
+
+@media(max-width:600px){
+  .discovery{padding:64px 20px;}
+  .discovery__item{padding:14px 18px;font-size:14.5px;}
+  .discovery__cta{padding:40px 22px;}
+}
+
 /* ── WHAT YOU'LL LEARN ────────────────────────────────── */
 .learn{padding:100px 40px;background:linear-gradient(180deg,rgba(22,42,27,.4) 0%,transparent 100%);}
 .learn__inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
@@ -327,6 +358,61 @@ input,select{font-family:inherit;}
     </div>
   </div>
 </div>
+
+<!-- EMERGENCY SESSION DISCOVERY -->
+<section class="discovery">
+  <div class="discovery__inner">
+    <div class="discovery__header">
+      <div class="discovery__eyebrow">— Free Emergency Session —</div>
+      <h2 class="discovery__title">What you'll discover in this emergency session:</h2>
+      <div class="discovery__highlight">$45,000+ Annual Tax Savings on Every $100,000 Investment</div>
+    </div>
+
+    <div class="discovery__list">
+      <div class="discovery__item">
+        <div class="discovery__check">
+          <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#B89660" fill-opacity=".15"/><path d="M5.5 10.5l3 3 6-6" stroke="#B89660" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span>How new legislation created a massive tax advantage that 99% of professionals don't know exists</span>
+      </div>
+      <div class="discovery__item">
+        <div class="discovery__check">
+          <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#B89660" fill-opacity=".15"/><path d="M5.5 10.5l3 3 6-6" stroke="#B89660" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span>Step-by-step breakdown of how high earners are legally keeping an extra 35%+ MORE annually</span>
+      </div>
+      <div class="discovery__item">
+        <div class="discovery__check">
+          <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#B89660" fill-opacity=".15"/><path d="M5.5 10.5l3 3 6-6" stroke="#B89660" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span>Why Congress restored 100% bonus depreciation and how you can use it immediately</span>
+      </div>
+      <div class="discovery__item">
+        <div class="discovery__check">
+          <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#B89660" fill-opacity=".15"/><path d="M5.5 10.5l3 3 6-6" stroke="#B89660" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span>See actual tax returns showing before and after savings using this strategy</span>
+      </div>
+      <div class="discovery__item">
+        <div class="discovery__check">
+          <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#B89660" fill-opacity=".15"/><path d="M5.5 10.5l3 3 6-6" stroke="#B89660" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span>Your exact action plan to deploy this strategy before the window closes</span>
+      </div>
+    </div>
+
+    <div class="discovery__cta">
+      <h3 class="discovery__cta-title">Get instant access to the tax strategy that could save you more than your car payment every month</h3>
+      <p class="discovery__cta-sub">Multiple Tax Saving Opportunities</p>
+      <a href="#heroForm" class="discovery__btn">Join The Webinar →</a>
+    </div>
+
+    <div class="discovery__closer">
+      <p>The catch? Most people won't hear about this until it's too late<br>and their CPAs are already scrambling to catch up.</p>
+      <p class="discovery__closer-em">But you? You're about to be early.</p>
+    </div>
+  </div>
+</section>
 
 <!-- WHAT YOU'LL LEARN -->
 <section class="learn">
