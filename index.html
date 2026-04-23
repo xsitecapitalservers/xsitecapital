@@ -115,7 +115,7 @@ button{cursor:pointer;font-family:inherit;}
 .tile--dark .tile__label{color:rgba(217,189,134,.8);}
 .tile__num{font-family:var(--fd);font-size:44px;font-weight:500;line-height:1.05;letter-spacing:-.015em;margin-top:8px;font-variant-numeric:tabular-nums;}
 .tile--dark .tile__num{color:var(--cream);}
-.tile__num sup,.tile__unit{font-size:.5em;color:var(--gold-d);}
+.tile__num sup,.tile__unit{font-size:.5em;color:var(--gold-d);}.tile__dollar{font-size:.5em;color:var(--gold-d);vertical-align:super;line-height:0;margin-right:1px;}
 .tile--dark .tile__unit{color:var(--gold-l);}
 .tile__sub{font-size:13px;color:var(--ash);margin-top:10px;line-height:1.5;}
 .tile--dark .tile__sub{color:rgba(245,241,232,.68);}
@@ -526,11 +526,11 @@ button{cursor:pointer;font-family:inherit;}
     </div>
     <!-- Right: stat tiles -->
     <div class="hero__tiles" id="tileStack">
-      <div class="tile" id="t1">
+      <a class="tile" id="t1" href="./assets" style="text-decoration:none;color:inherit;display:block;cursor:pointer;">
         <p class="tile__label">Portfolio Value</p>
-        <div class="tile__num"><span class="count" data-target="276" data-dec="0">0</span><span class="tile__unit">MM</span></div>
-        <p class="tile__sub">Across 10 multifamily assets under management.</p>
-      </div>
+        <div class="tile__num"><span class="tile__dollar">$</span><span class="count" data-target="276" data-dec="0">0</span><span class="tile__unit">MM</span></div>
+        <p class="tile__sub">AUM across 9 properties.</p>
+      </a>
       <div class="tile tile--dark" id="t2">
         <p class="tile__label">Doors Under Management</p>
         <div class="tile__num"><span class="count" data-target="1422" data-dec="0">0</span></div>
