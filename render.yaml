@@ -24,3 +24,6 @@ services:
       - type: rewrite
         source: /retirewise
         destination: /retirewise.html
+      - type: rewrite
+        source: /save35know
+        destination: /save35know.html
