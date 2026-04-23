@@ -30,3 +30,9 @@ services:
       - type: rewrite
         source: /ira
         destination: /ira.html
+      - type: rewrite
+        source: /webinars
+        destination: /webinars.html
+      - type: rewrite
+        source: /money-week
+        destination: /money-week/index.html

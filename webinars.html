@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Webinars | XSITE Capital Investment</title>
+<meta name="description" content="Free live webinars from XSITE Capital Investment. Learn tax strategies, IRA investing, asset protection, and how to build wealth through multifamily real estate."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap"/>
+<style>
+:root{
+  --forest:#0f1d14; --forest-900:#060d09; --forest-700:#162a1b; --forest-500:#1e3a26;
+  --gold:#B89660; --gold-l:#D9BD86; --gold-d:#8A6D3C;
+  --ember:#7A1E2B; --ember-d:#5E1722;
+  --cream:#F5F1E8; --cream-r:#FBF8F1; --cream-s:#ECE6D7;
+  --ink:#14161C; --ink-s:#2A2D36; --ash:#6B6B6B; --hair:#D6D0BF;
+  --fd:'Fraunces',Georgia,serif;
+  --fb:'Inter',-apple-system,system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:var(--fb);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.38;
+  background:radial-gradient(circle at 18% 28%,rgba(184,150,96,.07) 0%,transparent 55%),
+             radial-gradient(circle at 82% 72%,rgba(17,24,39,.04) 0%,transparent 55%);}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+button{cursor:pointer;font-family:inherit;}
+
+/* ── NAV ── */
+.nav{
+  position:fixed;top:16px;left:50%;transform:translateX(-50%);
+  width:calc(100% - 32px);max-width:1280px;height:62px;z-index:200;
+  border-radius:999px;padding:0 8px 0 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(251,248,241,.72);border:1px solid rgba(255,255,255,.75);
+  backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 8px 32px rgba(17,24,39,.08);
+  transition:top .28s var(--ease),box-shadow .28s var(--ease);
+}
+.nav.scrolled{top:8px;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 16px 48px rgba(17,24,39,.13);}
+.nav__logo img{height:28px;width:auto;display:block;}
+.nav__links{display:flex;align-items:center;gap:1px;}
+.nav__link{padding:7px 13px;font-size:13.5px;font-weight:500;color:var(--ink-s);border-radius:999px;transition:color .15s,background .15s;}
+.nav__link:hover,.nav__link.active{color:var(--ink);background:rgba(255,255,255,.6);}
+.nav__ebook{padding:7px 13px;font-size:13.5px;font-weight:600;color:var(--gold-d);border-radius:999px;transition:background .15s;}
+.nav__ebook:hover{background:rgba(138,109,60,.1);}
+.nav__cta{
+  margin-left:8px;padding:9px 20px;font-size:13.5px;font-weight:600;letter-spacing:.02em;
+  border-radius:999px;border:1px solid rgba(217,189,134,.5);
+  background:linear-gradient(180deg,#96293A 0%,#7A1E2B 55%,#5E1722 100%);
+  color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 6px 18px rgba(122,30,43,.35);
+  transition:transform .14s,box-shadow .16s;
+}
+.nav__cta:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 10px 28px rgba(122,30,43,.48);}
+.nav__ham{display:none;background:none;border:none;padding:8px;color:var(--ink);}
+
+/* ── PAGE HEADER ── */
+.page-header{
+  padding:160px 40px 80px;
+  background:linear-gradient(180deg,#F8F4EC 0%,#EDE7D5 100%);
+  text-align:center;position:relative;overflow:hidden;
+}
+.page-header::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(217,189,134,.18) 0%,transparent 65%);
+}
+.page-header__kicker{
+  display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;
+  padding:5px 14px 5px 6px;border-radius:999px;
+  background:rgba(184,150,96,.12);border:1px solid rgba(184,150,96,.35);
+}
+.page-header__dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px rgba(184,150,96,.7);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 8px rgba(184,150,96,.7)}50%{opacity:.55;box-shadow:0 0 3px rgba(184,150,96,.2)}}
+.page-header__kicker-text{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-d);}
+.page-header__h1{font-family:var(--fd);font-size:clamp(2.8rem,5vw,5rem);font-weight:400;line-height:1.06;letter-spacing:-.025em;color:var(--ink);position:relative;}
+.page-header__h1 em{font-style:italic;color:var(--gold-d);}
+.page-header__sub{margin-top:16px;font-size:18px;color:var(--ink-s);line-height:1.65;max-width:580px;margin-left:auto;margin-right:auto;position:relative;}
+
+/* ── WEBINAR GRID ── */
+.webinars-grid-sec{padding:80px 40px 120px;max-width:1280px;margin:0 auto;}
+.webinars-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;}
+
+/* ── WEBINAR CARD ── */
+.wcard{
+  border-radius:24px;overflow:hidden;
+  background:var(--cream-r);border:1px solid var(--hair);
+  box-shadow:0 2px 12px rgba(17,24,39,.06);
+  display:flex;flex-direction:column;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+  opacity:0;transform:translateY(24px);
+}
+.wcard.visible{opacity:1;transform:none;transition:opacity .5s var(--ease),transform .5s var(--ease);}
+.wcard:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(17,24,39,.12);}
+
+/* card: dark variant */
+.wcard--dark{background:linear-gradient(155deg,var(--forest-700) 0%,var(--forest) 60%,var(--forest-900) 100%);border-color:rgba(217,189,134,.15);}
+
+.wcard__thumb{height:240px;overflow:hidden;position:relative;flex-shrink:0;}
+.wcard__thumb img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .4s var(--ease);}
+.wcard:hover .wcard__thumb img{transform:scale(1.04);}
+.wcard__thumb-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,13,9,.55) 0%,transparent 55%);}
+
+/* badge on thumb */
+.wcard__status{
+  position:absolute;top:16px;left:16px;
+  padding:5px 12px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  display:flex;align-items:center;gap:7px;
+}
+.wcard__status--live{background:rgba(6,13,9,.72);border:1px solid rgba(74,222,128,.4);color:#4ade80;backdrop-filter:blur(10px);}
+.wcard__status--live::before{content:"";width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px #4ade80;animation:pulse 2s ease-in-out infinite;}
+.wcard__status--series{background:rgba(184,150,96,.18);border:1px solid rgba(217,189,134,.5);color:var(--gold-l);backdrop-filter:blur(10px);}
+
+/* session count badge */
+.wcard__sessions-badge{
+  position:absolute;bottom:16px;right:16px;
+  padding:5px 12px;border-radius:999px;
+  background:rgba(6,13,9,.7);border:1px solid rgba(217,189,134,.3);
+  font-size:11.5px;font-weight:600;color:var(--gold-l);backdrop-filter:blur(10px);
+}
+
+.wcard__body{padding:28px 28px 32px;flex:1;display:flex;flex-direction:column;}
+.wcard__meta{display:flex;gap:16px;align-items:center;margin-bottom:14px;flex-wrap:wrap;}
+.wcard__date{font-size:12.5px;font-weight:600;letter-spacing:.04em;color:var(--ash);display:flex;align-items:center;gap:6px;}
+.wcard__date svg{opacity:.55;}
+.wcard__date--light{color:rgba(245,241,232,.5);}
+.wcard__topic{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-d);padding:3px 10px;border-radius:999px;background:rgba(184,150,96,.12);border:1px solid rgba(184,150,96,.25);}
+.wcard__topic--light{color:var(--gold-l);background:rgba(217,189,134,.1);border-color:rgba(217,189,134,.2);}
+.wcard__title{font-family:var(--fd);font-size:clamp(1.3rem,2vw,1.65rem);font-weight:400;line-height:1.2;letter-spacing:-.015em;color:var(--ink);margin-bottom:12px;}
+.wcard__title--light{color:var(--cream);}
+.wcard__title em{font-style:italic;color:var(--gold-d);}
+.wcard__title--light em{color:var(--gold-l);}
+.wcard__desc{font-size:14.5px;color:var(--ink-s);line-height:1.65;margin-bottom:24px;flex:1;}
+.wcard__desc--light{color:rgba(245,241,232,.62);}
+
+/* sessions mini-list inside card */
+.wcard__sessions{margin-bottom:24px;display:flex;flex-direction:column;gap:10px;}
+.wcard__session-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:12px 14px;border-radius:12px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(217,189,134,.12);
+}
+.wcard__session-num{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-l);white-space:nowrap;padding-top:2px;}
+.wcard__session-info{}
+.wcard__session-date{font-size:11.5px;color:rgba(245,241,232,.45);margin-bottom:2px;}
+.wcard__session-title{font-size:13.5px;font-weight:500;color:rgba(245,241,232,.88);line-height:1.3;}
+
+/* speakers row */
+.wcard__speakers{display:flex;align-items:center;gap:-6px;margin-bottom:24px;}
+.wcard__av{width:34px;height:34px;border-radius:50%;overflow:hidden;border:2px solid var(--cream-r);margin-left:-6px;flex-shrink:0;}
+.wcard__av:first-child{margin-left:0;}
+.wcard__av img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.wcard__av--dark{border-color:rgba(255,255,255,.15);}
+.wcard__speaker-names{margin-left:10px;font-size:13px;color:var(--ash);line-height:1.35;}
+.wcard__speaker-names--light{color:rgba(245,241,232,.55);}
+
+.wcard__cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:13px 24px;border-radius:999px;font-size:14.5px;font-weight:600;letter-spacing:.02em;
+  transition:box-shadow .18s,transform .14s;border:none;cursor:pointer;width:100%;
+}
+.wcard__cta--primary{
+  background:linear-gradient(180deg,#96293A 0%,#7A1E2B 60%,#5E1722 100%);
+  color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 6px 20px rgba(122,30,43,.35);
+}
+.wcard__cta--primary:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 12px 30px rgba(122,30,43,.5);}
+.wcard__cta--gold{
+  background:linear-gradient(180deg,var(--gold-l) 0%,var(--gold) 60%,var(--gold-d) 100%);
+  color:var(--forest);box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 6px 20px rgba(184,150,96,.3);
+}
+.wcard__cta--gold:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 12px 30px rgba(184,150,96,.45);}
+
+/* ── CTA BAND ── */
+.cta-band{
+  padding:80px 40px;text-align:center;
+  background:linear-gradient(155deg,var(--forest-700) 0%,var(--forest) 55%,var(--forest-900) 100%);
+  position:relative;overflow:hidden;
+}
+.cta-band::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 0%,rgba(217,189,134,.08) 0%,transparent 60%);}
+.cta-band__inner{max-width:700px;margin:0 auto;position:relative;z-index:1;}
+.cta-band h2{font-family:var(--fd);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400;line-height:1.15;letter-spacing:-.02em;color:var(--cream);}
+.cta-band h2 em{font-style:italic;color:var(--gold-l);}
+.cta-band p{margin-top:14px;font-size:16px;color:rgba(245,241,232,.6);line-height:1.65;}
+.cta-band__actions{margin-top:36px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;font-weight:600;letter-spacing:.02em;transition:transform .14s,box-shadow .16s;border:none;cursor:pointer;}
+.btn-primary{padding:14px 32px;font-size:15.5px;background:linear-gradient(180deg,#96293A 0%,#7A1E2B 55%,#5E1722 100%);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 8px 24px rgba(122,30,43,.38);}
+.btn-primary:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 14px 36px rgba(122,30,43,.55);}
+.btn-ghost{padding:13px 30px;font-size:15.5px;background:rgba(255,255,255,.08);color:var(--cream);border:1.5px solid rgba(255,255,255,.18);}
+.btn-ghost:hover{background:rgba(255,255,255,.14);}
+
+/* ── FOOTER ── */
+.footer{background:var(--forest-900);position:relative;overflow:hidden;}
+.footer::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 50% at 80% 0%,rgba(217,189,134,.05) 0%,transparent 60%);}
+.fticker{background:rgba(6,13,9,.6);border-bottom:1px solid rgba(217,189,134,.1);overflow:hidden;padding:12px 0;}
+.fticker__track{display:flex;animation:marquee 32s linear infinite;white-space:nowrap;}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.fticker__item{font-family:var(--fd);font-style:italic;font-size:15px;color:rgba(217,189,134,.55);padding:0 20px;}
+.fticker__dot{width:4px;height:4px;border-radius:50%;background:rgba(217,189,134,.3);margin:auto 4px;flex-shrink:0;}
+.footer__logo img{height:36px;width:auto;display:block;}
+.footer__inner{max-width:1280px;margin:0 auto;padding:72px 40px 0;display:grid;grid-template-columns:1.4fr 2fr;gap:80px;position:relative;}
+.footer__brand{display:flex;flex-direction:column;gap:16px;}
+.footer__logo{display:flex;align-items:center;font-family:var(--fd);font-size:22px;font-weight:500;color:var(--cream);}
+.footer__desc{font-size:14.5px;color:rgba(245,241,232,.6);line-height:1.65;max-width:300px;}
+.footer__tag{font-style:italic;font-size:14px;color:rgba(217,189,134,.85);}
+.footer__contact p{font-size:13.5px;color:rgba(245,241,232,.58);line-height:1.85;}
+.footer__contact a{color:rgba(245,241,232,.58);transition:color .15s;}
+.footer__contact a:hover{color:var(--gold-l);}
+.footer__socials{display:flex;gap:10px;}
+.footer__soc{width:34px;height:34px;border-radius:50%;background:rgba(217,189,134,.10);border:1px solid rgba(217,189,134,.22);display:flex;align-items:center;justify-content:center;color:rgba(217,189,134,.72);transition:background .15s,color .15s;}
+.footer__soc:hover{background:rgba(217,189,134,.22);color:var(--gold-l);}
+.footer__cols{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.footer__col h4{font-style:italic;font-size:12.5px;color:rgba(217,189,134,.78);letter-spacing:.08em;margin-bottom:16px;font-weight:500;}
+.footer__col ul{list-style:none;}
+.footer__col li{padding:5px 0;}
+.footer__col li a{font-size:14px;color:rgba(245,241,232,.62);transition:color .15s;}
+.footer__col li a:hover{color:var(--gold-l);}
+.footer__bot{max-width:1280px;margin:52px auto 0;padding:22px 40px 0;border-top:1px solid rgba(217,189,134,.15);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer__copy{font-size:12px;color:rgba(245,241,232,.42);}
+.footer__links{display:flex;gap:20px;}
+.footer__links a{font-size:12px;color:rgba(245,241,232,.42);transition:color .15s;}
+.footer__links a:hover{color:rgba(245,241,232,.72);}
+.footer__disc{max-width:1280px;margin:0 auto;padding:22px 40px 40px;font-size:11px;color:rgba(245,241,232,.28);line-height:1.7;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .webinars-grid{grid-template-columns:1fr;}
+  .footer__inner{grid-template-columns:1fr;gap:48px;}
+  .nav__links{display:none;}
+  .nav__ham{display:flex;}
+}
+@media(max-width:600px){
+  .page-header,.webinars-grid-sec,.cta-band,.footer__inner,.footer__bot,.footer__disc{padding-left:20px;padding-right:20px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a class="nav__logo" href="./index.html">
+    <img src="./logo/XSITE Gold.png" alt="XSITE Capital"/>
+  </a>
+  <div class="nav__links">
+    <a class="nav__link" href="./index.html">HOME</a>
+    <a class="nav__link" href="./team.html">TEAM</a>
+    <a class="nav__link" href="./assets.html">ASSETS</a>
+    <a class="nav__link" href="./faq.html">FAQ</a>
+    <a class="nav__link" href="./retirewise.html">RetireWise</a>
+    <a class="nav__link active" href="./webinars.html">WEBINARS</a>
+    <a class="nav__link" href="https://learn.beyond9to5club.com" target="_blank">LEARN</a>
+    <a class="nav__ebook" href="https://learn.beyond9to5club.com/ebook" target="_blank">Free eBook</a>
+    <a class="nav__cta btn" href="./contact.html">Get A Free Consultation</a>
+  </div>
+  <button class="nav__ham" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 7h16M3 11h16M3 15h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+  </button>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header__kicker">
+    <span class="page-header__dot"></span>
+    <span class="page-header__kicker-text">Live &amp; Upcoming</span>
+  </div>
+  <h1 class="page-header__h1">XSITE <em>Webinars</em></h1>
+  <p class="page-header__sub">Free live sessions on tax strategy, IRA investing, asset protection, and building wealth through multifamily real estate. Pick a session — or register for all.</p>
+</div>
+
+<!-- WEBINAR GRID -->
+<section class="webinars-grid-sec">
+  <div class="webinars-grid">
+
+    <!-- CARD 1: XSITE Money Week (dark / featured) -->
+    <a href="./money-week/" class="wcard wcard--dark" style="text-decoration:none;">
+      <div class="wcard__thumb">
+        <img src="./money-week/hero.jpg" alt="XSITE Money Week"/>
+        <div class="wcard__thumb-overlay"></div>
+        <div class="wcard__status wcard__status--series">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="3" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M4 3V2a2 2 0 014 0v1" stroke="currentColor" stroke-width="1.3"/></svg>
+          3-Session Series
+        </div>
+        <div class="wcard__sessions-badge">Apr 20, 23 &amp; 30</div>
+      </div>
+      <div class="wcard__body">
+        <div class="wcard__meta">
+          <span class="wcard__date wcard__date--light">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="2" width="11" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M1 5h11M4 1v2M9 1v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            April 20, 23 &amp; 30, 2026
+          </span>
+          <span class="wcard__topic wcard__topic--light">Taxes · IRA · Asset Protection</span>
+        </div>
+        <h2 class="wcard__title wcard__title--light">XSITE <em>Money Week</em></h2>
+        <p class="wcard__desc wcard__desc--light">Three sessions. Three expert frameworks. One registration unlocks it all — the tax playbook, self-directed IRA strategies, and the right way to protect everything you've built.</p>
+
+        <div class="wcard__sessions">
+          <div class="wcard__session-item">
+            <span class="wcard__session-num">01</span>
+            <div class="wcard__session-info">
+              <div class="wcard__session-date">Monday, April 20 · 7:00–8:00 PM ET</div>
+              <div class="wcard__session-title">The 2026 Tax Playbook: Strategies to Reduce Your Tax Bill Before Year-End</div>
+            </div>
+          </div>
+          <div class="wcard__session-item">
+            <span class="wcard__session-num">02</span>
+            <div class="wcard__session-info">
+              <div class="wcard__session-date">Thursday, April 23 · 6:00–7:00 PM ET</div>
+              <div class="wcard__session-title">Accelerate Your Retirement Growth Through Self-Directed IRAs</div>
+            </div>
+          </div>
+          <div class="wcard__session-item">
+            <span class="wcard__session-num">03</span>
+            <div class="wcard__session-info">
+              <div class="wcard__session-date">Thursday, April 30 · 6:00–7:00 PM ET</div>
+              <div class="wcard__session-title">Protect Your Assets: The Right Way</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wcard__speakers" style="margin-bottom:24px;">
+          <div class="wcard__av wcard__av--dark"><img src="./money-week/Laxman.png" alt="Laxman Pichappan"/></div>
+          <div class="wcard__av wcard__av--dark"><img src="./money-week/Chris headshot.PNG" alt="Chris Barnette"/></div>
+          <div class="wcard__av wcard__av--dark"><img src="./money-week/tenny.jpg" alt="Tenny Tolofari"/></div>
+          <div class="wcard__av wcard__av--dark"><img src="./money-week/Dugan.jpg" alt="Dugan Kelley"/></div>
+          <span class="wcard__speaker-names wcard__speaker-names--light">Laxman Pichappan, Chris Barnette,<br>Tenny Tolofari &amp; Dugan Kelley</span>
+        </div>
+
+        <div class="wcard__cta wcard__cta--gold">
+          Register Free — All 3 Sessions
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M9 4l3.5 3.5L9 11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- CARD 2: Save 35, Know Your Numbers (recurring) -->
+    <a href="./save35know.html" class="wcard" style="text-decoration:none;">
+      <div class="wcard__thumb">
+        <img src="./photos/savetime1.png" alt="Save 35 Know Your Numbers Webinar"/>
+        <div class="wcard__thumb-overlay"></div>
+        <div class="wcard__status wcard__status--live">
+          Live Every Thursday
+        </div>
+      </div>
+      <div class="wcard__body">
+        <div class="wcard__meta">
+          <span class="wcard__date">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="2" width="11" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M1 5h11M4 1v2M9 1v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Every Thursday · 6:00 PM ET
+          </span>
+          <span class="wcard__topic">Passive Income · Real Estate</span>
+        </div>
+        <h2 class="wcard__title">Save 35%.<br><em>Know Your Numbers.</em></h2>
+        <p class="wcard__desc">How high-earning professionals legally keep 35% more of what they earn using multifamily real estate — and how to start building passive income that runs without you. Hosted live every Thursday at 6 PM ET by the XSITE founders.</p>
+
+        <div class="wcard__speakers" style="margin-bottom:24px;">
+          <div class="wcard__av"><img src="./team_photos/Julius.jpg" alt="Julius Oni"/></div>
+          <div class="wcard__av"><img src="./team_photos/tenny.jpg" alt="Tenny Tolofari"/></div>
+          <div class="wcard__av"><img src="./team_photos/Leslie.jpg" alt="Leslie Ahanotu"/></div>
+          <span class="wcard__speaker-names">Julius Oni, Tenny Tolofari<br>&amp; Leslie Ahanotu · XSITE Capital</span>
+        </div>
+
+        <div class="wcard__cta wcard__cta--primary">
+          Reserve My Seat — It's Free
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M9 4l3.5 3.5L9 11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-band__inner">
+    <h2>Not sure where to start?<br><em>Talk to our team first.</em></h2>
+    <p>Book a free one-on-one consultation with our investor relations team. No pitch, no pressure — just honest answers to your questions.</p>
+    <div class="cta-band__actions">
+      <a class="btn btn-primary" href="./contact.html">Get a Free Consultation</a>
+      <a class="btn btn-ghost" href="https://calendly.com/d/csvd-c2h-f5g/xsite-investment-discovery-call" target="_blank">Book a Discovery Call ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="fticker">
+    <div class="fticker__track">
+      <span class="fticker__item">Honesty.</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Integrity.</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Abundance.</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Humility.</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Tenacity.</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Honesty.</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Integrity.</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Abundance.</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Humility.</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Tenacity.</span><span class="fticker__dot"></span>
+    </div>
+  </div>
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <div class="footer__logo"><img src="./logo/XSITE Gold.png" alt="XSITE Capital"/></div>
+      <p class="footer__desc">Creating legacy wealth for busy professionals through multifamily real estate investing.</p>
+      <p class="footer__tag">"Welcome to the good life."</p>
+      <div class="footer__contact">
+        <p>5457 Twin Knolls Road, Suite 300<br>Columbia, Maryland 21045</p>
+        <p><a href="mailto:contact@xsitecapital.com">contact@xsitecapital.com</a></p>
+        <p><a href="tel:+13019002625">+1 (301) 900-2625</a></p>
+      </div>
+      <div class="footer__socials">
+        <a class="footer__soc" href="https://www.instagram.com/xsitecapital/" target="_blank" aria-label="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+        </a>
+        <a class="footer__soc" href="https://www.facebook.com/xsitecapital/" target="_blank" aria-label="Facebook">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a class="footer__soc" href="https://www.linkedin.com/company/xsite-capital" target="_blank" aria-label="LinkedIn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a class="footer__soc" href="https://www.youtube.com/channel/UCNvz8u_zTGOjsNW3hAt2pvg" target="_blank" aria-label="YouTube">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer__cols">
+      <div class="footer__col">
+        <h4>FIRM</h4>
+        <ul>
+          <li><a href="./team.html">Team</a></li>
+          <li><a href="./assets.html">Assets</a></li>
+          <li><a href="./faq.html">FAQ</a></li>
+          <li><a href="./webinars.html">Webinars</a></li>
+          <li><a href="./privacy">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>INVEST</h4>
+        <ul>
+          <li><a href="./contact.html">Get a Free Consultation</a></li>
+          <li><a href="https://calendly.com/d/csvd-c2h-f5g/xsite-investment-discovery-call" target="_blank">Book A Discovery Call</a></li>
+          <li><a href="./ira.html">401K / IRA Investing</a></li>
+          <li><a href="./assets.html">Current Opportunities</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>LEARN</h4>
+        <ul>
+          <li><a href="https://learn.beyond9to5club.com" target="_blank">XSITE Academy</a></li>
+          <li><a href="https://learn.beyond9to5club.com/ebook" target="_blank">Free eBook</a></li>
+          <li><a href="https://learn.beyond9to5club.com/formvanguard" target="_blank">Vanguard Program</a></li>
+          <li><a href="./retirewise.html">RetireWise Calculator</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bot">
+    <p class="footer__copy">© 2026 XSITE Capital Investment LLC. All Rights Reserved.</p>
+    <div class="footer__links">
+      <a href="./privacy">Privacy Policy</a>
+      <a href="mailto:contact@xsitecapital.com">Contact</a>
+    </div>
+  </div>
+  <div class="footer__disc">
+    Disclaimer: Any of the information contained herein does not constitute an offer to sell, or a solicitation of an offer to buy, any security, or any interest in an XSITE Capital investment opportunity. Past performance does not predict future returns. Statements are based on current expectations and should not be construed as investment, legal, or tax advice.
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 36), {passive:true});
+
+// Stagger reveal cards
+const wcards = document.querySelectorAll('.wcard');
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if(e.isIntersecting){ setTimeout(() => e.target.classList.add('visible'), i * 120); io.unobserve(e.target); }
+  });
+}, {threshold: 0.1});
+wcards.forEach(c => io.observe(c));
+</script>
+</body>
+</html>

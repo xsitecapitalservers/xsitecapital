@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="XSITE Money Week — three live virtual sessions covering taxes, self-directed IRAs, and asset protection. April 20, 23 &amp; 30. One registration unlocks all three.">
+  <title>XSITE Money Week | Three Sessions. One Registration. | XSITE Capital</title>
+
+  <!-- Google Fonts: non-blocking, swap to system font while loading -->
+  <!-- Fonts: only load on desktop — mobile uses instant system fonts -->
+  <script>
+    if (window.innerWidth > 960) {
+      var l = document.createElement('link');
+      l.rel = 'stylesheet';
+      l.href = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap';
+      document.head.appendChild(l);
+    }
+  </script>
+
+  <style>
+    /* ============================================
+       ROOT & RESET
+    ============================================ */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --green-deep:   #0D1F14;
+      --green-dark:   #152B1C;
+      --green-mid:    #1C3828;
+      --cream:        #F2EDE4;
+      --gold:         #C4892A;
+      --gold-light:   #DBA842;
+      --amber:        #C07820;
+      --white:        #FFFFFF;
+      --w90:          rgba(255,255,255,0.90);
+      --w70:          rgba(255,255,255,0.70);
+      --w50:          rgba(255,255,255,0.50);
+      --w30:          rgba(255,255,255,0.30);
+      --surface:      rgba(255,255,255,0.055);
+      --surface-hi:   rgba(255,255,255,0.08);
+      --border:       rgba(255,255,255,0.10);
+      --display:      'Cormorant Garamond', Georgia, serif;
+      --body:         'Inter', -apple-system, sans-serif;
+      --glass:        blur(28px) saturate(180%);
+      --r-sm: 12px; --r-md: 20px; --r-lg: 32px; --r-xl: 52px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      background: var(--green-deep);
+      color: var(--white);
+      font-family: var(--body);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* ============================================
+       ANIMATED BACKGROUND ORBS
+    ============================================ */
+    .bg-canvas {
+      position: fixed; inset: 0; z-index: 0;
+      overflow: hidden; pointer-events: none;
+    }
+    .orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(120px);
+    }
+    .o1 {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(28,56,40,0.7) 0%, transparent 70%);
+      top: -200px; right: -100px;
+      animation: o1f 26s ease-in-out infinite;
+    }
+    .o2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(196,137,42,0.09) 0%, transparent 70%);
+      bottom: 100px; left: -100px;
+      animation: o2f 32s ease-in-out infinite;
+    }
+    .o3 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(28,56,40,0.5) 0%, transparent 70%);
+      top: 50%; left: 35%;
+      animation: o3f 20s ease-in-out infinite;
+    }
+    .o4 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(196,137,42,0.06) 0%, transparent 70%);
+      top: 25%; left: 8%;
+      animation: o4f 16s ease-in-out infinite;
+    }
+    @keyframes o1f {
+      0%,100%{transform:translate(0,0) scale(1)}
+      30%{transform:translate(-60px,80px) scale(1.08)}
+      60%{transform:translate(50px,-60px) scale(0.94)}
+    }
+    @keyframes o2f {
+      0%,100%{transform:translate(0,0) scale(1)}
+      40%{transform:translate(80px,-50px) scale(1.12)}
+      70%{transform:translate(-40px,60px) scale(0.91)}
+    }
+    @keyframes o3f {
+      0%,100%{transform:translate(0,0) scale(1)}
+      50%{transform:translate(-80px,-80px) scale(1.18)}
+    }
+    @keyframes o4f {
+      0%,100%{transform:translate(0,0) scale(1)}
+      45%{transform:translate(55px,70px) scale(1.1)}
+    }
+
+    /* ============================================
+       GLASS UTILITY — no overflow:hidden
+    ============================================ */
+    .glass {
+      background: var(--surface);
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+      border: 1px solid var(--border);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.10),
+        0 20px 60px rgba(0,0,0,0.4);
+    }
+    .glass-hi {
+      background: var(--surface-hi);
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+      border: 1px solid rgba(255,255,255,0.13);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.13),
+        0 28px 72px rgba(0,0,0,0.45);
+    }
+
+    /* ============================================
+       NAVIGATION
+    ============================================ */
+    nav {
+      position: fixed; top:0; left:0; right:0; z-index:200;
+      height: 70px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px;
+      background: rgba(13,31,20,0.80);
+      backdrop-filter: blur(24px) saturate(200%);
+      -webkit-backdrop-filter: blur(24px) saturate(200%);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-logo img {
+      height: 40px;
+      display: block;
+    }
+    .nav-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold);
+      color: #0D1F14;
+      font-family: var(--body);
+      font-size: 13px; font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 11px 24px;
+      border-radius: 100px; border: none;
+      cursor: pointer; text-decoration: none;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    .nav-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba(196,137,42,0.40);
+    }
+    .nav-btn svg { width: 12px; height: 12px; transition: transform 0.3s; }
+    .nav-btn:hover svg { transform: translateX(3px); }
+
+    /* ============================================
+       NEWS TICKER
+    ============================================ */
+    .ticker-wrap {
+      position: relative; z-index: 10;
+      margin-top: 70px;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), inset 0 -1px 0 rgba(0,0,0,0.10), 0 4px 24px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+    .ticker-inner {
+      display: flex; align-items: center; height: 40px;
+    }
+    .ticker-label {
+      flex-shrink: 0;
+      display: flex; align-items: center; gap: 8px;
+      padding: 0 20px; height: 100%;
+      border-right: 1px solid rgba(255,255,255,0.10);
+      background: rgba(196,137,42,0.12);
+    }
+    .ticker-track { flex: 1; overflow: hidden; }
+    .ticker-items {
+      display: flex;
+      animation: tickerScroll 40s linear infinite;
+      white-space: nowrap;
+    }
+    .ticker-wrap:hover .ticker-items { animation-play-state: paused; }
+    .ticker-item {
+      display: inline-flex; align-items: center; gap: 24px;
+      padding: 0 36px;
+      font-size: 12.5px; font-weight: 600;
+      color: var(--w90); letter-spacing: 0.01em;
+      text-decoration: none; flex-shrink: 0;
+    }
+    .ticker-item:hover { text-decoration: underline; }
+    .ticker-dot { opacity: 0.4; font-size: 18px; line-height: 1; }
+    @keyframes tickerScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    .hero {
+      position: relative; z-index: 1;
+      min-height: calc(100vh - 110px);
+      display: flex; align-items: center;
+      padding: 72px 48px 80px;
+    }
+    .hero-wrap {
+      max-width: 1240px; margin: 0 auto; width: 100%;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 6px 16px 6px 10px;
+      border-radius: 100px;
+      background: rgba(196,137,42,0.12);
+      border: 1px solid rgba(196,137,42,0.32);
+      margin-bottom: 30px;
+    }
+    .eyebrow-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 8px rgba(196,137,42,0.7);
+      animation: livePulse 2.2s ease-in-out infinite;
+    }
+    @keyframes livePulse {
+      0%,100%{opacity:1;box-shadow:0 0 8px rgba(196,137,42,0.7)}
+      50%{opacity:0.55;box-shadow:0 0 3px rgba(196,137,42,0.2)}
+    }
+    .eyebrow-text {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero-h1 {
+      font-family: var(--display);
+      font-size: clamp(48px, 5.6vw, 84px);
+      font-weight: 300; line-height: 1.04;
+      letter-spacing: -0.025em;
+      margin-bottom: 26px;
+    }
+    .hero-h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-h1 strong { font-weight: 600; }
+
+    .hero-sub {
+      font-size: 16.5px; font-weight: 300;
+      line-height: 1.78; color: var(--w70);
+      margin-bottom: 42px; max-width: 500px;
+    }
+
+    .event-meta {
+      display: flex; gap: 24px; align-items: center;
+      margin-bottom: 44px; flex-wrap: wrap;
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 5px; }
+    .meta-label {
+      font-size: 9.5px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--w50);
+    }
+    .meta-val {
+      font-family: var(--display);
+      font-size: 22px; font-weight: 600;
+      color: var(--white); letter-spacing: -0.01em;
+    }
+    .meta-sep {
+      width: 1px; height: 38px;
+      background: linear-gradient(to bottom, transparent, var(--border), transparent);
+    }
+
+    /* Countdown */
+    .cd-label {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--w50); margin-bottom: 14px;
+    }
+    .countdown { display: flex; gap: 10px; align-items: center; }
+    .cd-unit { display: flex; flex-direction: column; align-items: center; gap: 7px; }
+    .cd-num {
+      font-family: var(--display);
+      font-size: 38px; font-weight: 600; line-height: 1;
+      letter-spacing: -0.03em; color: var(--white);
+      min-width: 76px; text-align: center; padding: 14px 10px;
+      border-radius: var(--r-sm);
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .cd-u-label {
+      font-size: 9px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--w50);
+    }
+    .cd-sep {
+      font-family: var(--display); font-size: 30px;
+      color: var(--w30); padding-bottom: 22px; font-weight: 300;
+    }
+
+    /* ============================================
+       FORM PANEL — key: no overflow:hidden, plenty of height
+    ============================================ */
+    .form-panel {
+      border-radius: var(--r-lg);
+      padding: 44px 40px 40px;
+      position: relative;
+      /* NO overflow:hidden — lets form iframe render freely */
+    }
+    .form-panel-top-shine {
+      position: absolute; top: 0; left: 12%; right: 12%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196,137,42,0.6), transparent);
+      border-radius: 1px;
+    }
+    .form-title {
+      font-family: var(--display);
+      font-size: 30px; font-weight: 500; letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .form-desc {
+      font-size: 14px; font-weight: 300; color: var(--w70);
+      line-height: 1.65; margin-bottom: 24px;
+    }
+    .form-rule {
+      height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+      margin-bottom: 24px;
+    }
+
+    /* The form embed container — give it room to breathe */
+    .fc-embed-wrap {
+      margin-bottom: 16px;
+      min-height: 150px;
+    }
+    .fc-embed-wrap > div {
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+
+    .form-note {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 11.5px; color: var(--w50);
+    }
+    .form-note svg { flex-shrink: 0; opacity: 0.6; }
+
+    .fomo-badge {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 14px 18px; border-radius: var(--r-sm);
+      background: rgba(196,137,42,0.08);
+      border: 1px solid rgba(196,137,42,0.25);
+      margin-top: 16px;
+    }
+    .fomo-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+    .fomo-text { font-size: 12.5px; color: var(--gold); font-weight: 400; line-height: 1.5; }
+
+    /* ============================================
+       XSITE IMPACT SECTION (Light cream)
+    ============================================ */
+    .xsite-section {
+      position: relative; z-index: 1;
+      background: var(--cream);
+      padding: 100px 48px;
+      color: var(--green-deep);
+    }
+    .xsite-wrap { max-width: 1240px; margin: 0 auto; }
+    .xsite-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .xsite-eye {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 16px;
+    }
+    .xsite-rule {
+      width: 48px; height: 2px;
+      background: var(--gold); margin-bottom: 28px;
+    }
+    .xsite-h {
+      font-family: var(--display);
+      font-size: clamp(36px, 4vw, 58px);
+      font-weight: 300; line-height: 1.08;
+      letter-spacing: -0.025em;
+      color: var(--green-deep); margin-bottom: 22px;
+    }
+    .xsite-h em { font-style: italic; color: var(--amber); }
+    .xsite-body {
+      font-size: 16px; font-weight: 300; line-height: 1.82;
+      color: rgba(13,31,20,0.70); margin-bottom: 20px;
+    }
+    .xsite-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 22px; border-radius: 100px;
+      background: var(--green-deep); color: var(--gold);
+      font-size: 12.5px; font-weight: 600; letter-spacing: 0.05em;
+      text-decoration: none; margin-top: 8px;
+      transition: all 0.3s ease;
+    }
+    .xsite-link:hover {
+      background: var(--green-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(13,31,20,0.3);
+    }
+    .xsite-link svg { width: 13px; height: 13px; }
+
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(2,1fr);
+      gap: 3px; border-radius: var(--r-md); overflow: hidden;
+    }
+    .stat-card {
+      background: var(--green-mid);
+      padding: 36px 32px;
+      transition: background 0.3s;
+    }
+    .stat-card:hover { background: #204530; }
+    .stat-num {
+      font-family: var(--display);
+      font-size: 44px; font-weight: 600;
+      letter-spacing: -0.03em; line-height: 1;
+      color: var(--gold-light); margin-bottom: 10px;
+    }
+    .stat-lbl {
+      font-size: 13px; font-weight: 400;
+      color: rgba(255,255,255,0.65); line-height: 1.45;
+    }
+
+    /* ============================================
+       SECTION BASE (dark)
+    ============================================ */
+    .sec-dark {
+      position: relative; z-index: 1;
+      padding: 100px 48px;
+    }
+    .s-wrap { max-width: 1240px; margin: 0 auto; }
+    .s-eye {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 16px;
+    }
+    .gold-rule {
+      width: 48px; height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-bottom: 28px;
+    }
+    .s-title {
+      font-family: var(--display);
+      font-size: clamp(36px, 4vw, 60px);
+      font-weight: 300; line-height: 1.08; letter-spacing: -0.025em;
+      margin-bottom: 18px;
+    }
+    .s-title em { font-style: italic; color: var(--gold-light); }
+    .s-sub {
+      font-size: 16px; font-weight: 300; color: var(--w70);
+      line-height: 1.75; max-width: 560px; margin-bottom: 60px;
+    }
+
+    /* ============================================
+       OUTCOMES
+    ============================================ */
+    .outcomes-grid {
+      display: grid; grid-template-columns: repeat(2,1fr); gap: 14px;
+    }
+    .oc {
+      border-radius: var(--r-md); padding: 38px 34px;
+      position: relative;
+      transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), border-color 0.45s, box-shadow 0.45s;
+      cursor: default;
+    }
+    .oc::after {
+      content: ''; position: absolute; inset: 0; border-radius: inherit;
+      background: linear-gradient(135deg, rgba(196,137,42,0.08) 0%, transparent 55%);
+      opacity: 0; transition: opacity 0.45s; pointer-events: none;
+    }
+    .oc:hover {
+      transform: translateY(-5px);
+      border-color: rgba(196,137,42,0.25);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.55);
+    }
+    .oc:hover::after { opacity: 1; }
+    .oc-num {
+      font-family: var(--display); font-size: 12px; font-weight: 600;
+      color: var(--gold); letter-spacing: 0.1em; margin-bottom: 20px; opacity: 0.65;
+    }
+    .oc-title {
+      font-family: var(--display); font-size: 26px; font-weight: 500;
+      letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 12px;
+    }
+    .oc-desc { font-size: 14px; font-weight: 300; color: var(--w70); line-height: 1.75; }
+
+    /* ============================================
+       SPEAKERS
+    ============================================ */
+    .spk-band {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.015);
+    }
+    .speakers-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; }
+    .spk-card {
+      border-radius: var(--r-lg); padding: 52px 44px;
+      position: relative;
+      transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), border-color 0.45s, box-shadow 0.45s;
+    }
+    .spk-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196,137,42,0.4), transparent);
+    }
+    .spk-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(196,137,42,0.2);
+      box-shadow: 0 52px 100px rgba(0,0,0,0.55);
+    }
+    .spk-av {
+      width: 96px; height: 96px; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(196,137,42,0.30) 0%, rgba(196,137,42,0.04) 100%);
+      border: 2px solid rgba(196,137,42,0.40);
+      margin-bottom: 26px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--display); font-size: 28px; font-weight: 500;
+      color: var(--gold-light);
+      overflow: hidden; flex-shrink: 0;
+    }
+    .spk-av img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
+      border-radius: 50%;
+    }
+    .spk-co {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+    }
+    .spk-name {
+      font-family: var(--display); font-size: 40px; font-weight: 500;
+      letter-spacing: -0.025em; line-height: 1.05; margin-bottom: 14px;
+    }
+    .spk-bio { font-size: 14.5px; font-weight: 300; color: var(--w70); line-height: 1.72; margin-bottom: 24px; }
+    .spk-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 16px; border-radius: 100px;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.07em; color: var(--w50);
+    }
+    .spk-dot {
+      width: 5px; height: 5px; border-radius: 50%; background: var(--w50);
+      animation: spkb 3s ease-in-out infinite;
+    }
+    @keyframes spkb { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+    /* ============================================
+       FINAL CTA
+    ============================================ */
+    .cta-sec { position: relative; z-index: 1; padding: 100px 48px; }
+    .cta-panel {
+      border-radius: var(--r-xl); padding: 88px 80px;
+      text-align: center; position: relative;
+      max-width: 960px; margin: 0 auto;
+    }
+    .cta-panel::before {
+      content: ''; position: absolute; top: 0; left: 8%; right: 8%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196,137,42,0.6), transparent);
+    }
+    .cta-panel::after {
+      content: ''; position: absolute; top: -250px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 500px;
+      background: radial-gradient(circle, rgba(196,137,42,0.07) 0%, transparent 62%);
+      pointer-events: none;
+    }
+    .cta-h {
+      font-family: var(--display); font-size: clamp(36px, 4vw, 60px);
+      font-weight: 300; line-height: 1.08; letter-spacing: -0.025em; margin-bottom: 22px;
+    }
+    .cta-h em { font-style: italic; color: var(--gold-light); }
+    .cta-sub {
+      font-size: 16px; font-weight: 300; color: var(--w70);
+      line-height: 1.75; max-width: 460px; margin: 0 auto 48px;
+    }
+    .cta-form { display: flex; justify-content: center; }
+    .cta-form-inner { width: 100%; max-width: 500px; min-height: 630px; }
+    .cta-form-inner > div { max-width: 100% !important; width: 100% !important; }
+    .cta-note {
+      display: flex; align-items: center; justify-content: center; gap: 7px;
+      font-size: 12px; color: var(--w50); margin-top: 18px;
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .ft-logo img { height: 36px; display: block; }
+    .ft-right { text-align: right; }
+    .ft-copy { font-size: 12px; color: var(--w50); line-height: 1.7; }
+    .ft-disc { font-size: 11px; color: rgba(255,255,255,0.28); max-width: 520px; margin-top: 6px; line-height: 1.6; }
+
+    /* ============================================
+       DIVIDERS
+    ============================================ */
+    .hr-fade {
+      position: relative; z-index: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+    }
+
+    /* ============================================
+       SCROLL REVEAL
+    ============================================ */
+    .rev {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.55s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.55s cubic-bezier(0.16,1,0.3,1);
+    }
+    .rev.on { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.06s; }
+    .d2 { transition-delay: 0.12s; }
+    .d3 { transition-delay: 0.18s; }
+
+    /* On mobile: kill ALL transitions and animations — none of them fire on touch anyway */
+    @media (max-width: 960px) {
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+      .rev { opacity: 1 !important; transform: none !important; }
+      .d1, .d2, .d3 { transition-delay: 0s !important; }
+    }
+    .d4 { transition-delay: 0.32s; }
+
+    /* ============================================
+       MOBILE
+    ============================================ */
+    @media (max-width: 960px) {
+      nav { padding: 0 20px; }
+      .hero { padding: 56px 20px 72px; }
+      .hero-wrap { grid-template-columns: 1fr; gap: 52px; }
+      .sec-dark { padding: 80px 20px; }
+      .xsite-section { padding: 80px 20px; }
+      .xsite-grid { grid-template-columns: 1fr; gap: 52px; }
+      .outcomes-grid { grid-template-columns: 1fr; }
+      .speakers-grid { grid-template-columns: 1fr; }
+      .speakers-grid .spk-name { font-size: 28px; }
+      .cta-sec { padding: 80px 20px; }
+      .cta-panel { padding: 52px 24px; }
+      .form-panel { padding: 36px 22px; }
+      footer { padding: 40px 20px; flex-direction: column; align-items: flex-start; }
+      .ft-right { text-align: left; }
+      .ft-disc { text-align: left; }
+    }
+    @media (max-width: 600px) {
+      .countdown { gap: 7px; }
+      .cd-num { font-size: 30px; min-width: 60px; padding: 12px 8px; }
+      .cd-sep { font-size: 22px; padding-bottom: 18px; }
+      .event-meta { flex-wrap: wrap; gap: 16px; }
+      .meta-sep { display: none; }
+      .spk-name { font-size: 32px; }
+      .cta-panel { padding: 44px 18px; }
+      nav { padding: 0 16px; }
+      .nav-logo img { height: 32px; }
+      .nav-btn { font-size: 12px; padding: 9px 16px; }
+      .hero { padding: 48px 16px 64px; }
+      .sec-dark { padding: 60px 16px; }
+      .xsite-section { padding: 60px 16px; }
+      .cta-sec { padding: 60px 16px; }
+      footer { padding: 32px 16px; }
+      .stat-card { padding: 28px 20px; }
+    }
+
+    /* ============================================
+       MOBILE PERFORMANCE — kill GPU-heavy effects
+       on phones so content renders instantly
+    ============================================ */
+    @media (max-width: 960px) {
+      /* Stop all decorative animations */
+      .hg, .hg-center, .hg-left, .hg-right, .hg-beam, .hg-dust,
+      .lf, .lf-main, .lf-streak-h, .lf-streak-d, .lf-ring,
+      .lf-orb1, .lf-orb2, .lf-orb3, .lf-fleck1, .lf-fleck2,
+      .orb { animation: none !important; }
+
+      /* Hide all decorative GPU layers entirely — no painting cost at all */
+      .hero-glow-wrap, .bg-canvas,
+      .lf-streak-h, .lf-streak-d, .lf-ring,
+      .lf-orb2, .lf-orb3, .lf-fleck1, .lf-fleck2,
+      .hg-left, .hg-right, .hg-beam, .hg-dust { display: none; }
+
+      /* Reset will-change so browser doesn't create GPU layers for anything */
+      *, *::before, *::after { will-change: auto !important; }
+
+      /* Remove backdrop-filter blur from ALL elements that use it.
+         Blur compositing forces GPU re-composite on every frame — #1 mobile perf killer. */
+      nav, .ticker-wrap, .glass, .glass-hi, .form-panel, .outcome-card, .cd-num {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      /* Restore appropriate solid backgrounds after removing blur */
+      nav          { background: rgba(13,31,20,0.97) !important; }
+      .ticker-wrap { background: rgba(28,56,40,0.95) !important; }
+      .glass       { background: rgba(255,255,255,0.07) !important; }
+      .glass-hi    { background: rgba(255,255,255,0.10) !important; }
+      .cd-num      { background: rgba(255,255,255,0.08) !important; }
+
+      /* stat-card uses solid green (no backdrop-filter) — keep it as-is */
+
+      /* Simplify hero photo — skip the blur filter (also GPU expensive) */
+      .hero-bg-img { filter: brightness(0.28) saturate(0.8) !important; }
+
+
+    }
+
+
+
+    /* ============================================
+       SESSION WEEK CARDS
+    ============================================ */
+    .series-section {
+      position: relative; z-index: 1;
+      padding: 100px 48px;
+    }
+    .session-cards {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 20px; margin-top: 52px;
+    }
+    .session-card {
+      border-radius: var(--r-lg); padding: 40px 32px 36px;
+      position: relative; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.055);
+      display: flex; flex-direction: column;
+    }
+    .session-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196,137,42,0.55), transparent);
+    }
+    .session-num {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+    }
+    .session-num::after {
+      content: ''; flex: 1; height: 1px; background: rgba(196,137,42,0.25);
+    }
+    .session-date {
+      font-size: 13px; font-weight: 600; color: var(--w70);
+      letter-spacing: 0.05em; margin-bottom: 6px;
+    }
+    .session-time {
+      font-size: 11px; color: var(--w50); margin-bottom: 22px;
+      letter-spacing: 0.04em;
+    }
+    .session-title {
+      font-family: var(--display); font-size: 26px; font-weight: 500;
+      line-height: 1.15; letter-spacing: -0.02em;
+      color: var(--white); margin-bottom: 22px; flex: 1;
+    }
+    .session-title em { font-style: italic; color: var(--gold-light); }
+    .session-speaker {
+      display: flex; align-items: center; gap: 12px;
+      padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .session-av {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 1.5px solid rgba(196,137,42,0.35);
+      overflow: hidden; flex-shrink: 0;
+      background: rgba(196,137,42,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--display); font-size: 18px; color: var(--gold);
+    }
+    .session-av img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+    .session-spk-name { font-size: 13px; font-weight: 500; color: var(--w90); line-height: 1.3; }
+    .session-spk-co { font-size: 11px; color: var(--w50); margin-top: 2px; }
+    .all-sessions-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 20px; border-radius: 100px;
+      background: rgba(196,137,42,0.12); border: 1px solid rgba(196,137,42,0.35);
+      font-size: 12px; font-weight: 600; color: var(--gold);
+      letter-spacing: 0.06em; margin-bottom: 40px;
+    }
+    .all-sessions-badge svg { width: 14px; height: 14px; }
+    @media (max-width: 960px) {
+      .series-section { padding: 80px 20px; }
+      .session-cards { grid-template-columns: 1fr; gap: 16px; }
+    }
+    @media (max-width: 600px) {
+      .series-section { padding: 60px 16px; }
+      .session-title { font-size: 22px; }
+    }
+
+    /* ===================== HERO BACKGROUND PHOTO + LENS FLARE ===================== */
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      pointer-events: none; overflow: hidden;
+    }
+
+    /* The photo itself — blurred, darkened */
+    .hero-bg-img {
+      position: absolute; inset: -20px;  /* slightly oversized so blur edge doesn't show */
+      background-size: cover;
+      background-position: center 35%;
+      background-repeat: no-repeat;
+      filter: blur(4px) brightness(0.28) saturate(0.8);
+      transform: scale(1.04);
+    }
+
+    /* Dark green tint overlay */
+    .hero-bg-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(8,20,12,0.55) 0%,
+        rgba(13,31,20,0.45) 40%,
+        rgba(8,16,10,0.65) 100%
+      );
+    }
+
+    /* All lens flare elements share base */
+    .lf { position: absolute; pointer-events: none; }
+
+    /* Main lens flare — bright gold/white hotspot, upper-right area */
+    .lf-main {
+      width: 280px; height: 280px;
+      top: -60px; right: 12%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%,
+        rgba(255,245,210,0.95) 0%,
+        rgba(230,185,80,0.7)   12%,
+        rgba(196,137,42,0.35)  30%,
+        rgba(196,137,42,0.08)  55%,
+        transparent 75%
+      );
+      filter: blur(6px);
+      animation: lfPulse 6s ease-in-out infinite;
+      mix-blend-mode: screen;
+    }
+    @keyframes lfPulse {
+      0%,100% { opacity: 0.9; transform: scale(1); }
+      50%     { opacity: 1.0; transform: scale(1.06); }
+    }
+
+    /* Horizontal anamorphic streak — the classic cinema lens flare line */
+    .lf-streak-h {
+      width: 110%; height: 2px;
+      top: 7.5%; left: -5%;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(196,137,42,0.0) 10%,
+        rgba(220,190,100,0.5) 28%,
+        rgba(255,248,200,0.85) 42%,
+        rgba(255,252,220,0.95) 50%,
+        rgba(255,248,200,0.85) 58%,
+        rgba(220,190,100,0.5) 72%,
+        rgba(196,137,42,0.0) 90%,
+        transparent 100%
+      );
+      filter: blur(1.5px);
+      animation: lfStreakH 6s ease-in-out infinite;
+      mix-blend-mode: screen;
+    }
+    @keyframes lfStreakH {
+      0%,100% { opacity: 0.7; transform: scaleY(1); }
+      50%     { opacity: 1.0; transform: scaleY(1.8); }
+    }
+
+    /* Diagonal streak */
+    .lf-streak-d {
+      width: 160%; height: 1px;
+      top: 6%; left: -30%;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(180,220,255,0.0) 20%,
+        rgba(180,220,255,0.3) 40%,
+        rgba(200,230,255,0.55) 50%,
+        rgba(180,220,255,0.3) 60%,
+        transparent 80%
+      );
+      filter: blur(1px);
+      transform: rotate(-12deg);
+      transform-origin: 50% 50%;
+      animation: lfStreakD 6s ease-in-out infinite;
+      mix-blend-mode: screen;
+    }
+    @keyframes lfStreakD {
+      0%,100% { opacity: 0.5; }
+      50%     { opacity: 0.9; }
+    }
+
+    /* Ghost ring — big dim circle typical of lens flare */
+    .lf-ring {
+      width: 380px; height: 380px;
+      top: -140px; right: 5%;
+      border-radius: 50%;
+      border: 1px solid rgba(220,190,80,0.18);
+      box-shadow:
+        0 0 40px 8px rgba(196,137,42,0.08),
+        inset 0 0 40px 8px rgba(196,137,42,0.05);
+      animation: lfRing 6s ease-in-out infinite;
+    }
+    @keyframes lfRing {
+      0%,100% { opacity: 0.6; transform: scale(1); }
+      50%     { opacity: 1.0; transform: scale(1.04); }
+    }
+
+    /* Secondary orbs — smaller ghost circles scattered along the flare axis */
+    .lf-orb1 {
+      width: 80px; height: 80px;
+      top: 18%; left: 58%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(180,220,255,0.35) 0%, transparent 70%);
+      filter: blur(8px);
+      animation: lfOrb 6s ease-in-out infinite;
+      mix-blend-mode: screen;
+    }
+    .lf-orb2 {
+      width: 44px; height: 44px;
+      top: 30%; left: 40%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,220,120,0.45) 0%, transparent 70%);
+      filter: blur(5px);
+      animation: lfOrb 6s ease-in-out infinite 0.5s;
+      mix-blend-mode: screen;
+    }
+    .lf-orb3 {
+      width: 28px; height: 28px;
+      top: 42%; left: 25%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,230,255,0.5) 0%, transparent 70%);
+      filter: blur(4px);
+      animation: lfOrb 6s ease-in-out infinite 1s;
+      mix-blend-mode: screen;
+    }
+    @keyframes lfOrb {
+      0%,100% { opacity: 0.5; }
+      50%     { opacity: 1.0; }
+    }
+
+    /* Tiny sharp flecks */
+    .lf-fleck1 {
+      width: 6px; height: 6px;
+      top: 10%; right: 25%;
+      border-radius: 50%;
+      background: rgba(255,252,230,0.95);
+      box-shadow: 0 0 12px 4px rgba(255,240,180,0.7);
+      animation: lfFleck 6s ease-in-out infinite 0.3s;
+      mix-blend-mode: screen;
+    }
+    .lf-fleck2 {
+      width: 4px; height: 4px;
+      top: 15%; right: 32%;
+      border-radius: 50%;
+      background: rgba(200,230,255,0.9);
+      box-shadow: 0 0 8px 3px rgba(180,220,255,0.5);
+      animation: lfFleck 6s ease-in-out infinite 1.2s;
+      mix-blend-mode: screen;
+    }
+    @keyframes lfFleck {
+      0%,100% { opacity: 0.7; transform: scale(1); }
+      50%     { opacity: 1.0; transform: scale(1.4); }
+    }
+
+    /* Bottom fade so hero blends into next section */
+    .hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 160px; z-index: 1;
+      background: linear-gradient(to bottom, transparent, var(--green-deep));
+      pointer-events: none;
+    }
+
+
+    /* ===================== HERO DYNAMIC GLOW ===================== */
+    .hero-glow-wrap {
+      position: absolute; inset: 0;
+      pointer-events: none; overflow: hidden;
+      z-index: 0;
+    }
+    /* Ensure hero content sits above the glow */
+    .hero-wrap { position: relative; z-index: 1; }
+
+    .hg {
+      position: absolute; border-radius: 50%;
+    }
+
+    /* Central warm golden pulse — the main hero light source */
+    .hg-center {
+      width: 900px; height: 900px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -55%);
+      background: radial-gradient(circle at center,
+        rgba(196,137,42,0.13) 0%,
+        rgba(196,137,42,0.06) 30%,
+        rgba(28,56,40,0.04) 60%,
+        transparent 75%
+      );
+      filter: blur(60px);
+      animation: hgCenter 8s ease-in-out infinite;
+    }
+    @keyframes hgCenter {
+      0%,100% { opacity: 1;   transform: translate(-50%,-55%) scale(1); }
+      33%     { opacity: 0.7; transform: translate(-50%,-58%) scale(1.08); }
+      66%     { opacity: 0.9; transform: translate(-48%,-52%) scale(0.96); }
+    }
+
+    /* Left accent — cool deep green glow */
+    .hg-left {
+      width: 500px; height: 600px;
+      top: 20%; left: -80px;
+      background: radial-gradient(circle at center,
+        rgba(20,70,40,0.35) 0%,
+        transparent 70%
+      );
+      filter: blur(80px);
+      animation: hgLeft 11s ease-in-out infinite;
+    }
+    @keyframes hgLeft {
+      0%,100% { transform: translate(0,0) scale(1); opacity: 0.8; }
+      50%     { transform: translate(30px, -60px) scale(1.1); opacity: 1; }
+    }
+
+    /* Right accent — warm gold shimmer */
+    .hg-right {
+      width: 400px; height: 500px;
+      top: 10%; right: -60px;
+      background: radial-gradient(circle at center,
+        rgba(196,137,42,0.10) 0%,
+        rgba(180,120,30,0.05) 40%,
+        transparent 70%
+      );
+      filter: blur(70px);
+      animation: hgRight 14s ease-in-out infinite;
+    }
+    @keyframes hgRight {
+      0%,100% { transform: translate(0,0) scale(1); opacity: 0.6; }
+      40%     { transform: translate(-20px,50px) scale(1.12); opacity: 1; }
+      70%     { transform: translate(10px,-30px) scale(0.92); opacity: 0.7; }
+    }
+
+    /* Subtle light beam / aurora sweep across hero */
+    .hg-beam {
+      width: 140%; height: 2px;
+      top: 38%;
+      left: -20%;
+      border-radius: 0;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(196,137,42,0.0) 20%,
+        rgba(196,137,42,0.12) 45%,
+        rgba(220,180,80,0.18) 50%,
+        rgba(196,137,42,0.12) 55%,
+        rgba(196,137,42,0.0) 80%,
+        transparent 100%
+      );
+      filter: blur(3px);
+      animation: hgBeam 9s ease-in-out infinite;
+      transform-origin: center;
+    }
+    @keyframes hgBeam {
+      0%   { opacity: 0;   transform: translateY(0px)   rotate(-1deg); }
+      15%  { opacity: 1;   transform: translateY(-8px)  rotate(-0.5deg); }
+      50%  { opacity: 0.6; transform: translateY(12px)  rotate(0.8deg); }
+      85%  { opacity: 0.9; transform: translateY(-5px)  rotate(-0.3deg); }
+      100% { opacity: 0;   transform: translateY(0px)   rotate(-1deg); }
+    }
+
+    /* Floating dust particles */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        radial-gradient(1.5px 1.5px at 15% 25%, rgba(196,137,42,0.4) 0%, transparent 100%),
+        radial-gradient(1px   1px   at 70% 15%, rgba(196,137,42,0.3) 0%, transparent 100%),
+        radial-gradient(1px   1px   at 40% 60%, rgba(255,255,255,0.15) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 85% 55%, rgba(196,137,42,0.25) 0%, transparent 100%),
+        radial-gradient(1px   1px   at 25% 80%, rgba(255,255,255,0.12) 0%, transparent 100%),
+        radial-gradient(1px   1px   at 60% 90%, rgba(196,137,42,0.2) 0%, transparent 100%);
+      animation: dustFloat 20s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes dustFloat {
+      0%,100% { transform: translateY(0); opacity: 0.8; }
+      50%     { transform: translateY(-12px); opacity: 1; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- BACKGROUND ORBS -->
+<div class="bg-canvas">
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="orb o3"></div>
+  <div class="orb o4"></div>
+</div>
+
+<!-- ======================== NAV ======================== -->
+<nav>
+  <a href="https://www.xsitecapital.com" style="display:block;">
+    <picture><source srcset="./logo.webp" type="image/webp"><img src="./logo.png" alt="XSITE Capital Investment" style="height:40px;display:block;"></picture>
+  </a>
+  <a href="#register" class="nav-btn">
+    Reserve My Seat
+    <svg viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</nav>
+
+<!-- ======================== NEWS TICKER ======================== -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <div class="ticker-label">📰 Latest News</div>
+    <div class="ticker-track">
+      <div class="ticker-items" id="ticker">
+        <a href="https://markets.businessinsider.com/news/stocks/xsite-capital-closes-188-unit-atlanta-multifamily-acquisition-surpassing-100-million-in-real-estate-acquired-in-under-12-months-1035881646" target="_blank" class="ticker-item">
+          XSITE Capital Closes 188-Unit Atlanta Multifamily Acquisition, Surpassing $100 Million in Real Estate Acquired in Under 12 Months
+          <span class="ticker-dot">·</span>
+        </a>
+        <a href="https://markets.businessinsider.com/news/stocks/xsite-capital-closes-188-unit-atlanta-multifamily-acquisition-surpassing-100-million-in-real-estate-acquired-in-under-12-months-1035881646" target="_blank" class="ticker-item">
+          As Featured on Business Insider — XSITE Capital hits $100M milestone with 188-unit Atlanta close in under 12 months
+          <span class="ticker-dot">·</span>
+        </a>
+        <a href="https://markets.businessinsider.com/news/stocks/xsite-capital-closes-188-unit-atlanta-multifamily-acquisition-surpassing-100-million-in-real-estate-acquired-in-under-12-months-1035881646" target="_blank" class="ticker-item">
+          XSITE Capital Closes 188-Unit Atlanta Multifamily Acquisition, Surpassing $100 Million in Real Estate Acquired in Under 12 Months
+          <span class="ticker-dot">·</span>
+        </a>
+        <a href="https://markets.businessinsider.com/news/stocks/xsite-capital-closes-188-unit-atlanta-multifamily-acquisition-surpassing-100-million-in-real-estate-acquired-in-under-12-months-1035881646" target="_blank" class="ticker-item">
+          As Featured on Business Insider — XSITE Capital hits $100M milestone with 188-unit Atlanta close in under 12 months
+          <span class="ticker-dot">·</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== HERO ======================== -->
+<section class="hero">
+
+  <!-- Hero background: photo + lens flare -->
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-bg-img" style="background-image:url('./hero.webp')"></div>
+    <div class="hero-bg-overlay"></div>
+    <div class="lf lf-main"></div>
+    <div class="lf lf-streak-h"></div>
+    <div class="lf lf-streak-d"></div>
+    <div class="lf lf-ring"></div>
+    <div class="lf lf-orb1"></div>
+    <div class="lf lf-orb2"></div>
+    <div class="lf lf-orb3"></div>
+    <div class="lf lf-fleck1"></div>
+    <div class="lf lf-fleck2"></div>
+  </div>
+
+  <!-- Dynamic hero glow layer -->
+  <div class="hero-glow-wrap" aria-hidden="true">
+    <div class="hg hg-center"></div>
+    <div class="hg hg-left"></div>
+    <div class="hg hg-right"></div>
+    <div class="hg hg-beam"></div>
+  </div>
+
+  <div class="hero-wrap">
+
+    <!-- LEFT: Copy + Countdown -->
+    <div>
+      <div class="eyebrow rev">
+        <div class="eyebrow-dot"></div>
+        <span class="eyebrow-text">Live Virtual Series · April 20, 23 &amp; 30, 2026</span>
+      </div>
+
+      <h1 class="hero-h1 rev d1">
+        XSITE<br><em>Money Week.</em>
+      </h1>
+
+      <p class="hero-sub rev d2">
+        Three sessions. Three expert frameworks. One registration that unlocks it all — taxes, retirement, and asset protection. The trifecta every serious investor needs before the year slips away.
+      </p>
+
+      <div class="event-meta rev d3">
+        <div class="meta-item">
+          <span class="meta-label">Sessions</span>
+          <span class="meta-val">Apr 20, 23 &amp; 30</span>
+        </div>
+        <div class="meta-sep"></div>
+        <div class="meta-item">
+          <span class="meta-label">Time</span>
+          <span class="meta-val">Varies by session</span>
+        </div>
+        <div class="meta-sep"></div>
+        <div class="meta-item">
+          <span class="meta-label">Cost</span>
+          <span class="meta-val">Free</span>
+        </div>
+        <div class="meta-sep"></div>
+        <div class="meta-item">
+          <span class="meta-label">Seats</span>
+          <span class="meta-val">Limited</span>
+        </div>
+      </div>
+
+      <div class="rev d4">
+        <div class="cd-label">First session begins in</div>
+        <div class="countdown">
+          <div class="cd-unit">
+            <div class="cd-num" id="cd-d">00</div>
+            <div class="cd-u-label">Days</div>
+          </div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit">
+            <div class="cd-num" id="cd-h">00</div>
+            <div class="cd-u-label">Hours</div>
+          </div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit">
+            <div class="cd-num" id="cd-m">00</div>
+            <div class="cd-u-label">Min</div>
+          </div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit">
+            <div class="cd-num" id="cd-s">00</div>
+            <div class="cd-u-label">Sec</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Registration Form -->
+    <div id="register" class="rev d2">
+      <div class="form-panel glass-hi">
+        <div class="form-panel-top-shine"></div>
+        <h2 class="form-title">One Registration.<br>All Three Sessions.</h2>
+        <p class="form-desc">Sign up once and you're in for the entire Money Week series — April 20, 23 &amp; 30. We'll send details for each session as it approaches.</p>
+        <div class="form-rule"></div>
+
+        <!-- FormCrafts embed — single div, script loaded once at bottom -->
+        <div class="fc-embed-wrap">
+          <div data-fc-seamless="true" data-fc-key="21900f5a" style="width:100%;max-width:500px;height:629.5px;"></div>
+        </div>
+
+        <div class="form-note">
+          <svg width="11" height="13" viewBox="0 0 11 13" fill="none">
+            <rect x="1" y="5" width="9" height="7.5" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M3.5 5V3.5a2 2 0 0 1 4 0V5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+          Your information stays private. No spam, ever.
+        </div>
+        <div class="fomo-badge">
+          <span class="fomo-icon">⚡</span>
+          <span class="fomo-text">Seats across all three sessions are limited. Registration closes when each room fills — no exceptions, no waitlist.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="hr-fade"></div>
+
+<!-- ======================== THE SERIES ======================== -->
+<section class="series-section sec-dark">
+  <div class="s-wrap">
+    <p class="s-eye rev">The Series</p>
+    <div class="gold-rule rev d1"></div>
+    <h2 class="s-title rev d1">Three sessions.<br><em>One transformative week.</em></h2>
+    <p class="s-sub rev d2">
+      Each session stands on its own — but together, they cover the full wealth protection playbook that most investors spend years piecing together alone.
+    </p>
+
+    <div class="all-sessions-badge rev d2">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Register once &mdash; you're confirmed for all three sessions
+    </div>
+
+    <div class="session-cards">
+
+      <!-- Session 01 -->
+      <div class="session-card rev">
+        <div class="session-num">Session 01</div>
+        <div class="session-date">Monday, April 20, 2026</div>
+        <div class="session-time">7:00 – 8:00 PM ET &nbsp;·&nbsp; Live Virtual</div>
+        <div class="session-title">The 2026 Tax Playbook: <em>Strategies to Reduce Your Tax Bill Before Year-End</em></div>
+        <div class="session-speaker">
+          <div class="session-av">
+            <picture><source srcset="./laxman.webp" type="image/webp"><img src="./Laxman.png" alt="Laxman Pichappan"></picture>
+          </div>
+          <div>
+            <div class="session-spk-name">Laxman Pichappan</div>
+            <div class="session-spk-co">Co-Founder, DocWealth · CPA</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 02 -->
+      <div class="session-card rev d1">
+        <div class="session-num">Session 02</div>
+        <div class="session-date">Thursday, April 23, 2026</div>
+        <div class="session-time">6:00 – 7:00 PM ET &nbsp;·&nbsp; Live Virtual</div>
+        <div class="session-title">Accelerate Your Retirement Growth Through <em>Self-Directed IRAs</em></div>
+        <div class="session-speaker">
+          <div class="session-av">
+            <picture><source srcset="./chris.webp" type="image/webp"><img src="./Chris headshot.PNG" alt="Chris Barnette"></picture>
+          </div>
+          <div>
+            <div class="session-spk-name">Chris Barnette</div>
+            <div class="session-spk-co">Business Development Manager, Inspira Financial</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 03 -->
+      <div class="session-card rev d2">
+        <div class="session-num">Session 03</div>
+        <div class="session-date">Thursday, April 30, 2026</div>
+        <div class="session-time">6:00 – 7:00 PM ET &nbsp;·&nbsp; Live Virtual</div>
+        <div class="session-title">Protect Your Assets: <em>The Right Way</em></div>
+        <div class="session-speaker">
+          <div class="session-av"><picture><source srcset="./tenny.webp" type="image/webp"><img src="./tenny.jpg" alt="Tenny Tolofari"></picture></div>
+          <div>
+            <div class="session-spk-name">Tenny Tolofari</div>
+            <div class="session-spk-co">Co-Founder &amp; Chief Growth Officer, XSITE Capital</div>
+          </div>
+        </div>
+        <div class="session-speaker" style="border-top:none; padding-top:10px;">
+          <div class="session-av"><picture><source srcset="./dugan.webp" type="image/webp"><img src="./Dugan.jpg" alt="Dugan Kelley"></picture></div>
+          <div>
+            <div class="session-spk-name">Dugan Kelley</div>
+            <div class="session-spk-co">Co-Founder, Kelley Clarke PC · Real Estate &amp; Securities Attorney</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="hr-fade"></div>
+
+<!-- ======================== SPEAKERS ======================== -->
+<section class="sec-dark spk-band">
+  <div class="s-wrap">
+    <p class="s-eye rev">Your Experts</p>
+    <div class="gold-rule rev d1"></div>
+    <h2 class="s-title rev d1">The minds<br>behind <em>the week.</em></h2>
+    <p class="s-sub rev d2">
+      Three sessions. Four practitioners who don't just teach the theory — they live it. Each brings a specialization most investors never get direct access to.
+    </p>
+    <div class="speakers-grid" style="grid-template-columns: repeat(2,1fr);">
+
+      <!-- Laxman -->
+      <div class="spk-card glass rev">
+        <div class="spk-av">
+          <picture><source srcset="./laxman.webp" type="image/webp"><img src="./Laxman.png" alt="Laxman Pichappan"></picture>
+        </div>
+        <div class="spk-co">DocWealth · Co-Founder &amp; CPA &nbsp;·&nbsp; Apr 20</div>
+        <div class="spk-name">Laxman Pichappan</div>
+        <p class="spk-bio">Laxman earned his CPA in 2011 with senior roles at Apple, Juul, and Groupon, and advisory experience at KPMG and Ernst &amp; Young. An active real estate investor, he brings the rare combination of Big Four rigor and an investor's instinct for long-term wealth structuring.</p>
+        <div class="spk-pill"><div class="spk-dot"></div>The 2026 Tax Playbook</div>
+      </div>
+
+      <!-- Chris -->
+      <div class="spk-card glass rev d1">
+        <div class="spk-av">
+          <picture><source srcset="./chris.webp" type="image/webp"><img src="./Chris headshot.PNG" alt="Chris Barnette"></picture>
+        </div>
+        <div class="spk-co">Inspira Financial · BDM &nbsp;·&nbsp; Apr 23</div>
+        <div class="spk-name">Chris Barnette</div>
+        <p class="spk-bio">A certified IRA Specialist and Business Development Manager at Inspira Financial, Chris travels the country educating investors on the power of self-directed IRAs. A graduate of Oklahoma State University based in Austin, TX, he specializes in unlocking retirement vehicles most investors don't know they have access to.</p>
+        <div class="spk-pill"><div class="spk-dot"></div>Self-Directed IRAs</div>
+      </div>
+
+      <!-- Tenny -->
+      <div class="spk-card glass rev d2">
+        <div class="spk-av"><picture><source srcset="./tenny.webp" type="image/webp"><img src="./tenny.jpg" alt="Tenny Tolofari"></picture></div>
+        <div class="spk-co">XSITE Capital · Co-Founder &amp; CGO &nbsp;·&nbsp; Apr 30</div>
+        <div class="spk-name">Tenny Tolofari</div>
+        <p class="spk-bio">As Co-Founder and Chief Growth Officer of XSITE Capital Investment, Tenny leads acquisitions of high-potential multifamily real estate that creates long-term investor value. A leader, entrepreneur, and mentor, he's dedicated to helping professionals break free from financial limitations through the power of real estate and smart asset structuring.</p>
+        <div class="spk-pill"><div class="spk-dot"></div>Protect Your Assets</div>
+      </div>
+
+      <!-- Dugan -->
+      <div class="spk-card glass rev d3">
+        <div class="spk-av"><picture><source srcset="./dugan.webp" type="image/webp"><img src="./Dugan.jpg" alt="Dugan Kelley"></picture></div>
+        <div class="spk-co">Kelley Clarke PC · Co-Founder &amp; Attorney &nbsp;·&nbsp; Apr 30</div>
+        <div class="spk-name">Dugan Kelley</div>
+        <p class="spk-bio">Co-founder of the nationally recognized real estate and securities law firm Kelley Clarke PC, Dugan brings 25+ years and more than $10 billion in structured transactions to every engagement. He advises syndicators, capital raisers, developers, and family offices on entity structuring, asset protection, Reg D offerings, and commercial transactions — and has secured over $70 million in verdicts and settlements for his clients.</p>
+        <div class="spk-pill"><div class="spk-dot"></div>Protect Your Assets</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================== XSITE SECTION (Light) ======================== -->
+<div class="xsite-section">
+  <div class="xsite-wrap">
+    <div class="xsite-grid">
+
+      <div>
+        <p class="xsite-eye rev">XSITE Capital Investment</p>
+        <div class="xsite-rule rev d1"></div>
+        <h2 class="xsite-h rev d1">
+          Rewriting the rules of<br><em>multifamily investing.</em>
+        </h2>
+        <p class="xsite-body rev d2">
+          In under 12 months, XSITE Capital surpassed $100 million in real estate acquired — not by moving fast, but by moving smart. Our community of investors partners alongside us as co-GPs, learning the game from the inside while their capital does the work.
+        </p>
+        <p class="xsite-body rev d3">
+          Across the US landscape, we're building the kind of wealth most people only read about. The April 20th session is a natural extension of that mission: giving our community the tax knowledge to protect every dollar they earn along the way.
+        </p>
+        <a href="https://markets.businessinsider.com/news/stocks/xsite-capital-closes-188-unit-atlanta-multifamily-acquisition-surpassing-100-million-in-real-estate-acquired-in-under-12-months-1035881646"
+           target="_blank" class="xsite-link rev d4">
+          <svg viewBox="0 0 13 13" fill="none">
+            <path d="M2 11L11 2M11 2H5M11 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Read the Business Insider Feature
+        </a>
+      </div>
+
+      <div class="stats-grid rev d2">
+        <div class="stat-card">
+          <div class="stat-num">$276MM</div>
+          <div class="stat-lbl">Portfolio Value</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">1,422</div>
+          <div class="stat-lbl">Doors Under Management</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">400+</div>
+          <div class="stat-lbl">Investors Who Have Saved Hundreds of Thousands in Taxes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">$12M+</div>
+          <div class="stat-lbl">In Taxes Saved for Our Community in the Last 12 Months</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="hr-fade"></div>
+
+<!-- ======================== FINAL CTA ======================== -->
+<section class="cta-sec">
+  <div class="s-wrap">
+    <div class="cta-panel glass rev">
+      <p class="s-eye" style="margin-bottom:18px;">April 20, 2026 · Free · Limited Seats</p>
+      <h2 class="cta-h">Three sessions.<br>One registration.<br><em>Unlimited impact.</em></h2>
+      <p class="cta-sub">Taxes. Retirement. Asset protection. Register once and you're locked in for April 20, 23 &amp; 30 — three sessions, zero extra steps.</p>
+      <div class="cta-form">
+        <div class="cta-form-inner">
+          <div data-fc-seamless="true" data-fc-key="21900f5a" style="width:100%;max-width:500px;height:629.5px;"></div>
+        </div>
+      </div>
+      <div class="cta-note">
+        <svg width="11" height="13" viewBox="0 0 11 13" fill="none" style="opacity:0.4">
+          <rect x="1" y="5" width="9" height="7.5" rx="1.5" stroke="white" stroke-width="1.2"/>
+          <path d="M3.5 5V3.5a2 2 0 0 1 4 0V5" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        No credit card. No catch. Just clarity.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== FOOTER ======================== -->
+<footer>
+  <div class="ft-logo">
+    <picture><source srcset="./logo.webp" type="image/webp"><img src="./logo.png" alt="XSITE Capital Investment" style="height:36px;"></picture>
+  </div>
+  <div class="ft-right">
+    <p class="ft-copy">© 2026 XSITE Capital Investment. All rights reserved.</p>
+    <p class="ft-disc">This webinar is for educational purposes only and does not constitute financial, legal, or tax advice. Consult a qualified tax professional before making decisions.</p>
+  </div>
+</footer>
+
+<!-- ======================== SCRIPTS ======================== -->
+<!-- FormCrafts loaded ONCE here, after all embed divs are in the DOM -->
+<script>
+  /* Countdown */
+  const target = new Date('April 20, 2026 12:00:00').getTime();
+  function tick() {
+    const diff = target - Date.now();
+    if (diff <= 0) {
+      ['cd-d','cd-h','cd-m','cd-s'].forEach(id => document.getElementById(id).textContent = '00');
+      return;
+    }
+    const pad = n => String(n).padStart(2, '0');
+    document.getElementById('cd-d').textContent = pad(Math.floor(diff / 86400000));
+    document.getElementById('cd-h').textContent = pad(Math.floor((diff % 86400000) / 3600000));
+    document.getElementById('cd-m').textContent = pad(Math.floor((diff % 3600000) / 60000));
+    document.getElementById('cd-s').textContent = pad(Math.floor((diff % 60000) / 1000));
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  /* On mobile: instantly show ALL content, skip the observer entirely */
+  if (window.innerWidth <= 960) {
+    document.querySelectorAll('.rev').forEach(el => el.classList.add('on'));
+  } else {
+    /* Desktop: scroll reveal with IntersectionObserver */
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); ro.unobserve(e.target); } });
+    }, { threshold: 0.05, rootMargin: '0px 0px 60px 0px' });
+    document.querySelectorAll('.rev').forEach(el => ro.observe(el));
+    /* Hero always immediate on desktop too */
+    document.querySelectorAll('.hero .rev').forEach(el => el.classList.add('on'));
+  }
+
+  /* Smooth scroll on nav CTA */
+  document.querySelector('.nav-btn').addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      e.preventDefault();
+      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  });
+
+
+</script>
+
+
+<!-- FormCrafts: lazy-loaded when the first form scrolls into view -->
+<script>
+  (function() {
+    var loaded = false;
+    function loadFC() {
+      if (loaded) return;
+      loaded = true;
+      var s = document.createElement('script');
+      s.src = 'https://app.formcrafts.com/embed.js';
+      document.body.appendChild(s);
+    }
+    // Trigger when either form container nears the viewport
+    var fcObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { loadFC(); fcObserver.disconnect(); } });
+    }, { rootMargin: '300px' }); // start loading 300px before it's visible
+    document.querySelectorAll('[data-fc-seamless]').forEach(function(el) { fcObserver.observe(el); });
+    // Fallback: load after 4s regardless (catches fast scrollers)
+    setTimeout(loadFC, 4000);
+  })();
+</script>
+
+</body>
+</html>
