@@ -355,15 +355,52 @@
       margin-bottom: 24px;
     }
 
-    /* The form embed container — give it room to breathe */
-    .fc-embed-wrap {
-      margin-bottom: 16px;
-      min-height: 150px;
+    /* ── Custom registration form ── */
+    .xf-form { width: 100%; }
+    .xf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .xf-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .xf-row .xf-field { margin-bottom: 0; }
+    .xf-label {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--w50);
     }
-    .fc-embed-wrap > div {
-      max-width: 100% !important;
-      width: 100% !important;
+    .xf-input, .xf-select {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 10px;
+      color: var(--white);
+      font-family: var(--body);
+      font-size: 14px; font-weight: 300;
+      padding: 13px 16px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      -webkit-appearance: none;
     }
+    .xf-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.4)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px; cursor:pointer; }
+    .xf-input::placeholder { color: rgba(255,255,255,0.28); }
+    .xf-input:focus, .xf-select:focus { border-color: rgba(196,137,42,0.5); background: rgba(255,255,255,0.09); }
+    .xf-select option { background: #152B1C; color: #fff; }
+    .xf-submit {
+      width: 100%; padding: 16px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: #0D1F14; font-family: var(--body);
+      font-size: 13px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; border: none; cursor: pointer;
+      margin-top: 6px; transition: opacity 0.2s, transform 0.2s;
+    }
+    .xf-submit:hover { opacity: 0.92; transform: translateY(-1px); }
+    .xf-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .xf-success {
+      text-align: center; padding: 32px 16px;
+      animation: fadeIn 0.4s ease;
+    }
+    .xf-success-icon { font-size: 44px; margin-bottom: 14px; }
+    .xf-success-title { font-family: var(--display); font-size: 26px; font-weight: 500; margin-bottom: 10px; }
+    .xf-success-msg { font-size: 14px; color: var(--w70); line-height: 1.65; }
+    .xf-err { font-size: 12px; color: #f87171; margin-top: 12px; text-align: center; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+    @media (max-width: 520px) { .xf-row { grid-template-columns: 1fr; } }
 
     .form-note {
       display: flex; align-items: center; gap: 7px;
@@ -1257,10 +1294,43 @@
         <p class="form-desc">Sign up once and you're in for the entire Money Week series — April 20, 23 &amp; 30. We'll send details for each session as it approaches.</p>
         <div class="form-rule"></div>
 
-        <!-- FormCrafts embed — single div, script loaded once at bottom -->
-        <div class="fc-embed-wrap">
-          <div data-fc-seamless="true" data-fc-key="21900f5a" style="width:100%;max-width:500px;height:629.5px;"></div>
-        </div>
+        <!-- Custom registration form -->
+        <form class="xf-form" id="mw-form-hero" novalidate>
+          <div class="xf-row">
+            <div class="xf-field">
+              <label class="xf-label" for="mw1-fn">First Name</label>
+              <input class="xf-input" id="mw1-fn" name="first_name" type="text" placeholder="Jane" required autocomplete="given-name">
+            </div>
+            <div class="xf-field">
+              <label class="xf-label" for="mw1-ln">Last Name</label>
+              <input class="xf-input" id="mw1-ln" name="last_name" type="text" placeholder="Smith" required autocomplete="family-name">
+            </div>
+          </div>
+          <div class="xf-field">
+            <label class="xf-label" for="mw1-em">Email Address</label>
+            <input class="xf-input" id="mw1-em" name="email" type="email" placeholder="jane@email.com" required autocomplete="email">
+          </div>
+          <div class="xf-field">
+            <label class="xf-label" for="mw1-ph">Phone Number</label>
+            <input class="xf-input" id="mw1-ph" name="phone" type="tel" placeholder="(555) 000-0000" autocomplete="tel">
+          </div>
+          <div class="xf-field">
+            <label class="xf-label" for="mw1-src">How did you hear about us?</label>
+            <select class="xf-select" id="mw1-src" name="heard_from">
+              <option value="" disabled selected>Select one</option>
+              <option>Referral / Friend</option>
+              <option>Instagram</option>
+              <option>Facebook</option>
+              <option>LinkedIn</option>
+              <option>Email / Newsletter</option>
+              <option>Google Search</option>
+              <option>Podcast</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <button class="xf-submit" type="submit">Reserve My Spot &rarr;</button>
+          <div class="xf-err" id="mw1-err" style="display:none"></div>
+        </form>
 
         <div class="form-note">
           <svg width="11" height="13" viewBox="0 0 11 13" fill="none">
@@ -1546,25 +1616,72 @@
 </script>
 
 
-<!-- FormCrafts: lazy-loaded when the first form scrolls into view -->
+<!-- Custom form submission -->
 <script>
-  (function() {
-    var loaded = false;
-    function loadFC() {
-      if (loaded) return;
-      loaded = true;
-      var s = document.createElement('script');
-      s.src = 'https://app.formcrafts.com/embed.js';
-      document.body.appendChild(s);
-    }
-    // Trigger when either form container nears the viewport
-    var fcObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) { if (e.isIntersecting) { loadFC(); fcObserver.disconnect(); } });
-    }, { rootMargin: '300px' }); // start loading 300px before it's visible
-    document.querySelectorAll('[data-fc-seamless]').forEach(function(el) { fcObserver.observe(el); });
-    // Fallback: load after 4s regardless (catches fast scrollers)
-    setTimeout(loadFC, 4000);
-  })();
+(function() {
+  const FN_URL = 'https://nexoqtixosktdlgqorzb.supabase.co/functions/v1/submit-lead';
+
+  function showSuccess(form) {
+    form.innerHTML = '<div class="xf-success">' +
+      '<div class="xf-success-icon">✅</div>' +
+      '<div class="xf-success-title">You're registered!</div>' +
+      '<p class="xf-success-msg">Check your inbox — we'll send Zoom details for each session as it approaches. See you at Money Week.</p>' +
+      '</div>';
+  }
+
+  function handleForm(formEl, errId) {
+    formEl.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = formEl.querySelector('.xf-submit');
+      const errEl = document.getElementById(errId);
+      const data = new FormData(formEl);
+
+      // Basic validation
+      const email = data.get('email') || '';
+      const first = data.get('first_name') || '';
+      if (!email || !first) {
+        errEl.textContent = 'Please fill in your name and email.';
+        errEl.style.display = 'block';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Registering…';
+      errEl.style.display = 'none';
+
+      try {
+        const res = await fetch(FN_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            first_name:  first,
+            last_name:   data.get('last_name') || '',
+            email:       email,
+            phone:       data.get('phone') || '',
+            heard_from:  data.get('heard_from') || '',
+            source_page: 'Money Week',
+            deal_name:   'XSITE Money Week',
+          })
+        });
+        const json = await res.json();
+        if (json.success) {
+          showSuccess(formEl);
+        } else {
+          throw new Error(json.error || 'Server error');
+        }
+      } catch(err) {
+        btn.disabled = false;
+        btn.textContent = 'Reserve My Spot →';
+        errEl.textContent = 'Something went wrong — please try again or email us directly.';
+        errEl.style.display = 'block';
+        console.error(err);
+      }
+    });
+  }
+
+  handleForm(document.getElementById('mw-form-hero'), 'mw1-err');
+  handleForm(document.getElementById('mw-form-cta'),  'mw2-err');
+})();
 </script>
 
 </body>
