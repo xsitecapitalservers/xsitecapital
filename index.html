@@ -43,8 +43,8 @@ button{cursor:pointer;font-family:inherit;}
   transition:top .28s var(--ease),box-shadow .28s var(--ease);
 }
 .nav.scrolled{top:8px;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 16px 48px rgba(17,24,39,.13);}
-.nav__logo{display:flex;align-items:center;gap:9px;font-family:var(--fd);font-size:19px;font-weight:500;color:var(--ink);}
-.nav__logo svg{flex-shrink:0;}
+.nav__logo{display:flex;align-items:center;}
+.nav__logo img{height:38px;width:auto;display:block;}
 .nav__links{display:flex;align-items:center;gap:1px;}
 .nav__link{padding:7px 13px;font-size:13.5px;font-weight:500;color:var(--ink-s);border-radius:999px;transition:color .15s,background .15s;}
 .nav__link:hover,.nav__link.active{color:var(--ink);background:rgba(255,255,255,.6);}
@@ -142,8 +142,15 @@ button{cursor:pointer;font-family:inherit;}
 .ira__title em{font-style:italic;font-weight:500;color:var(--gold-d);}
 .ira__body{margin-top:20px;font-size:17px;color:var(--ink-s);line-height:1.65;}
 .ira__cta{margin-top:36px;}
-/* IRA photo */
-.ira__photo{position:relative;border-radius:28px;overflow:hidden;box-shadow:0 24px 64px rgba(17,24,39,.15);aspect-ratio:4/5;}
+/* IRA photo — floating animation */
+@keyframes floatPhoto{
+  0%,100%{transform:translateY(0) rotate(-.4deg);}
+  50%{transform:translateY(-14px) rotate(.4deg);}
+}
+.ira__photo{position:relative;border-radius:28px;overflow:hidden;box-shadow:0 24px 64px rgba(17,24,39,.15);aspect-ratio:4/5;
+  animation:floatPhoto 7s ease-in-out infinite;
+  will-change:transform;
+}
 .ira__photo img{width:100%;height:100%;object-fit:cover;object-position:center;}
 .ira__photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(7,11,21,.38) 100%);pointer-events:none;}
 .ira__photo-badge{position:absolute;bottom:24px;left:24px;right:24px;background:rgba(251,248,241,.9);backdrop-filter:blur(16px) saturate(160%);border:1px solid rgba(255,255,255,.75);border-radius:16px;padding:16px 20px;display:flex;align-items:center;gap:14px;}
@@ -467,13 +474,7 @@ button{cursor:pointer;font-family:inherit;}
 <!-- NAV -->
 <nav class="nav" id="nav">
   <a class="nav__logo" href="#">
-    <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
-      <defs><linearGradient id="xl" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D9BD86"/><stop offset="100%" stop-color="#8A6D3C"/></linearGradient></defs>
-      <ellipse cx="16" cy="16" rx="13.5" ry="8.5" stroke="url(#xl)" stroke-width="1.5" fill="none"/>
-      <path d="M8 20 L13.5 13 L17.5 17 L23.5 10" stroke="url(#xl)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M19.5 10 L23.5 10 L23.5 14" stroke="url(#xl)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    XSITE <em style="font-style:italic;font-weight:500">Capital</em>
+    <img src="./logo/XSITE Gold.png" alt="XSITE Capital"/>
   </a>
   <div class="nav__links">
     <a class="nav__link active" href="#">HOME</a>
