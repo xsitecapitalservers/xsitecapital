@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: xsite-capital
+    env: static
+    buildCommand: ""
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: no-cache
+    routes:
+      - type: rewrite
+        source: /contact
+        destination: /contact.html
+      - type: rewrite
+        source: /faq
+        destination: /faq.html
+      - type: rewrite
+        source: /team
+        destination: /team.html
+      - type: rewrite
+        source: /assets
+        destination: /assets.html
+      - type: rewrite
+        source: /retirewise
+        destination: /retirewise.html
