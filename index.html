@@ -198,22 +198,27 @@ button{cursor:pointer;font-family:inherit;}
 .glance{padding:100px 40px;}
 .glance__panel{
   max-width:1280px;margin:0 auto;border-radius:28px;padding:60px 68px;position:relative;overflow:hidden;
-  background:radial-gradient(65% 80% at 18% 18%,rgba(184,150,96,.28) 0%,transparent 55%),
-             radial-gradient(60% 75% at 85% 82%,rgba(122,30,43,.24) 0%,transparent 55%),
-             linear-gradient(155deg,#1C2638 0%,#111827 55%,#070B15 100%);
-  color:var(--cream);box-shadow:0 48px 96px rgba(17,24,39,.28),inset 0 1px 0 rgba(217,189,134,.22);
+  background:radial-gradient(65% 80% at 18% 18%,rgba(184,150,96,.22) 0%,transparent 55%),
+             radial-gradient(60% 75% at 85% 82%,rgba(30,58,38,.9) 0%,transparent 55%),
+             linear-gradient(155deg,#162a1b 0%,#0f1d14 55%,#060d09 100%);
+  color:var(--cream);box-shadow:0 48px 96px rgba(6,13,9,.45),inset 0 1px 0 rgba(217,189,134,.22);
 }
 .glance__panel::before{content:"";position:absolute;top:-40%;left:-15%;width:55%;height:110%;
-  background:radial-gradient(circle,rgba(217,189,134,.2) 0%,transparent 65%);
-  animation:glow 20s ease-in-out infinite alternate;filter:blur(40px);pointer-events:none;}
-@keyframes glow{0%{transform:translate(0,0)}100%{transform:translate(110%,25%)}}
+  background:radial-gradient(circle,rgba(217,189,134,.18) 0%,transparent 65%);
+  animation:glowOrb 20s ease-in-out infinite alternate;filter:blur(40px);pointer-events:none;}
+.glance__panel::after{content:"";position:absolute;bottom:-30%;right:-10%;width:45%;height:90%;
+  background:radial-gradient(circle,rgba(46,100,60,.35) 0%,transparent 65%);
+  animation:glowOrb2 26s ease-in-out infinite alternate;filter:blur(50px);pointer-events:none;}
+@keyframes glowOrb{0%{transform:translate(0,0) scale(1)}50%{transform:translate(40%,15%) scale(1.15)}100%{transform:translate(110%,25%) scale(1)}}
+@keyframes glowOrb2{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-30%,-20%) scale(1.2)}100%{transform:translate(-60%,10%) scale(.9)}}
 .glance__top{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:52px;position:relative;}
 .glance__eye{font-style:italic;font-size:14px;color:rgba(217,189,134,.85);letter-spacing:.08em;}
 .glance__title{font-family:var(--fd);font-size:clamp(2rem,3.2vw,2.8rem);font-weight:400;letter-spacing:-.015em;margin-top:8px;line-height:1.1;color:var(--cream);}
 .glance__title em{font-style:italic;font-weight:500;color:var(--gold-l);}
 .glance__upd{font-size:12.5px;color:rgba(245,241,232,.5);letter-spacing:.05em;}
 .glance__grid{display:grid;grid-template-columns:repeat(4,1fr);position:relative;}
-.gstat{padding:0 32px;border-left:1px solid rgba(217,189,134,.2);}
+.gstat{padding:0 32px;border-left:1px solid rgba(217,189,134,.2);opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease);}
+.gstat.visible{opacity:1;transform:translateY(0);}
 .gstat:first-child{border-left:none;padding-left:0;}
 .gstat__num{font-family:var(--fd);font-size:clamp(2.2rem,3.6vw,3.1rem);font-weight:400;line-height:1;letter-spacing:-.015em;color:var(--cream);font-variant-numeric:tabular-nums;}
 .gstat__num sup{font-size:.55em;font-weight:500;color:var(--gold-l);vertical-align:super;margin-left:2px;}
@@ -366,11 +371,17 @@ button{cursor:pointer;font-family:inherit;}
 /* ── CTA BAND ───────────────────────────────────────── */
 .cta{padding:120px 40px;}
 .cta__panel{max-width:1280px;margin:0 auto;padding:80px 72px;border-radius:32px;position:relative;overflow:hidden;
-  background:radial-gradient(60% 85% at 10% 10%,rgba(184,150,96,.35) 0%,transparent 55%),
-             radial-gradient(55% 70% at 88% 82%,rgba(122,30,43,.38) 0%,transparent 55%),
-             linear-gradient(155deg,#1C2638 0%,#111827 50%,#070B15 100%);
-  box-shadow:0 56px 100px rgba(17,24,39,.32),inset 0 1px 0 rgba(217,189,134,.24);}
-.cta__panel::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 55% at 50% 0%,rgba(217,189,134,.16) 0%,transparent 70%);pointer-events:none;animation:glow 24s ease-in-out infinite alternate;}
+  background:radial-gradient(60% 85% at 10% 10%,rgba(184,150,96,.28) 0%,transparent 55%),
+             radial-gradient(55% 70% at 88% 82%,rgba(30,58,38,.85) 0%,transparent 55%),
+             linear-gradient(155deg,#162a1b 0%,#0f1d14 50%,#060d09 100%);
+  box-shadow:0 56px 100px rgba(6,13,9,.45),inset 0 1px 0 rgba(217,189,134,.24);}
+.cta__panel::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 55% at 50% 0%,rgba(217,189,134,.12) 0%,transparent 70%);pointer-events:none;animation:glowOrb 24s ease-in-out infinite alternate;}
+/* floating particles */
+.cta__orb1,.cta__orb2{position:absolute;border-radius:50%;pointer-events:none;filter:blur(60px);}
+.cta__orb1{width:320px;height:320px;bottom:-80px;right:8%;background:radial-gradient(circle,rgba(46,100,60,.4) 0%,transparent 70%);animation:floatOrb1 18s ease-in-out infinite alternate;}
+.cta__orb2{width:220px;height:220px;top:-40px;right:30%;background:radial-gradient(circle,rgba(184,150,96,.18) 0%,transparent 70%);animation:floatOrb2 22s ease-in-out infinite alternate;}
+@keyframes floatOrb1{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-40px,-30px) scale(1.15)}100%{transform:translate(20px,40px) scale(.9)}}
+@keyframes floatOrb2{0%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,20px) scale(1.2)}100%{transform:translate(-20px,-15px) scale(.85)}}
 .cta__eye{font-style:italic;font-size:14px;color:rgba(217,189,134,.85);letter-spacing:.12em;position:relative;}
 .cta__title{font-family:var(--fd);font-size:clamp(2.6rem,4.4vw,4rem);font-weight:400;line-height:1.08;letter-spacing:-.022em;color:var(--cream);margin-top:14px;max-width:820px;position:relative;}
 .cta__title em{font-style:italic;font-weight:500;color:var(--gold-l);}
@@ -896,6 +907,8 @@ button{cursor:pointer;font-family:inherit;}
 <!-- CTA -->
 <section class="cta" id="contact">
   <div class="cta__panel">
+    <div class="cta__orb1"></div>
+    <div class="cta__orb2"></div>
     <div class="cta__eye">— Investor Club —</div>
     <h2 class="cta__title">Let your money <em>work for you.</em></h2>
     <p class="cta__sub">Join 400+ working professionals who invest alongside our founders. Schedule a call, review live deals, and start building the passive income you've been putting off.</p>
@@ -1101,6 +1114,19 @@ const io = new IntersectionObserver(entries => {
   });
 }, {threshold:.25});
 document.querySelectorAll('.count').forEach(el => io.observe(el));
+
+/* ── GSTAT STAGGER REVEAL ───────────────────────────── */
+const gstatIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      const cells = e.target.querySelectorAll('.gstat');
+      cells.forEach((c,i) => setTimeout(()=>c.classList.add('visible'), i*120));
+      gstatIO.unobserve(e.target);
+    }
+  });
+}, {threshold:.2});
+const glanceGrid = document.querySelector('.glance__grid');
+if(glanceGrid) gstatIO.observe(glanceGrid);
 
 /* ── SPARKLINE ──────────────────────────────────────── */
 function drawSpark(id, color='#D9BD86', data=[4,6,5,8,7,11,13,12,15,18,16,21]) {
