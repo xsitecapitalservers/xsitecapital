@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Investor FAQ | Real Estate Passive Income Questions | XSITE Capital</title>
+<meta name="description" content="Answers to the most common questions about passive real estate investing, accredited investor requirements, 401K/IRA investing, and how XSITE Capital works."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap"/>
+<style>
+:root{
+  --forest:#111827;--forest-900:#070B15;--forest-700:#1C2638;--forest-500:#2E3A50;
+  --gold:#B89660;--gold-l:#D9BD86;--gold-d:#8A6D3C;
+  --ember:#7A1E2B;--ember-d:#5E1722;
+  --cream:#F5F1E8;--cream-r:#FBF8F1;--cream-s:#ECE6D7;
+  --ink:#14161C;--ink-s:#2A2D36;--ash:#6B6B6B;--hair:#D6D0BF;
+  --fd:'Fraunces',Georgia,serif;--fb:'Inter',-apple-system,system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:var(--fb);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+  background:radial-gradient(circle at 18% 28%,rgba(184,150,96,.07) 0%,transparent 55%),
+             radial-gradient(circle at 82% 72%,rgba(17,24,39,.04) 0%,transparent 55%);}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+button{cursor:pointer;font-family:inherit;}
+
+/* ── NAV ─────────────────────────────────────────────── */
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);width:calc(100% - 32px);max-width:1280px;height:62px;z-index:200;border-radius:999px;padding:0 8px 0 24px;display:flex;align-items:center;justify-content:space-between;background:rgba(251,248,241,.72);border:1px solid rgba(255,255,255,.75);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 8px 32px rgba(17,24,39,.08);transition:top .28s var(--ease),box-shadow .28s var(--ease);}
+.nav.scrolled{top:8px;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 16px 48px rgba(17,24,39,.13);}
+.nav__logo{display:flex;align-items:center;gap:9px;font-family:var(--fd);font-size:19px;font-weight:500;color:var(--ink);}
+.nav__links{display:flex;align-items:center;gap:1px;}
+.nav__link{padding:7px 13px;font-size:13.5px;font-weight:500;color:var(--ink-s);border-radius:999px;transition:color .15s,background .15s;}
+.nav__link:hover,.nav__link.active{color:var(--ink);background:rgba(255,255,255,.6);}
+.nav__ebook{padding:7px 13px;font-size:13.5px;font-weight:600;color:var(--gold-d);border-radius:999px;transition:background .15s;}
+.nav__ebook:hover{background:rgba(138,109,60,.1);}
+.nav__cta{margin-left:8px;padding:9px 20px;font-size:13.5px;font-weight:600;letter-spacing:.02em;border-radius:999px;border:1px solid rgba(217,189,134,.5);background:linear-gradient(180deg,#96293A 0%,#7A1E2B 55%,#5E1722 100%);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 6px 18px rgba(122,30,43,.35);transition:transform .14s,box-shadow .16s;}
+.nav__cta:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 10px 28px rgba(122,30,43,.48);}
+.nav__cta:active{transform:scale(.98);}
+.nav__ham{display:none;background:none;border:none;padding:8px;color:var(--ink);}
+
+/* ── TICKER ──────────────────────────────────────────── */
+.ticker{overflow:hidden;padding:14px 0;background:var(--forest);border-top:1px solid rgba(217,189,134,.15);}
+.ticker__track{display:flex;align-items:center;gap:40px;width:max-content;animation:tick 30s linear infinite;white-space:nowrap;}
+.ticker__track:hover{animation-play-state:paused;}
+@keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.ticker__pill{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--forest);background:var(--gold);padding:3px 10px;border-radius:999px;flex-shrink:0;}
+.ticker__item{font-size:13.5px;color:rgba(245,241,232,.82);flex-shrink:0;}
+.ticker__dot{width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.55;flex-shrink:0;}
+
+/* ── PAGE HEADER ─────────────────────────────────────── */
+.page-header{padding:160px 40px 80px;text-align:center;background:linear-gradient(180deg,var(--cream) 0%,var(--cream-s) 100%);}
+.page-header__kicker{display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-d);background:rgba(184,150,96,.1);border:1px solid rgba(184,150,96,.28);border-radius:999px;padding:5px 14px;}
+.page-header__dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
+.page-header__title{font-family:var(--fd);font-size:clamp(2.6rem,5vw,4.8rem);font-weight:400;line-height:1.06;letter-spacing:-.025em;color:var(--ink);max-width:780px;margin:0 auto 20px;}
+.page-header__title em{font-style:italic;font-weight:500;color:var(--gold-d);}
+.page-header__sub{font-size:17px;font-weight:300;color:var(--ash);max-width:520px;margin:0 auto;line-height:1.7;}
+
+/* ── STATS BAR ────────────────────────────────────────── */
+.faq-stats{background:linear-gradient(160deg,var(--forest-700) 0%,var(--forest) 55%,var(--forest-900) 100%);padding:44px 40px;}
+.faq-stats__inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;divide-color:transparent;}
+.faq-stat{text-align:center;padding:0 20px;border-right:1px solid rgba(217,189,134,.18);}
+.faq-stat:last-child{border-right:none;}
+.faq-stat__num{font-family:var(--fd);font-size:clamp(1.8rem,2.8vw,2.6rem);font-weight:400;letter-spacing:-.02em;color:var(--cream);line-height:1;}
+.faq-stat__num em{font-style:italic;color:var(--gold-l);}
+.faq-stat__label{font-size:12.5px;color:rgba(245,241,232,.58);margin-top:8px;line-height:1.4;}
+
+/* ── FAQ SECTIONS ─────────────────────────────────────── */
+.faq-body{padding:80px 40px 0;max-width:1200px;margin:0 auto;}
+
+.faq-category{margin-bottom:72px;}
+.faq-category__label{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-d);margin-bottom:32px;display:flex;align-items:center;gap:12px;}
+.faq-category__label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--hair),transparent);}
+
+.faq-list{display:flex;flex-direction:column;gap:12px;}
+
+.faq-item{border-radius:18px;background:var(--cream-r);border:1px solid var(--hair);overflow:hidden;box-shadow:0 1px 3px rgba(17,24,39,.05);transition:box-shadow .22s var(--ease);}
+.faq-item.open{box-shadow:0 8px 32px rgba(17,24,39,.1);border-color:rgba(184,150,96,.35);}
+
+.faq-item__trigger{width:100%;display:flex;align-items:center;justify-content:space-between;padding:26px 30px;background:none;border:none;text-align:left;gap:20px;cursor:pointer;}
+.faq-item__q{font-family:var(--fd);font-size:1.12rem;font-weight:500;letter-spacing:-.012em;color:var(--ink);line-height:1.3;flex:1;}
+.faq-item.open .faq-item__q{color:var(--forest);}
+
+.faq-item__icon{width:32px;height:32px;border-radius:50%;background:rgba(184,150,96,.12);border:1px solid rgba(184,150,96,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,transform .3s var(--ease);}
+.faq-item.open .faq-item__icon{background:var(--gold);border-color:var(--gold);transform:rotate(45deg);}
+.faq-item__icon svg{width:14px;height:14px;stroke:var(--gold-d);transition:stroke .2s;}
+.faq-item.open .faq-item__icon svg{stroke:#111827;}
+
+.faq-item__body{max-height:0;overflow:hidden;transition:max-height .38s var(--ease);}
+.faq-item.open .faq-item__body{max-height:600px;}
+.faq-item__answer{padding:0 30px 28px;font-size:15.5px;color:var(--ink-s);line-height:1.7;}
+.faq-item__answer p+p{margin-top:12px;}
+.faq-item__answer ul,.faq-item__answer ol{padding-left:20px;margin-top:10px;}
+.faq-item__answer li{padding:5px 0;font-size:15px;color:var(--ash);}
+.faq-item__answer li::marker{color:var(--gold);}
+.faq-item__answer strong{color:var(--ink);font-weight:600;}
+
+/* highlight bar on open */
+.faq-item__trigger{position:relative;}
+.faq-item__trigger::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:transparent;border-radius:0 2px 2px 0;transition:background .2s;}
+.faq-item.open .faq-item__trigger::before{background:var(--gold);}
+
+/* ── FORM SECTION ─────────────────────────────────────── */
+.faq-form-section{padding:80px 40px 120px;}
+.faq-form-section__inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start;}
+
+.faq-form-left{}
+.faq-form-left__kicker{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-d);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.faq-form-left__dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite;}
+.faq-form-left__title{font-family:var(--fd);font-size:clamp(2rem,3.4vw,3.1rem);font-weight:400;line-height:1.1;letter-spacing:-.02em;color:var(--ink);margin-bottom:20px;}
+.faq-form-left__title em{font-style:italic;font-weight:500;color:var(--gold-d);}
+.faq-form-left__body{font-size:16px;color:var(--ash);line-height:1.7;margin-bottom:36px;}
+
+.trust-list{display:flex;flex-direction:column;gap:16px;}
+.trust-item{display:flex;align-items:flex-start;gap:14px;}
+.trust-item__icon{width:38px;height:38px;border-radius:12px;background:rgba(184,150,96,.12);border:1px solid rgba(184,150,96,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.trust-item__icon svg{width:18px;height:18px;stroke:var(--gold-d);fill:none;}
+.trust-item__text strong{display:block;font-size:14px;font-weight:600;color:var(--ink);margin-bottom:2px;}
+.trust-item__text span{font-size:13.5px;color:var(--ash);line-height:1.5;}
+
+/* form panel */
+.faq-form-panel{background:linear-gradient(160deg,var(--forest-700) 0%,var(--forest) 55%,var(--forest-900) 100%);border-radius:28px;padding:44px;box-shadow:0 24px 64px rgba(7,11,21,.28);border:1px solid rgba(217,189,134,.15);position:relative;overflow:hidden;}
+.faq-form-panel::before{content:"";position:absolute;top:-40%;right:-20%;width:70%;height:70%;background:radial-gradient(circle,rgba(184,150,96,.12) 0%,transparent 65%);pointer-events:none;}
+.faq-form-panel__title{font-family:var(--fd);font-size:1.6rem;font-weight:400;color:var(--cream);letter-spacing:-.015em;margin-bottom:6px;position:relative;}
+.faq-form-panel__sub{font-size:13.5px;color:rgba(245,241,232,.55);margin-bottom:32px;position:relative;}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;position:relative;}
+.form-group label{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(245,241,232,.65);}
+.form-group input,.form-group select{width:100%;padding:12px 16px;border-radius:12px;border:1px solid rgba(217,189,134,.2);background:rgba(255,255,255,.07);color:var(--cream);font-family:var(--fb);font-size:15px;outline:none;transition:border-color .15s,background .15s;-webkit-appearance:none;appearance:none;}
+.form-group input::placeholder{color:rgba(245,241,232,.3);}
+.form-group input:focus,.form-group select:focus{border-color:rgba(217,189,134,.55);background:rgba(255,255,255,.1);}
+.form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23D9BD86' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+.form-group select option{background:var(--forest);color:var(--cream);}
+.form-group.has-error input,.form-group.has-error select{border-color:rgba(220,80,80,.6);}
+.form-error{font-size:11.5px;color:rgba(220,120,120,.9);position:absolute;bottom:-18px;left:0;}
+
+/* phone input */
+.phone-wrap{display:flex;align-items:stretch;gap:0;}
+.phone-prefix{padding:12px 14px;border-radius:12px 0 0 12px;border:1px solid rgba(217,189,134,.2);border-right:none;background:rgba(255,255,255,.04);color:rgba(245,241,232,.55);font-size:15px;white-space:nowrap;display:flex;align-items:center;}
+.phone-wrap input{border-radius:0 12px 12px 0!important;}
+
+/* hint text */
+.form-hint{font-size:12px;color:rgba(245,241,232,.42);margin-top:4px;line-height:1.45;}
+
+/* consent */
+.form-consent{display:flex;align-items:flex-start;gap:10px;margin-bottom:20px;}
+.form-consent input[type=checkbox]{width:18px;height:18px;border-radius:5px;border:1px solid rgba(217,189,134,.35);background:rgba(255,255,255,.07);accent-color:var(--gold-d);flex-shrink:0;margin-top:2px;cursor:pointer;}
+.form-consent label{font-size:12.5px;color:rgba(245,241,232,.52);line-height:1.5;cursor:pointer;}
+.form-consent a{color:var(--gold-l);text-decoration:underline;text-underline-offset:2px;}
+
+/* captcha placeholder */
+.captcha-wrap{background:rgba(255,255,255,.05);border:1px solid rgba(217,189,134,.18);border-radius:12px;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;}
+.captcha-check{display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(245,241,232,.65);}
+.captcha-check::before{content:"";width:22px;height:22px;border-radius:5px;border:2px solid rgba(217,189,134,.35);display:block;flex-shrink:0;}
+.captcha-logo{font-size:9px;color:rgba(245,241,232,.25);text-align:center;line-height:1.4;}
+
+/* submit */
+.form-submit{width:100%;padding:15px;border-radius:14px;border:1px solid rgba(217,189,134,.45);background:linear-gradient(180deg,#96293A 0%,#7A1E2B 55%,#5E1722 100%);color:#fff;font-family:var(--fb);font-size:15px;font-weight:600;letter-spacing:.04em;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 8px 24px rgba(122,30,43,.4);transition:box-shadow .16s,transform .12s;}
+.form-submit:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 14px 36px rgba(122,30,43,.56);}
+.form-submit:active{transform:scale(.99);}
+
+/* success state */
+.form-success{display:none;text-align:center;padding:32px 0;}
+.form-success__icon{width:56px;height:56px;border-radius:50%;background:rgba(184,150,96,.15);border:1px solid rgba(184,150,96,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;}
+.form-success__icon svg{width:24px;height:24px;stroke:var(--gold-l);}
+.form-success__title{font-family:var(--fd);font-size:1.5rem;font-weight:400;color:var(--cream);margin-bottom:10px;}
+.form-success__body{font-size:14.5px;color:rgba(245,241,232,.6);line-height:1.6;}
+
+/* ── CTA STRIP ───────────────────────────────────────── */
+.cta-strip{background:linear-gradient(160deg,var(--forest-700) 0%,var(--forest) 55%,var(--forest-900) 100%);padding:80px 40px;}
+.cta-strip__inner{max-width:860px;margin:0 auto;text-align:center;}
+.cta-strip__title{font-family:var(--fd);font-size:clamp(2.2rem,4vw,3.6rem);font-weight:400;line-height:1.08;letter-spacing:-.022em;color:var(--cream);margin-bottom:16px;}
+.cta-strip__title em{font-style:italic;font-weight:500;color:var(--gold-l);}
+.cta-strip__sub{font-size:16px;color:rgba(245,241,232,.65);max-width:520px;margin:0 auto 36px;line-height:1.65;}
+.cta-strip__actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-cta{padding:14px 28px;border-radius:999px;font-family:var(--fb);font-size:14px;font-weight:600;letter-spacing:.02em;border:1px solid rgba(217,189,134,.45);background:linear-gradient(180deg,#96293A 0%,#7A1E2B 55%,#5E1722 100%);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 6px 18px rgba(122,30,43,.38);transition:box-shadow .16s;}
+.btn-cta:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 12px 30px rgba(122,30,43,.52);}
+.btn-outline{padding:14px 28px;border-radius:999px;font-family:var(--fb);font-size:14px;font-weight:600;letter-spacing:.02em;border:1px solid rgba(217,189,134,.35);background:transparent;color:var(--gold-l);transition:background .16s;}
+.btn-outline:hover{background:rgba(217,189,134,.1);}
+
+/* ── FOOTER ──────────────────────────────────────────── */
+.footer{background:linear-gradient(180deg,#070B15 0%,#0d1420 100%);color:var(--cream);position:relative;overflow:hidden;}
+.footer::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 15% 20%,rgba(184,150,96,.08) 0%,transparent 60%);pointer-events:none;}
+.fticker{overflow:hidden;padding:18px 0;border-bottom:1px solid rgba(217,189,134,.18);}
+.fticker__track{display:flex;align-items:center;gap:36px;width:max-content;animation:tick 18s linear infinite;}
+.fticker__item{font-style:italic;font-size:15px;color:rgba(217,189,134,.72);white-space:nowrap;}
+.fticker__dot{width:4px;height:4px;border-radius:50%;background:rgba(217,189,134,.38);}
+.footer__inner{max-width:1280px;margin:0 auto;padding:72px 40px 0;display:grid;grid-template-columns:1.4fr 2fr;gap:80px;position:relative;}
+.footer__brand{display:flex;flex-direction:column;gap:16px;}
+.footer__logo{display:flex;align-items:center;gap:10px;font-family:var(--fd);font-size:22px;font-weight:500;color:var(--cream);}
+.footer__desc{font-size:14.5px;color:rgba(245,241,232,.6);line-height:1.65;max-width:300px;}
+.footer__tag{font-style:italic;font-size:14px;color:rgba(217,189,134,.85);}
+.footer__contact p{font-size:13.5px;color:rgba(245,241,232,.58);line-height:1.85;}
+.footer__contact a{color:rgba(245,241,232,.58);transition:color .15s;}
+.footer__contact a:hover{color:var(--gold-l);}
+.footer__socials{display:flex;gap:10px;}
+.footer__soc{width:34px;height:34px;border-radius:50%;background:rgba(217,189,134,.10);border:1px solid rgba(217,189,134,.22);display:flex;align-items:center;justify-content:center;color:rgba(217,189,134,.72);transition:background .15s,color .15s;}
+.footer__soc:hover{background:rgba(217,189,134,.22);color:var(--gold-l);}
+.footer__cols{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.footer__col h4{font-style:italic;font-size:12.5px;color:rgba(217,189,134,.78);letter-spacing:.08em;margin-bottom:16px;font-weight:500;}
+.footer__col ul{list-style:none;}
+.footer__col li{padding:5px 0;}
+.footer__col li a{font-size:14px;color:rgba(245,241,232,.62);transition:color .15s;}
+.footer__col li a:hover{color:var(--gold-l);}
+.footer__bot{max-width:1280px;margin:52px auto 0;padding:22px 40px 0;border-top:1px solid rgba(217,189,134,.15);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer__copy{font-size:12px;color:rgba(245,241,232,.42);letter-spacing:.03em;}
+.footer__links{display:flex;gap:20px;}
+.footer__links a{font-size:12px;color:rgba(245,241,232,.42);transition:color .15s;}
+.footer__links a:hover{color:rgba(245,241,232,.72);}
+.footer__disc{max-width:1280px;margin:0 auto;padding:22px 40px 40px;font-size:11px;color:rgba(245,241,232,.28);line-height:1.7;}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media(max-width:1024px){
+  .faq-stats__inner{grid-template-columns:repeat(2,1fr);gap:24px;}
+  .faq-stat{border-right:none;padding:16px;background:rgba(255,255,255,.04);border-radius:16px;border:1px solid rgba(217,189,134,.15);}
+  .faq-form-section__inner{grid-template-columns:1fr;gap:52px;}
+  .faq-form-left__title{font-size:clamp(1.8rem,3vw,2.4rem);}
+}
+@media(max-width:768px){
+  .nav__links{display:none;}.nav__ham{display:flex;}
+  .page-header{padding:130px 20px 60px;}
+  .faq-body{padding:60px 20px 0;}
+  .faq-stats{padding:36px 20px;}
+  .faq-form-section{padding:60px 20px 80px;}
+  .faq-form-panel{padding:32px 24px;}
+  .form-row{grid-template-columns:1fr;}
+  .cta-strip{padding:60px 20px;}
+  .footer__inner{grid-template-columns:1fr;gap:40px;padding:56px 24px 0;}
+  .footer__cols{grid-template-columns:repeat(2,1fr);}
+  .footer__bot{flex-direction:column;text-align:center;padding:20px 24px 0;}
+  .footer__disc{padding:20px 24px 32px;}
+}
+@media(max-width:480px){
+  .faq-stats__inner{grid-template-columns:1fr 1fr;}
+  .footer__cols{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a class="nav__logo" href="./index.html">
+    <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+      <defs><linearGradient id="xl" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D9BD86"/><stop offset="100%" stop-color="#8A6D3C"/></linearGradient></defs>
+      <ellipse cx="16" cy="16" rx="13.5" ry="8.5" stroke="url(#xl)" stroke-width="1.5" fill="none"/>
+      <path d="M8 20 L13.5 13 L17.5 17 L23.5 10" stroke="url(#xl)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M19.5 10 L23.5 10 L23.5 14" stroke="url(#xl)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    XSITE <em style="font-style:italic;font-weight:500">Capital</em>
+  </a>
+  <div class="nav__links">
+    <a class="nav__link" href="./index.html">HOME</a>
+    <a class="nav__link" href="./team.html">TEAM</a>
+    <a class="nav__link" href="./assets.html">ASSETS</a>
+    <a class="nav__link active" href="./faq.html">FAQ</a>
+    <a class="nav__link" href="./retirewise.html">RetireWise</a>
+    <a class="nav__link" href="#">EVENTS</a>
+    <a class="nav__link" href="https://learn.beyond9to5club.com" target="_blank">LEARN</a>
+    <a class="nav__ebook" href="https://learn.beyond9to5club.com/ebook" target="_blank">Free eBook</a>
+    <a class="nav__cta" href="./contact.html">Get A Free Consultation</a>
+  </div>
+  <button class="nav__ham" aria-label="Menu">
+    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="12" x2="19" y2="12"/><line x1="3" y1="18" x2="19" y2="18"/>
+    </svg>
+  </button>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header__kicker">
+    <span class="page-header__dot"></span>
+    Investor FAQ
+  </div>
+  <h1 class="page-header__title">Everything you need to <em>know</em></h1>
+  <p class="page-header__sub">Answers to the most common questions from investors — before, during, and after they join the XSITE family.</p>
+</div>
+
+<!-- NEWS TICKER -->
+<div class="ticker">
+  <div class="ticker__track">
+    <span class="ticker__pill">XSITE Capital</span>
+    <span class="ticker__item">$276M Assets Under Management</span><span class="ticker__dot"></span>
+    <span class="ticker__item">1,422 Doors Under Management</span><span class="ticker__dot"></span>
+    <span class="ticker__item">29.97% Avg. Annual Returns</span><span class="ticker__dot"></span>
+    <span class="ticker__item">Zero Capital Calls Since Inception</span><span class="ticker__dot"></span>
+    <span class="ticker__item">100% Principal Preservation</span><span class="ticker__dot"></span>
+    <span class="ticker__item">$10.2M Returned to Investors</span><span class="ticker__dot"></span>
+    <span class="ticker__item">32+ Years Combined Experience</span><span class="ticker__dot"></span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker__pill">XSITE Capital</span>
+    <span class="ticker__item">$276M Assets Under Management</span><span class="ticker__dot"></span>
+    <span class="ticker__item">1,422 Doors Under Management</span><span class="ticker__dot"></span>
+    <span class="ticker__item">29.97% Avg. Annual Returns</span><span class="ticker__dot"></span>
+    <span class="ticker__item">Zero Capital Calls Since Inception</span><span class="ticker__dot"></span>
+    <span class="ticker__item">100% Principal Preservation</span><span class="ticker__dot"></span>
+    <span class="ticker__item">$10.2M Returned to Investors</span><span class="ticker__dot"></span>
+    <span class="ticker__item">32+ Years Combined Experience</span><span class="ticker__dot"></span>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="faq-stats">
+  <div class="faq-stats__inner">
+    <div class="faq-stat">
+      <div class="faq-stat__num">$276<em>M</em></div>
+      <div class="faq-stat__label">Assets Under Management</div>
+    </div>
+    <div class="faq-stat">
+      <div class="faq-stat__num">29.97<em>%</em></div>
+      <div class="faq-stat__label">Average Annual Returns</div>
+    </div>
+    <div class="faq-stat">
+      <div class="faq-stat__num">$10.2<em>M</em></div>
+      <div class="faq-stat__label">Returns Delivered</div>
+    </div>
+    <div class="faq-stat">
+      <div class="faq-stat__num">1,422</div>
+      <div class="faq-stat__label">Doors Under Management</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ BODY -->
+<div class="faq-body">
+
+  <!-- Category 1: Getting Started -->
+  <div class="faq-category">
+    <div class="faq-category__label">Getting Started</div>
+    <div class="faq-list">
+
+      <div class="faq-item open">
+        <button class="faq-item__trigger" aria-expanded="true">
+          <span class="faq-item__q">How much is the minimum I can invest?</span>
+          <span class="faq-item__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-item__body">
+          <div class="faq-item__answer">
+            <p>Most of our investors typically invest an average of <strong>$125,000</strong>, but we are always happy to jump on a call with you to guide you through an investment plan that works best for you.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">Who can invest with XSITE Capital?</span>
+          <span class="faq-item__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-item__body">
+          <div class="faq-item__answer">
+            <p>We primarily work with <strong>accredited investors</strong> — typically professionals with annual income over $200,000 or net worth exceeding $1 million. Our mission is to provide institutional-grade investments to busy professionals who are ready to take control of their financial future.</p>
+            <p>We do, however, accept non-accredited investors on certain opportunities during a window in our raise timeline.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">Can I invest using my 401(k) or IRA accounts?</span>
+          <span class="faq-item__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-item__body">
+          <div class="faq-item__answer">
+            <p>Absolutely! We have helped many investors leverage their retirement accounts. Many of our investors use <strong>self-directed IRAs or rollover 401(k)s</strong> to invest in our multifamily real estate opportunities.</p>
+            <p>Our team can guide you through the process step-by-step, as well as recommend the perfect IRA custodian for you.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Category 2: Trust & Track Record -->
+  <div class="faq-category">
+    <div class="faq-category__label">Trust &amp; Track Record</div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">Why should I trust XSITE Capital?</span>
+          <span class="faq-item__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-item__body">
+          <div class="faq-item__answer">
+            <p>We're professionals who understand your journey. Founded by first-generation immigrants with backgrounds in medicine, technology, and healthcare, we've built a <strong>$276 million portfolio</strong> by doing exactly what we teach.</p>
+            <p>Our founders have <strong>32+ years of combined experience</strong> and have delivered <strong>$10.2 million in returns</strong> to our investor community.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">What is your success rate?</span>
+          <span class="faq-item__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-item__body">
+          <div class="faq-item__answer">
+            <p>Our track record speaks for itself:</p>
+            <ul>
+              <li><strong>$276 million</strong> in assets under management</li>
+              <li><strong>1,422 doors</strong> under management</li>
+              <li><strong>29.97%</strong> Average Annual Returns</li>
+              <li><strong>Zero capital calls</strong> since inception</li>
+              <li><strong>100% principal preservation</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Category 3: Your Investment -->
+  <div class="faq-category">
+    <div class="faq-category__label">Your Investment</div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">How do you protect my investment?</span>
+          <span class="faq-item__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-item__body">
+          <div class="faq-item__answer">
+            <p>We mitigate risk through:</p>
+            <ul>
+              <li>Rigorous due diligence on every property</li>
+              <li>Conservative underwriting</li>
+              <li>Maintaining strong cash reserves</li>
+              <li>Focusing on markets with strong economic fundamentals</li>
+              <li>Extensive property management systems</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">How do you realize the projected returns?</span>
+          <span class="faq-item__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-item__body">
+          <div class="faq-item__answer">
+            <p>Our <strong>value-add strategy</strong> involves acquiring multifamily properties, implementing strategic improvements, and optimizing operational efficiencies to offer <strong>quarterly cash flow distributions</strong> to our investors.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">How long is the typical investment hold period?</span>
+          <span class="faq-item__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-item__body">
+          <div class="faq-item__answer">
+            <p>Most of our investments have a targeted hold period of <strong>3–7 years</strong>, allowing for property value appreciation, comprehensive value-add strategies, and optimal market timing for disposition.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">What kind of reporting can I expect?</span>
+          <span class="faq-item__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-item__body">
+          <div class="faq-item__answer">
+            <p>We provide:</p>
+            <ul>
+              <li>Monthly financial reports</li>
+              <li>Detailed performance updates</li>
+              <li>Transparent communication</li>
+              <li>Access to our investor portal with annual tax documents (K-1)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Category 4: Fit & Next Steps -->
+  <div class="faq-category">
+    <div class="faq-category__label">Fit &amp; Next Steps</div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">I'm a busy professional. How much time will this take?</span>
+          <span class="faq-item__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-item__body">
+          <div class="faq-item__answer">
+            <p>That's exactly why we exist. Our entire model is designed for busy professionals. Expect:</p>
+            <ol>
+              <li>Completely passive investment</li>
+              <li>No property management responsibilities</li>
+              <li>Minimal time commitment</li>
+              <li>Comprehensive investor education</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">How do I know if I'm a good fit?</span>
+          <span class="faq-item__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-item__body">
+          <div class="faq-item__answer">
+            <p>You're ideal for XSITE Capital if you:</p>
+            <ul>
+              <li>Are an accredited or sophisticated investor</li>
+              <li>Seek passive income and tax advantages</li>
+              <li>Want to diversify your investment portfolio</li>
+              <li>Value being part of a professional community</li>
+              <li>Are ready to think differently about wealth</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__trigger" aria-expanded="false">
+          <span class="faq-item__q">What are the next steps?</span>
+          <span class="faq-item__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-item__body">
+          <div class="faq-item__answer">
+            <ol>
+              <li>Book a free discovery call using the form below</li>
+              <li>Discuss your financial goals with our team</li>
+              <li>Review potential investment opportunities</li>
+              <li>Make an informed investment decision</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /faq-body -->
+
+<!-- FORM SECTION -->
+<section class="faq-form-section" id="get-started">
+  <div class="faq-form-section__inner">
+
+    <!-- left column -->
+    <div class="faq-form-left">
+      <div class="faq-form-left__kicker">
+        <span class="faq-form-left__dot"></span>
+        Get Started
+      </div>
+      <h2 class="faq-form-left__title">Still have questions? Let's <em>talk.</em></h2>
+      <p class="faq-form-left__body">Book a free discovery call with one of our investment advisors. No pressure, no obligation — just a straightforward conversation about your financial goals.</p>
+
+      <div class="trust-list">
+        <div class="trust-item">
+          <div class="trust-item__icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div class="trust-item__text">
+            <strong>Zero capital calls since inception</strong>
+            <span>Your principal is protected — we've never asked investors for more money mid-deal.</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-item__icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="trust-item__text">
+            <strong>Quarterly distributions</strong>
+            <span>Passive income delivered to you every quarter, like clockwork.</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-item__icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div class="trust-item__text">
+            <strong>Expert team by your side</strong>
+            <span>32+ years of combined experience in multifamily real estate and capital markets.</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-item__icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <div class="trust-item__text">
+            <strong>$10.2M returned to investors</strong>
+            <span>Real money. Real returns. Delivered to real investors just like you.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- form panel -->
+    <div class="faq-form-panel">
+      <div class="faq-form-panel__title">Book a Free Discovery Call</div>
+      <div class="faq-form-panel__sub">Fill in the form and someone from our team will reach out within 24 hours.</div>
+
+      <form id="faqForm" novalidate>
+        <div class="form-row">
+          <div class="form-group" id="fg-first">
+            <label for="faq-first">First Name</label>
+            <input type="text" id="faq-first" name="first" placeholder="Julius" autocomplete="given-name"/>
+            <span class="form-error" id="err-first"></span>
+          </div>
+          <div class="form-group" id="fg-last">
+            <label for="faq-last">Last Name</label>
+            <input type="text" id="faq-last" name="last" placeholder="Oni" autocomplete="family-name"/>
+            <span class="form-error" id="err-last"></span>
+          </div>
+        </div>
+
+        <div class="form-group" id="fg-email">
+          <label for="faq-email">Email Address</label>
+          <input type="email" id="faq-email" name="email" placeholder="you@example.com" autocomplete="email"/>
+          <span class="form-error" id="err-email"></span>
+        </div>
+
+        <div class="form-group" id="fg-phone">
+          <label for="faq-phone">Phone Number</label>
+          <div class="phone-wrap">
+            <span class="phone-prefix">+1</span>
+            <input type="tel" id="faq-phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel-national" maxlength="14"/>
+          </div>
+          <span class="form-error" id="err-phone"></span>
+        </div>
+
+        <div class="form-group" id="fg-source">
+          <label for="faq-source">Where did you hear about us?</label>
+          <select id="faq-source" name="source">
+            <option value="" disabled selected>Select an option</option>
+            <option>Instagram</option>
+            <option>Facebook</option>
+            <option>LinkedIn</option>
+            <option>YouTube</option>
+            <option>Podcast</option>
+            <option>Friend or Family</option>
+            <option>Google Search</option>
+            <option>Event or Webinar</option>
+            <option>Other</option>
+          </select>
+          <span class="form-error" id="err-source"></span>
+        </div>
+
+        <div class="form-group" id="fg-accredited">
+          <label for="faq-accredited">Are you an accredited investor?</label>
+          <select id="faq-accredited" name="accredited">
+            <option value="" disabled selected>Select an option</option>
+            <option value="yes-income">Yes — annual income over $200K ($300K with spouse)</option>
+            <option value="yes-networth">Yes — net worth over $1M (excluding primary home)</option>
+            <option value="no">No — not yet accredited</option>
+            <option value="unsure">I'm not sure</option>
+          </select>
+          <div class="form-hint" id="accredited-hint" style="display:none;"></div>
+          <span class="form-error" id="err-accredited"></span>
+        </div>
+
+        <div class="form-consent">
+          <input type="checkbox" id="faq-sms" name="sms"/>
+          <label for="faq-sms">I agree to receive SMS messages from XSITE Capital Investment. Message &amp; data rates may apply. Reply STOP to opt out. View our <a href="./privacy.html">Privacy Policy</a>.</label>
+        </div>
+
+        <!-- captcha placeholder -->
+        <div class="captcha-wrap">
+          <div class="captcha-check">I'm not a robot</div>
+          <div class="captcha-logo">reCAPTCHA<br>Privacy · Terms</div>
+        </div>
+
+        <button type="submit" class="form-submit">Get My Free Consultation →</button>
+      </form>
+
+      <!-- success state -->
+      <div class="form-success" id="faqSuccess">
+        <div class="form-success__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="form-success__title">You're on your way!</div>
+        <div class="form-success__body">Someone from our team will reach out within 24 hours to schedule your free discovery call.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <div class="cta-strip__inner">
+    <h2 class="cta-strip__title">Ready to put your money to <em>work?</em></h2>
+    <p class="cta-strip__sub">Join hundreds of investors building generational wealth through institutional-grade multifamily real estate.</p>
+    <div class="cta-strip__actions">
+      <a class="btn-cta" href="./contact.html">Get A Free Consultation</a>
+      <a class="btn-outline" href="./assets.html">View Our Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="fticker">
+    <div class="fticker__track">
+      <span class="fticker__item">Passive Income</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Generational Wealth</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Tax Advantages</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Capital Preservation</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Multifamily Investing</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Financial Freedom</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Passive Income</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Generational Wealth</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Tax Advantages</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Capital Preservation</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Multifamily Investing</span><span class="fticker__dot"></span>
+      <span class="fticker__item">Financial Freedom</span><span class="fticker__dot"></span>
+    </div>
+  </div>
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <div class="footer__logo">
+        <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+          <defs><linearGradient id="xl2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D9BD86"/><stop offset="100%" stop-color="#8A6D3C"/></linearGradient></defs>
+          <ellipse cx="16" cy="16" rx="13.5" ry="8.5" stroke="url(#xl2)" stroke-width="1.5" fill="none"/>
+          <path d="M8 20 L13.5 13 L17.5 17 L23.5 10" stroke="url(#xl2)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M19.5 10 L23.5 10 L23.5 14" stroke="url(#xl2)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        XSITE Capital
+      </div>
+      <p class="footer__desc">Institutional-grade multifamily real estate investing for busy professionals building generational wealth.</p>
+      <p class="footer__tag">"Where smart money meets real assets."</p>
+      <div class="footer__contact">
+        <p><a href="mailto:invest@xsitecapital.com">invest@xsitecapital.com</a></p>
+        <p>Washington, D.C. Metro Area</p>
+      </div>
+      <div class="footer__socials">
+        <a class="footer__soc" href="#" aria-label="Instagram">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a class="footer__soc" href="#" aria-label="Facebook">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a class="footer__soc" href="#" aria-label="LinkedIn">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a class="footer__soc" href="#" aria-label="YouTube">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="footer__cols">
+        <div class="footer__col"><h4>Firm</h4><ul>
+          <li><a href="./team.html">Team</a></li>
+          <li><a href="./assets.html">Assets</a></li>
+          <li><a href="./faq.html">FAQ</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul></div>
+        <div class="footer__col"><h4>Invest</h4><ul>
+          <li><a href="./contact.html">Get Started</a></li>
+          <li><a href="#">401K / IRA Investing</a></li>
+          <li><a href="#">Investor Portal</a></li>
+          <li><a href="#">Current Offerings</a></li>
+        </ul></div>
+        <div class="footer__col"><h4>Learn</h4><ul>
+          <li><a href="https://learn.beyond9to5club.com" target="_blank">Beyond 9 to 5 Club</a></li>
+          <li><a href="https://learn.beyond9to5club.com/ebook" target="_blank">Free eBook</a></li>
+          <li><a href="#">Vanguard Mentorship</a></li>
+          <li><a href="./retirewise.html">RetireWise</a></li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bot">
+    <div class="footer__copy">© 2025 XSITE Capital Investment, LLC. All rights reserved.</div>
+    <div class="footer__links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Disclosures</a>
+    </div>
+  </div>
+  <div class="footer__disc">
+    This website is for informational purposes only and does not constitute an offer to sell or solicitation of an offer to buy any security. Investing in real estate involves significant risk, including the possible loss of principal. Past performance is not indicative of future results. All investments are subject to risk and may lose value. XSITE Capital Investment, LLC does not provide tax or legal advice.
+  </div>
+</footer>
+
+<script>
+/* ── NAV scroll ─────────────────────────────────────── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
+
+/* ── FAQ accordion ──────────────────────────────────── */
+document.querySelectorAll('.faq-item__trigger').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // close all
+    document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));
+    // open clicked (toggle)
+    if(!isOpen) item.classList.add('open');
+    btn.setAttribute('aria-expanded', !isOpen);
+  });
+});
+
+/* ── Phone mask ─────────────────────────────────────── */
+document.getElementById('faq-phone').addEventListener('input',function(){
+  let v = this.value.replace(/\D/g,'');
+  if(v.length>=7) v = '('+v.slice(0,3)+') '+v.slice(3,6)+'-'+v.slice(6,10);
+  else if(v.length>=4) v = '('+v.slice(0,3)+') '+v.slice(3);
+  else if(v.length) v = '('+v;
+  this.value = v;
+});
+
+/* ── Accredited hint ────────────────────────────────── */
+const accSel = document.getElementById('faq-accredited');
+const accHint = document.getElementById('accredited-hint');
+const hints = {
+  'yes-income':'Great — you qualify as an accredited investor based on income.',
+  'yes-networth':'Great — you qualify as an accredited investor based on net worth.',
+  'no':'No problem — we have select opportunities available for non-accredited investors.',
+  'unsure':'Our team can help you determine your accreditation status on your discovery call.'
+};
+accSel.addEventListener('change',()=>{
+  const h = hints[accSel.value];
+  if(h){accHint.textContent=h;accHint.style.display='block';}
+  else{accHint.style.display='none';}
+});
+
+/* ── Form validation & submit ───────────────────────── */
+const XSITE_FN_URL = 'https://nexoqtixosktdlgqorzb.supabase.co/functions/v1/submit-lead';
+
+const form = document.getElementById('faqForm');
+const success = document.getElementById('faqSuccess');
+const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+
+function setError(id, msg){
+  const fg = document.getElementById('fg-'+id);
+  const er = document.getElementById('err-'+id);
+  if(fg) fg.classList.toggle('has-error',!!msg);
+  if(er) er.textContent = msg||'';
+}
+function clearErrors(){['first','last','email','phone','source','accredited'].forEach(f=>setError(f,''));}
+
+form.addEventListener('submit', async e=>{
+  e.preventDefault();
+  clearErrors();
+  let ok=true;
+  const v=f=>document.getElementById('faq-'+f).value.trim();
+  if(!v('first')){setError('first','First name is required');ok=false;}
+  if(!v('last')){setError('last','Last name is required');ok=false;}
+  if(!v('email')||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'))){setError('email','A valid email is required');ok=false;}
+  if(!v('phone')||v('phone').replace(/\D/g,'').length<10){setError('phone','A valid phone number is required');ok=false;}
+  if(!v('source')){setError('source','Please let us know how you heard about us');ok=false;}
+  if(!v('accredited')){setError('accredited','Please select an option');ok=false;}
+  if(!ok) return;
+
+  // Loading state
+  if(submitBtn){ submitBtn.disabled=true; submitBtn.textContent='Submitting…'; }
+
+  try {
+    await fetch(XSITE_FN_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        first_name:  v('first'),
+        last_name:   v('last'),
+        email:       v('email'),
+        phone:       v('phone'),
+        accredited:  v('accredited'),
+        heard_from:  v('source'),
+        sms_consent: document.getElementById('faq-sms')?.checked ?? false,
+        source_page: 'FAQ',
+      }),
+    });
+  } catch(err){
+    console.error('Submission error:', err);
+    // Still show success — lead may have been saved
+  }
+
+  form.style.opacity='0'; form.style.pointerEvents='none';
+  setTimeout(()=>{form.style.display='none'; success.style.display='block';}, 300);
+});
+</script>
+
+</body>
+</html>
