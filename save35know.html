@@ -313,6 +313,24 @@ input,select{font-family:inherit;}
           <input type="tel" id="hPhone" name="phone" placeholder="+1 (555) 000-0000" required/>
         </div>
         <div class="field">
+          <label for="hCountry">Country</label>
+          <select id="hCountry" name="country">
+            <option value="" disabled selected>Select your country</option>
+            <option value="US">🇺🇸 United States</option>
+            <option value="CA">🇨🇦 Canada</option>
+            <option value="GB">🇬🇧 United Kingdom</option>
+            <option value="NG">🇳🇬 Nigeria</option>
+            <option value="GH">🇬🇭 Ghana</option>
+            <option value="KE">🇰🇪 Kenya</option>
+            <option value="ZA">🇿🇦 South Africa</option>
+            <option value="JM">🇯🇲 Jamaica</option>
+            <option value="TT">🇹🇹 Trinidad &amp; Tobago</option>
+            <option value="AU">🇦🇺 Australia</option>
+            <option value="AE">🇦🇪 UAE</option>
+            <option value="OTHER">Other</option>
+          </select>
+        </div>
+        <div class="field">
           <label for="hSource">How did you hear about us?</label>
           <select id="hSource" name="heard_from">
             <option value="">Select an option</option>
@@ -545,6 +563,21 @@ input,select{font-family:inherit;}
       </div>
       <div class="cta-band__field">
         <label for="bSource">How did you hear about us?</label>
+        <select class="cta-band__select" id="bCountry" name="country">
+          <option value="" disabled selected>Country</option>
+          <option value="US">🇺🇸 United States</option>
+          <option value="CA">🇨🇦 Canada</option>
+          <option value="GB">🇬🇧 United Kingdom</option>
+          <option value="NG">🇳🇬 Nigeria</option>
+          <option value="GH">🇬🇭 Ghana</option>
+          <option value="KE">🇰🇪 Kenya</option>
+          <option value="ZA">🇿🇦 South Africa</option>
+          <option value="JM">🇯🇲 Jamaica</option>
+          <option value="TT">🇹🇹 Trinidad &amp; Tobago</option>
+          <option value="AU">🇦🇺 Australia</option>
+          <option value="AE">🇦🇪 UAE</option>
+          <option value="OTHER">Other</option>
+        </select>
         <select class="cta-band__select" id="bSource" name="heard_from">
           <option value="">Select an option</option>
           <option>Instagram</option>
@@ -634,6 +667,7 @@ heroForm.addEventListener('submit', async (e) => {
         last_name:  fd.get('last_name'),
         email:      fd.get('email'),
         phone:      fd.get('phone') || '',
+        country:    fd.get('country') || '',
         heard_from: fd.get('heard_from') || '',
       }),
     });
@@ -665,6 +699,7 @@ bottomForm.addEventListener('submit', async (e) => {
         last_name:  fd.get('last_name'),
         email:      fd.get('email'),
         phone:      fd.get('phone') || '',
+        country:    fd.get('country') || '',
         heard_from: fd.get('heard_from') || '',
       }),
     });

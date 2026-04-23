@@ -1314,19 +1314,42 @@
             <label class="xf-label" for="mw1-ph">Phone Number</label>
             <input class="xf-input" id="mw1-ph" name="phone" type="tel" placeholder="(555) 000-0000" autocomplete="tel">
           </div>
-          <div class="xf-field">
-            <label class="xf-label" for="mw1-src">How did you hear about us?</label>
-            <select class="xf-select" id="mw1-src" name="heard_from">
-              <option value="" disabled selected>Select one</option>
-              <option>Referral / Friend</option>
-              <option>Instagram</option>
-              <option>Facebook</option>
-              <option>LinkedIn</option>
-              <option>Email / Newsletter</option>
-              <option>Google Search</option>
-              <option>Podcast</option>
-              <option>Other</option>
-            </select>
+          <div class="xf-row">
+            <div class="xf-field">
+              <label class="xf-label" for="mw1-co">Country</label>
+              <select class="xf-select" id="mw1-co" name="country">
+                <option value="" disabled selected>Country</option>
+                <option value="US">🇺🇸 United States</option>
+                <option value="CA">🇨🇦 Canada</option>
+                <option value="GB">🇬🇧 United Kingdom</option>
+                <option value="NG">🇳🇬 Nigeria</option>
+                <option value="GH">🇬🇭 Ghana</option>
+                <option value="KE">🇰🇪 Kenya</option>
+                <option value="ZA">🇿🇦 South Africa</option>
+                <option value="JM">🇯🇲 Jamaica</option>
+                <option value="TT">🇹🇹 Trinidad &amp; Tobago</option>
+                <option value="BB">🇧🇧 Barbados</option>
+                <option value="AU">🇦🇺 Australia</option>
+                <option value="DE">🇩🇪 Germany</option>
+                <option value="FR">🇫🇷 France</option>
+                <option value="AE">🇦🇪 UAE</option>
+                <option value="OTHER">Other</option>
+              </select>
+            </div>
+            <div class="xf-field">
+              <label class="xf-label" for="mw1-src">How did you hear?</label>
+              <select class="xf-select" id="mw1-src" name="heard_from">
+                <option value="" disabled selected>Select one</option>
+                <option>Referral / Friend</option>
+                <option>Instagram</option>
+                <option>Facebook</option>
+                <option>LinkedIn</option>
+                <option>Email / Newsletter</option>
+                <option>Google Search</option>
+                <option>Podcast</option>
+                <option>Other</option>
+              </select>
+            </div>
           </div>
           <button class="xf-submit" type="submit">Reserve My Spot &rarr;</button>
           <div class="xf-err" id="mw1-err" style="display:none"></div>
@@ -1544,8 +1567,66 @@
       <h2 class="cta-h">Three sessions.<br>One registration.<br><em>Unlimited impact.</em></h2>
       <p class="cta-sub">Taxes. Retirement. Asset protection. Register once and you're locked in for April 20, 23 &amp; 30 — three sessions, zero extra steps.</p>
       <div class="cta-form">
-        <div class="cta-form-inner">
-          <div data-fc-seamless="true" data-fc-key="21900f5a" style="width:100%;max-width:500px;height:629.5px;"></div>
+        <div class="cta-form-inner" style="width:100%;max-width:500px;">
+          <form class="xf-form" id="mw-form-cta" novalidate>
+            <div class="xf-row">
+              <div class="xf-field">
+                <label class="xf-label" for="mw2-fn">First Name</label>
+                <input class="xf-input" id="mw2-fn" name="first_name" type="text" placeholder="Jane" required autocomplete="given-name">
+              </div>
+              <div class="xf-field">
+                <label class="xf-label" for="mw2-ln">Last Name</label>
+                <input class="xf-input" id="mw2-ln" name="last_name" type="text" placeholder="Smith" required autocomplete="family-name">
+              </div>
+            </div>
+            <div class="xf-field">
+              <label class="xf-label" for="mw2-em">Email Address</label>
+              <input class="xf-input" id="mw2-em" name="email" type="email" placeholder="jane@email.com" required autocomplete="email">
+            </div>
+            <div class="xf-row">
+              <div class="xf-field">
+                <label class="xf-label" for="mw2-ph">Phone Number</label>
+                <input class="xf-input" id="mw2-ph" name="phone" type="tel" placeholder="(555) 000-0000" autocomplete="tel">
+              </div>
+              <div class="xf-field">
+                <label class="xf-label" for="mw2-co">Country</label>
+                <select class="xf-select" id="mw2-co" name="country">
+                  <option value="" disabled selected>Country</option>
+              <option value="US">🇺🇸 United States</option>
+              <option value="CA">🇨🇦 Canada</option>
+              <option value="GB">🇬🇧 United Kingdom</option>
+              <option value="NG">🇳🇬 Nigeria</option>
+              <option value="GH">🇬🇭 Ghana</option>
+              <option value="KE">🇰🇪 Kenya</option>
+              <option value="ZA">🇿🇦 South Africa</option>
+              <option value="JM">🇯🇲 Jamaica</option>
+              <option value="TT">🇹🇹 Trinidad &amp; Tobago</option>
+              <option value="BB">🇧🇧 Barbados</option>
+              <option value="AU">🇦🇺 Australia</option>
+              <option value="DE">🇩🇪 Germany</option>
+              <option value="FR">🇫🇷 France</option>
+              <option value="AE">🇦🇪 UAE</option>
+              <option value="OTHER">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="xf-field">
+              <label class="xf-label" for="mw2-src">How did you hear about us?</label>
+              <select class="xf-select" id="mw2-src" name="heard_from">
+                <option value="" disabled selected>Select one</option>
+                <option>Referral / Friend</option>
+                <option>Instagram</option>
+                <option>Facebook</option>
+                <option>LinkedIn</option>
+                <option>Email / Newsletter</option>
+                <option>Google Search</option>
+                <option>Podcast</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <button class="xf-submit" type="submit">Reserve My Spot &rarr;</button>
+            <div class="xf-err" id="mw2-err" style="display:none"></div>
+          </form>
         </div>
       </div>
       <div class="cta-note">
@@ -1649,18 +1730,21 @@
       btn.textContent = 'Registering…';
       errEl.style.display = 'none';
 
+      let res;
       try {
-        const res = await fetch(FN_URL, {
+        res = await fetch(FN_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            first_name:  first,
-            last_name:   data.get('last_name') || '',
-            email:       email,
-            phone:       data.get('phone') || '',
-            heard_from:  data.get('heard_from') || '',
-            source_page: 'Money Week',
-            deal_name:   'XSITE Money Week',
+            first_name:   first,
+            last_name:    data.get('last_name') || '',
+            email:        email,
+            phone:        data.get('phone') || '',
+            heard_from:   data.get('heard_from') || '',
+            country:      data.get('country') || '',
+            source_page:  'Money Week',
+            deal_name:    'XSITE Money Week',
+            webinar_date: '2026-04-30T22:00:00.000Z',
           })
         });
         const json = await res.json();

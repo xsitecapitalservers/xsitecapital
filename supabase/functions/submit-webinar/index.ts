@@ -31,14 +31,13 @@ function getNextWebinarDate(): Date {
 
 /* ── Sakari: get OAuth token ──────────────────────────────────────── */
 async function getSakariToken(): Promise<string> {
-  const res = await fetch('https://auth.sakari.io/oauth/token', {
+  const res = await fetch('https://api.sakari.io/oauth2/token', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
       grant_type:    'client_credentials',
       client_id:     Deno.env.get('SAKARI_CLIENT_ID')!,
       client_secret: Deno.env.get('SAKARI_CLIENT_SECRET')!,
-      audience:      'https://api.sakari.io',
     }),
   });
   const data = await res.json();
@@ -49,16 +48,16 @@ async function getSakariToken(): Promise<string> {
 /* ── Sakari: send one SMS ─────────────────────────────────────────── */
 async function sendSMS(token: string, toNumber: string, body: string): Promise<void> {
   const accountId = Deno.env.get('SAKARI_ACCOUNT_ID')!;
-  const fromNumber = Deno.env.get('SAKARI_FROM_NUMBER')!;
 
   const res = await fetch(`https://api.sakari.io/v1/accounts/${accountId}/messages`, {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${token}`,
+      'Authorization': `bearer ${token}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      data: { toNumber, fromNumber, body },
+      contacts: [{ mobile: { number: toNumber } }],
+      template: body,
     }),
   });
   const result = await res.json();
@@ -79,7 +78,7 @@ serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: CORS })
 
   try {
-    const { first_name, last_name, email, phone, heard_from } = await req.json()
+    const { first_name, last_name, email, phone, heard_from, country = '' } = await req.json()
     const fullName = `${first_name} ${last_name}`.trim()
 
     const webinarDate = getNextWebinarDate();
@@ -93,7 +92,7 @@ serve(async (req) => {
       .from('leads')
       .insert({
         first_name, last_name, email, phone,
-        heard_from,
+        heard_from, country,
         source_page:  'Webinar - 35% Tax Strategy',
         webinar_date: webinarDate.toISOString(),
         created_at:   new Date().toISOString(),
