@@ -353,7 +353,6 @@ button{cursor:pointer;font-family:inherit;}
           </div>
         </div>
         <div class="featured__actions">
-          <a class="btn btn-primary" href="./thepark.html">Learn More</a>
           <a class="btn-outline" href="https://calendly.com/d/csvd-c2h-f5g/xsite-investment-discovery-call" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;font-family:var(--fb);font-size:14px;font-weight:600;letter-spacing:.02em;border:1px solid rgba(217,189,134,.35);color:var(--gold-l);transition:background .16s;">Book a Discovery Call →</a>
         </div>
       </div>
@@ -756,6 +755,16 @@ if(ham && drawer){
   drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
   document.addEventListener('click', e => {if(drawer.classList.contains('open')&&!drawer.contains(e.target)&&!ham.contains(e.target)){closeDrawer();}});
 }
+
+
+/* ── TICKER RESTART (always start from position 0) ─── */
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.ticker__track, .fticker__track').forEach(function(el) {
+    el.style.animation = 'none';
+    void el.offsetWidth;
+    el.style.animation = '';
+  });
+});
 
 </script>
 </body>

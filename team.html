@@ -642,6 +642,16 @@ if(ham && drawer){
   document.addEventListener('click', e => {if(drawer.classList.contains('open')&&!drawer.contains(e.target)&&!ham.contains(e.target)){closeDrawer();}});
 }
 
+
+/* ── TICKER RESTART (always start from position 0) ─── */
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.ticker__track, .fticker__track').forEach(function(el) {
+    el.style.animation = 'none';
+    void el.offsetWidth;
+    el.style.animation = '';
+  });
+});
+
 </script>
 </body>
 </html>

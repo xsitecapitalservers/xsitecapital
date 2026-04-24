@@ -1344,6 +1344,16 @@ if(form) form.addEventListener('submit', e => {
   form.style.display='none';
   document.getElementById('ctaSuccess').style.display='flex';
 });
+
+/* ── TICKER RESTART (always start from position 0) ─── */
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.ticker__track, .fticker__track').forEach(function(el) {
+    el.style.animation = 'none';
+    void el.offsetWidth;
+    el.style.animation = '';
+  });
+});
+
 </script>
 </body>
 </html>
