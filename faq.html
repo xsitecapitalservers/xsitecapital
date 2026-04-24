@@ -238,6 +238,18 @@ button{cursor:pointer;font-family:inherit;}
   .faq-stats__inner{grid-template-columns:1fr 1fr;}
   .footer__cols{grid-template-columns:1fr;}
 }
+
+/* MOBILE DRAWER */
+.nav__drawer{position:fixed;top:0;left:0;right:0;z-index:199;background:rgba(251,248,241,.97);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);border-bottom:1px solid var(--hair);padding:88px 24px 32px;transform:translateY(-110%);transition:transform .32s cubic-bezier(.2,.7,.2,1);box-shadow:0 16px 48px rgba(17,24,39,.12);}
+.nav__drawer.open{transform:translateY(0);}
+.nav__drawer-links{display:flex;flex-direction:column;gap:4px;}
+.nav__drawer-link{display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:var(--ink-s);transition:background .15s,color .15s;}
+.nav__drawer-link:hover{background:rgba(17,24,39,.05);color:var(--ink);}
+.nav__drawer-link.active{color:var(--ink);font-weight:600;}
+.nav__drawer-link--gold{color:var(--gold-d);font-weight:600;}
+.nav__drawer-divider{height:1px;background:var(--hair);margin:12px 0;}
+.nav__drawer-cta{display:block;margin-top:16px;padding:15px;border-radius:14px;text-align:center;font-size:15px;font-weight:600;letter-spacing:.02em;background:linear-gradient(180deg,#96293A 0%,#7A1E2B 55%,#5E1722 100%);color:#fff;border:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 6px 18px rgba(122,30,43,.35);}
+
 </style>
 </head>
 <body>
@@ -258,12 +270,26 @@ button{cursor:pointer;font-family:inherit;}
     <a class="nav__ebook" href="https://learn.beyond9to5club.com/ebook" target="_blank">Free eBook</a>
     <a class="nav__cta" href="./contact.html">Get A Free Consultation</a>
   </div>
-  <button class="nav__ham" aria-label="Menu">
+  <button class="nav__ham" id="navHam" aria-label="Menu">
     <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
       <line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="12" x2="19" y2="12"/><line x1="3" y1="18" x2="19" y2="18"/>
     </svg>
   </button>
 </nav>
+<div class="nav__drawer" id="navDrawer" aria-hidden="true">
+  <div class="nav__drawer-links">
+    <a class="nav__drawer-link" href="./index.html">HOME</a>
+    <a class="nav__drawer-link" href="./team.html">TEAM</a>
+    <a class="nav__drawer-link" href="./assets.html">ASSETS</a>
+    <a class="nav__drawer-link active" href="./faq.html">FAQ</a>
+    <a class="nav__drawer-link" href="./retirewise.html">RetireWise</a>
+    <a class="nav__drawer-link" href="./webinars.html">WEBINARS</a>
+    <a class="nav__drawer-link" href="https://learn.beyond9to5club.com" target="_blank">LEARN</a>
+    <div class="nav__drawer-divider"></div>
+    <a class="nav__drawer-link nav__drawer-link--gold" href="https://learn.beyond9to5club.com/ebook" target="_blank">Free eBook</a>
+    <a class="nav__drawer-cta" href="./contact.html">Get A Free Consultation</a>
+  </div>
+</div>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
@@ -916,6 +942,21 @@ form.addEventListener('submit', async e=>{
   form.style.opacity='0'; form.style.pointerEvents='none';
   setTimeout(()=>{form.style.display='none'; success.style.display='block';}, 300);
 });
+
+/* ── MOBILE NAV TOGGLE ──────────────────────────────── */
+const ham = document.getElementById('navHam');
+const drawer = document.getElementById('navDrawer');
+function closeDrawer(){ham.classList.remove('open');drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+if(ham && drawer){
+  ham.addEventListener('click', () => {
+    const isOpen = drawer.classList.contains('open');
+    if(isOpen){closeDrawer();}
+    else{ham.classList.add('open');drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+  });
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+  document.addEventListener('click', e => {if(drawer.classList.contains('open')&&!drawer.contains(e.target)&&!ham.contains(e.target)){closeDrawer();}});
+}
+
 </script>
 
 </body>
