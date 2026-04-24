@@ -79,23 +79,26 @@ button{cursor:pointer;font-family:inherit;}
   position:absolute;inset:0;z-index:1;pointer-events:none;
   width:100%;height:100%;
 }
-.hero__grain{
-  position:absolute;inset:0;z-index:1;pointer-events:none;
-  opacity:.028;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  background-size:180px 180px;
-  animation:grain-drift 8s steps(1) infinite;
+/* diagonal golden-hour light sweep */
+.hero__sweep{
+  position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;
 }
-@keyframes grain-drift{
-  0%  {background-position:  0%   0%}
-  12% {background-position: 30%  15%}
-  25% {background-position: 60%   5%}
-  37% {background-position: 20%  60%}
-  50% {background-position: 80%  35%}
-  62% {background-position: 10%  80%}
-  75% {background-position: 55%  20%}
-  87% {background-position: 40%  70%}
- 100% {background-position:  0%   0%}
+.hero__sweep::after{
+  content:'';
+  position:absolute;top:0;bottom:0;
+  left:-60%;width:60%;
+  background:linear-gradient(115deg,
+    transparent 0%,
+    rgba(217,189,134,.09) 35%,
+    rgba(255,250,235,.20) 50%,
+    rgba(217,189,134,.09) 65%,
+    transparent 100%);
+  mix-blend-mode:screen;
+  animation:hero-sweep 20s linear infinite;
+}
+@keyframes hero-sweep{
+  0%  {transform:translateX(0)}
+  100%{transform:translateX(380%)}
 }
 
 .hero__badge{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border-radius:999px;margin-bottom:28px;background:rgba(184,150,96,.12);border:1px solid rgba(184,150,96,.35);}
@@ -631,7 +634,7 @@ button{cursor:pointer;font-family:inherit;}
 <section class="hero" id="home">
   <div class="hero__bg"></div>
   <canvas class="hero__texture" id="heroTexture" aria-hidden="true"></canvas>
-  <div class="hero__grain" aria-hidden="true"></div>
+  <div class="hero__sweep" aria-hidden="true"></div>
   <div class="hero__inner">
     <!-- Left -->
     <div>
@@ -1405,11 +1408,12 @@ if(form) form.addEventListener('submit', e => {
   document.getElementById('ctaSuccess').style.display='flex';
 });
 
-/* ── HERO TEXTURE CANVAS ────────────────────────────── */
+/* ── HERO TEXTURE CANVAS (window grid + motes) ───────── */
 (function(){
   var canvas = document.getElementById('heroTexture');
   if(!canvas) return;
   var ctx = canvas.getContext('2d');
+  var t0 = performance.now();
 
   function resize(){
     canvas.width  = canvas.offsetWidth;
@@ -1418,33 +1422,98 @@ if(form) form.addEventListener('submit', e => {
   resize();
   window.addEventListener('resize', resize);
 
-  /* Warm light blobs — position, radius, color, drift speed, phase offset */
-  var blobs = [
-    { x:.18, y:.35, r:.52, h:217, s:189, l:134, a:.13, sp:0.00006, ph:0.0  },
-    { x:.55, y:.15, r:.40, h:232, s:212, l:168, a:.09, sp:0.00009, ph:1.8  },
-    { x:.08, y:.72, r:.44, h:200, s:170, l:110, a:.10, sp:0.00007, ph:3.4  },
-    { x:.38, y:.55, r:.35, h:245, s:220, l:185, a:.07, sp:0.00012, ph:5.1  },
-    { x:.72, y:.28, r:.38, h:184, s:150, l: 96, a:.08, sp:0.00005, ph:2.6  },
-  ];
+  /* ── Deterministic PRNG ── */
+  var seed = 1;
+  function rnd(){ seed=(seed*9301+49297)%233280; return seed/233280; }
 
-  function draw(ts){
-    var w = canvas.width, h = canvas.height;
-    ctx.clearRect(0,0,w,h);
-    blobs.forEach(function(b){
-      var ox = 0.07 * Math.sin(ts * b.sp * Math.PI * 2 + b.ph);
-      var oy = 0.06 * Math.cos(ts * b.sp * Math.PI * 2 + b.ph * 1.4);
-      var cx = (b.x + ox) * w;
-      var cy = (b.y + oy) * h;
-      var r  = b.r * Math.min(w, h) * 0.72;
-      var pulse = 1 + 0.06 * Math.sin(ts * b.sp * Math.PI * 4 + b.ph);
-      r *= pulse;
-      var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
-      g.addColorStop(0,   'rgba('+b.h+','+b.s+','+b.l+','+b.a+')');
-      g.addColorStop(0.5, 'rgba('+b.h+','+b.s+','+b.l+','+(b.a*.4)+')');
-      g.addColorStop(1,   'rgba('+b.h+','+b.s+','+b.l+',0)');
-      ctx.fillStyle = g;
-      ctx.fillRect(0,0,w,h);
+  /* ── Window grid — 14 cols × 7 rows ── */
+  var COLS=14, ROWS=7, cells=[];
+  for(var r=0;r<ROWS;r++){
+    for(var c=0;c<COLS;c++){
+      cells.push({r:r,c:c,
+        phase:rnd()*Math.PI*2,
+        rate: 0.25+rnd()*0.45,
+        baseOn:rnd(),
+        jx:(rnd()-.5)*0.004,
+        jy:(rnd()-.5)*0.004,
+      });
+    }
+  }
+
+  /* ── Gold dust motes — 28 particles ── */
+  seed=17;
+  var motes=[];
+  for(var i=0;i<28;i++){
+    motes.push({
+      x0:rnd(), y0:rnd(),
+      dx:(30+rnd()*120)/1920,
+      ph:rnd()*Math.PI*2,
+      rate:0.15+rnd()*0.4,
+      sz:1.2+rnd()*3.2,
+      op:0.22+rnd()*0.35,
+      vy:(4+rnd()*10)/1080,
     });
+  }
+
+  function draw(){
+    var w=canvas.width, h=canvas.height;
+    var t=(performance.now()-t0)/1000;
+    ctx.clearRect(0,0,w,h);
+
+    /* window grid */
+    var mX=0.0625*w, mY=0.139*h;
+    var gW=w-mX*2, gH=h-mY*2;
+    var cW=gW/COLS, cH=gH/ROWS;
+    var wW=cW*0.44, wH=cH*0.62;
+
+    for(var i=0;i<cells.length;i++){
+      var ce=cells[i];
+      var s=Math.sin(t*ce.rate+ce.phase);
+      var on=Math.max(0,s)*(0.3+ce.baseOn*0.7)*0.55;
+      var x=mX+ce.c*cW+(cW-wW)/2+ce.jx*w;
+      var y=mY+ce.r*cH+(cH-wH)/2+ce.jy*h;
+      var fop=0.10+on*0.12;
+
+      /* warm glow halo when lit */
+      if(on>0.05){
+        var pad=Math.max(wW,wH)*1.5;
+        var gr=ctx.createRadialGradient(x+wW/2,y+wH/2,0,x+wW/2,y+wH/2,pad);
+        gr.addColorStop(0,'rgba(217,189,134,'+(on*0.16)+')');
+        gr.addColorStop(1,'rgba(217,189,134,0)');
+        ctx.fillStyle=gr;
+        ctx.fillRect(x-pad,y-pad,wW+pad*2,wH+pad*2);
+      }
+
+      /* pane */
+      ctx.fillStyle='rgba(217,189,134,'+(on*0.42)+')';
+      ctx.fillRect(x,y,wW,wH);
+
+      /* frame */
+      ctx.strokeStyle='rgba(138,109,60,'+(fop*0.75)+')';
+      ctx.lineWidth=0.7;
+      ctx.strokeRect(x,y,wW,wH);
+
+      /* mullions */
+      ctx.strokeStyle='rgba(138,109,60,'+(fop*1.35)+')';
+      ctx.lineWidth=0.55;
+      ctx.beginPath();
+      ctx.moveTo(x,       y+wH*0.5); ctx.lineTo(x+wW,    y+wH*0.5);
+      ctx.moveTo(x+wW*0.5,y        ); ctx.lineTo(x+wW*0.5,y+wH    );
+      ctx.stroke();
+    }
+
+    /* gold dust motes */
+    for(var i=0;i<motes.length;i++){
+      var m=motes[i];
+      var mx=(m.x0+Math.sin(t*m.rate+m.ph)*m.dx)*w;
+      var my=((m.y0-t*m.vy)%1+1)%1*h;
+      var tw=0.6+0.4*Math.sin(t*(m.rate*2.5)+m.ph*1.3);
+      ctx.beginPath();
+      ctx.arc(mx,my,m.sz,0,Math.PI*2);
+      ctx.fillStyle='rgba(217,189,134,'+(m.op*tw)+')';
+      ctx.fill();
+    }
+
     requestAnimationFrame(draw);
   }
   requestAnimationFrame(draw);
