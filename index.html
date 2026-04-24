@@ -390,20 +390,20 @@ button{cursor:pointer;font-family:inherit;}
 .nz__video-wrap::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(180deg,transparent 60%,rgba(6,13,9,.35) 100%);
   border-radius:24px;}
-.nz__gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-.nz__photo{border-radius:14px;overflow:hidden;aspect-ratio:4/3;position:relative;}
+.nz__gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:12px;}
+.nz__photo{border-radius:14px;overflow:hidden;position:relative;}
 .nz__photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease);}
 .nz__photo:hover img{transform:scale(1.04);}
 .nz__photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(6,13,9,.28) 100%);pointer-events:none;}
 .nz__photo--wide{grid-column:span 2;}
 @media(max-width:900px){
   .nz{padding:80px 24px;}
-  .nz__gallery{grid-template-columns:repeat(2,1fr);}
+  .nz__gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px;}
   .nz__photo--wide{grid-column:span 2;}
   .nz__video-wrap{margin-bottom:48px;}
 }
 @media(max-width:520px){
-  .nz__gallery{grid-template-columns:1fr 1fr;gap:8px;}
+  .nz__gallery{grid-template-columns:1fr 1fr;grid-auto-rows:140px;gap:8px;}
   .nz__photo--wide{grid-column:span 2;}
 }
 
@@ -614,121 +614,6 @@ button{cursor:pointer;font-family:inherit;}
   </div>
 </section>
 
-<!-- 401K / IRA -->
-<section class="ira" id="ira">
-  <div class="ira__inner">
-    <!-- text column -->
-    <div class="ira__text">
-      <div class="ira__badge">
-        <span class="ira__dot"></span>
-        <span class="ira__eye">Did you know?</span>
-      </div>
-      <h2 class="ira__title">You can <em>invest</em> with your old <em>401K or IRA?</em></h2>
-      <p class="ira__body">Self-directed accounts unlock passive multifamily income, real-asset appreciation, and significant tax advantages — without triggering a taxable event. Our team guides you through every step of the process.</p>
-      <div class="ira__cta"><a class="btn btn-primary" href="./ira">Learn More</a></div>
-    </div>
-    <!-- photo column -->
-    <div class="ira__photo">
-      <picture><source srcset="./photos/ira.webp" type="image/webp"><img src="./photos/ira-opt.jpg" alt="IRA &amp; 401K real estate investing" loading="lazy"></picture>
-      <div class="ira__photo-badge">
-        <div class="ira__photo-badge-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#111827" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M2 17l10 5 10-5" stroke="#111827" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M2 12l10 5 10-5" stroke="#111827" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="ira__photo-badge-text">
-          <strong>Tax-Advantaged Investing</strong>
-          <span>Roll over your old 401K or IRA with no taxable event</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- values ticker — full bleed outside inner container -->
-  <div class="vticker">
-    <div class="vticker__track" id="vticker">
-      <span class="vticker__item">Abundance</span><span class="vticker__sep"></span>
-      <span class="vticker__item"><em>Honesty</em></span><span class="vticker__sep"></span>
-      <span class="vticker__item">Tenacity</span><span class="vticker__sep"></span>
-      <span class="vticker__item"><em>Integrity</em></span><span class="vticker__sep"></span>
-      <span class="vticker__item">Humility</span><span class="vticker__sep"></span>
-      <span class="vticker__item">Abundance</span><span class="vticker__sep"></span>
-      <span class="vticker__item"><em>Honesty</em></span><span class="vticker__sep"></span>
-      <span class="vticker__item">Tenacity</span><span class="vticker__sep"></span>
-      <span class="vticker__item"><em>Integrity</em></span><span class="vticker__sep"></span>
-      <span class="vticker__item">Humility</span><span class="vticker__sep"></span>
-      <span class="vticker__item">Abundance</span><span class="vticker__sep"></span>
-      <span class="vticker__item"><em>Honesty</em></span><span class="vticker__sep"></span>
-      <span class="vticker__item">Tenacity</span><span class="vticker__sep"></span>
-      <span class="vticker__item"><em>Integrity</em></span><span class="vticker__sep"></span>
-      <span class="vticker__item">Humility</span><span class="vticker__sep"></span>
-    </div>
-  </div>
-</section>
-
-<!-- STORY VIDEO -->
-<section class="story-video" id="story">
-  <div class="story-video__inner">
-    <div class="story-video__label">Our Story</div>
-    <div class="story-video__frame" id="videoFrame">
-      <video
-        id="storyVideo"
-        autoplay
-        muted
-        playsinline
-        controls
-        loop
-        preload="metadata"
-      >
-        <source src="https://pub-68989bd4060d43fa8b57ed2f93892825.r2.dev/The%20XSITE%20Story%20-%20How%20we%20made%20our%20wealth%20from%20working%20our%209%20to%205.mp4" type="video/mp4"/>
-        Your browser does not support HTML5 video.
-      </video>
-    </div>
-  </div>
-</section>
-
-<!-- AT A GLANCE -->
-<section class="glance">
-  <div class="glance__panel">
-    <div class="glance__top">
-      <div>
-        <div class="glance__eye">By the numbers · Q1 2026</div>
-        <h3 class="glance__title">XSITE Capital <em>at a glance</em></h3>
-      </div>
-      <div class="glance__upd">Updated quarterly</div>
-    </div>
-    <div class="glance__grid">
-      <div class="gstat">
-        <div class="gstat__num">$<span class="count" data-target="276" data-dec="0">0</span><sup>MM</sup></div>
-        <div class="gstat__label">Portfolio Value</div>
-      </div>
-      <div class="gstat">
-        <div class="gstat__num"><span class="count" data-target="1422" data-dec="0">0</span></div>
-        <div class="gstat__label">Doors Under Management</div>
-      </div>
-      <div class="gstat">
-        <div class="gstat__num">$<span class="count" data-target="10.2" data-dec="1">0</span><sup>MM</sup></div>
-        <div class="gstat__label">Returns Delivered</div>
-      </div>
-      <div class="gstat">
-        <div class="gstat__num"><span class="count" data-target="32" data-dec="0">0</span><sup>+yrs</sup></div>
-        <div class="gstat__label">Combined Experience</div>
-      </div>
-    </div>
-    <div class="press">
-      <div class="press__lbl">— AS SEEN ON —</div>
-      <div class="press__logos">
-        <a href="https://www.streetinsider.com/The+Financial+Capital/XSITE+Capital+Closes+188-Unit+Atlanta+Multifamily+Acquisition%2C+Surpassing+%24100+Million+in+Real+Estate+Acquired+in+Under+12+Months/26084761.html" target="_blank">STREET INSIDER</a>
-        <a href="https://www.newsbreak.com/dmr-news-321522575/4516619160852-xsite-capital-closes-188-unit-atlanta-multifamily-acquisition-surpassing-100-million-in-real-estate-acquired-in-under-12-months" target="_blank">NEWSBREAK</a>
-        <a href="https://apnews.com/press-release/marketersmedia/xsite-capital-closes-188-unit-atlanta-multifamily-acquisition-surpassing-100-million-in-real-estate-acquired-in-under-12-months-ea2f14111c9be1c5c32170056139afe0" target="_blank">ASSOCIATED PRESS</a>
-        <a href="https://markets.businessinsider.com/news/stocks/xsite-capital-closes-188-unit-atlanta-multifamily-acquisition-surpassing-100-million-in-real-estate-acquired-in-under-12-months-1035881646" target="_blank">BUSINESS INSIDER</a>
-        <a href="https://ipsnews.net/business/2026/03/02/xsite-capital-closes-188-unit-atlanta-multifamily-acquisition-surpassing-100-million-in-real-estate-acquired-in-under-12-months/" target="_blank">INTER PRESS SERVICE</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- SAVE TIME & BUILD WEALTH -->
 <section class="save" id="invest">
   <div class="save__inner">
@@ -783,6 +668,80 @@ button{cursor:pointer;font-family:inherit;}
         <h3 class="benefit__title">Portfolio Diversification</h3>
         <p class="benefit__body">By diversifying our investment strategies across various markets, we have effectively mitigated the impact of market downturns on our investors' portfolios.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY VIDEO -->
+<section class="story-video" id="story">
+  <div class="story-video__inner">
+    <div class="story-video__label">Our Story</div>
+    <div class="story-video__frame" id="videoFrame">
+      <video
+        id="storyVideo"
+        autoplay
+        muted
+        playsinline
+        controls
+        loop
+        preload="metadata"
+      >
+        <source src="https://pub-68989bd4060d43fa8b57ed2f93892825.r2.dev/The%20XSITE%20Story%20-%20How%20we%20made%20our%20wealth%20from%20working%20our%209%20to%205.mp4" type="video/mp4"/>
+        Your browser does not support HTML5 video.
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- 401K / IRA -->
+<section class="ira" id="ira">
+  <div class="ira__inner">
+    <!-- text column -->
+    <div class="ira__text">
+      <div class="ira__badge">
+        <span class="ira__dot"></span>
+        <span class="ira__eye">Did you know?</span>
+      </div>
+      <h2 class="ira__title">You can <em>invest</em> with your old <em>401K or IRA?</em></h2>
+      <p class="ira__body">Self-directed accounts unlock passive multifamily income, real-asset appreciation, and significant tax advantages — without triggering a taxable event. Our team guides you through every step of the process.</p>
+      <div class="ira__cta"><a class="btn btn-primary" href="./ira">Learn More</a></div>
+    </div>
+    <!-- photo column -->
+    <div class="ira__photo">
+      <picture><source srcset="./photos/ira.webp" type="image/webp"><img src="./photos/ira-opt.jpg" alt="IRA &amp; 401K real estate investing" loading="lazy"></picture>
+      <div class="ira__photo-badge">
+        <div class="ira__photo-badge-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#111827" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17l10 5 10-5" stroke="#111827" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12l10 5 10-5" stroke="#111827" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="ira__photo-badge-text">
+          <strong>Tax-Advantaged Investing</strong>
+          <span>Roll over your old 401K or IRA with no taxable event</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- values ticker — full bleed outside inner container -->
+  <div class="vticker">
+    <div class="vticker__track" id="vticker">
+      <span class="vticker__item">Abundance</span><span class="vticker__sep"></span>
+      <span class="vticker__item"><em>Honesty</em></span><span class="vticker__sep"></span>
+      <span class="vticker__item">Tenacity</span><span class="vticker__sep"></span>
+      <span class="vticker__item"><em>Integrity</em></span><span class="vticker__sep"></span>
+      <span class="vticker__item">Humility</span><span class="vticker__sep"></span>
+      <span class="vticker__item">Abundance</span><span class="vticker__sep"></span>
+      <span class="vticker__item"><em>Honesty</em></span><span class="vticker__sep"></span>
+      <span class="vticker__item">Tenacity</span><span class="vticker__sep"></span>
+      <span class="vticker__item"><em>Integrity</em></span><span class="vticker__sep"></span>
+      <span class="vticker__item">Humility</span><span class="vticker__sep"></span>
+      <span class="vticker__item">Abundance</span><span class="vticker__sep"></span>
+      <span class="vticker__item"><em>Honesty</em></span><span class="vticker__sep"></span>
+      <span class="vticker__item">Tenacity</span><span class="vticker__sep"></span>
+      <span class="vticker__item"><em>Integrity</em></span><span class="vticker__sep"></span>
+      <span class="vticker__item">Humility</span><span class="vticker__sep"></span>
     </div>
   </div>
 </section>
@@ -842,36 +801,42 @@ button{cursor:pointer;font-family:inherit;}
   </div>
 </section>
 
-<!-- VANGUARD MENTORSHIP -->
-<section class="vanguard" id="academy">
-  <div class="vanguard__inner">
-    <div class="vanguard__grid">
+<!-- AT A GLANCE -->
+<section class="glance">
+  <div class="glance__panel">
+    <div class="glance__top">
       <div>
-        <div class="sec-eye">Mentorship</div>
-        <p class="vanguard__pre">Build your own Multifamily behemoth</p>
-        <h2 class="vanguard__title">The Highly Coveted <em>Vanguard</em><br>1-On-1 Mentorship Program</h2>
-        <p class="vanguard__body">An exclusive mentorship experience for serious investors ready to build their own multifamily portfolio. Our founders work with you directly — deal sourcing, underwriting, capital raising, and closing.</p>
-        <div class="vanguard__cta">
-          <a class="btn btn-primary" href="https://learn.beyond9to5club.com/formvanguard" target="_blank">Check if You Qualify</a>
-        </div>
+        <div class="glance__eye">By the numbers · Q1 2026</div>
+        <h3 class="glance__title">XSITE Capital <em>at a glance</em></h3>
       </div>
-      <div class="vstats">
-        <div class="vstat">
-          <div class="vstat__num">$9+<span style="font-size:.55em">MM</span></div>
-          <div class="vstat__label">Capital Raised by Mentees</div>
-        </div>
-        <div class="vstat">
-          <div class="vstat__num">28</div>
-          <div class="vstat__label">New Businesses Created</div>
-        </div>
-        <div class="vstat">
-          <div class="vstat__num">$100+<span style="font-size:.55em">MM</span></div>
-          <div class="vstat__label">Assets Mentees Partnered as Co-GP</div>
-        </div>
-        <div class="vstat">
-          <div class="vstat__num">6+<span style="font-size:.55em">yrs</span></div>
-          <div class="vstat__label">Learning Time Saved</div>
-        </div>
+      <div class="glance__upd">Updated quarterly</div>
+    </div>
+    <div class="glance__grid">
+      <div class="gstat">
+        <div class="gstat__num">$<span class="count" data-target="276" data-dec="0">0</span><sup>MM</sup></div>
+        <div class="gstat__label">Portfolio Value</div>
+      </div>
+      <div class="gstat">
+        <div class="gstat__num"><span class="count" data-target="1422" data-dec="0">0</span></div>
+        <div class="gstat__label">Doors Under Management</div>
+      </div>
+      <div class="gstat">
+        <div class="gstat__num">$<span class="count" data-target="10.2" data-dec="1">0</span><sup>MM</sup></div>
+        <div class="gstat__label">Returns Delivered</div>
+      </div>
+      <div class="gstat">
+        <div class="gstat__num"><span class="count" data-target="32" data-dec="0">0</span><sup>+yrs</sup></div>
+        <div class="gstat__label">Combined Experience</div>
+      </div>
+    </div>
+    <div class="press">
+      <div class="press__lbl">— AS SEEN ON —</div>
+      <div class="press__logos">
+        <a href="https://www.streetinsider.com/The+Financial+Capital/XSITE+Capital+Closes+188-Unit+Atlanta+Multifamily+Acquisition%2C+Surpassing+%24100+Million+in+Real+Estate+Acquired+in+Under+12+Months/26084761.html" target="_blank">STREET INSIDER</a>
+        <a href="https://www.newsbreak.com/dmr-news-321522575/4516619160852-xsite-capital-closes-188-unit-atlanta-multifamily-acquisition-surpassing-100-million-in-real-estate-acquired-in-under-12-months" target="_blank">NEWSBREAK</a>
+        <a href="https://apnews.com/press-release/marketersmedia/xsite-capital-closes-188-unit-atlanta-multifamily-acquisition-surpassing-100-million-in-real-estate-acquired-in-under-12-months-ea2f14111c9be1c5c32170056139afe0" target="_blank">ASSOCIATED PRESS</a>
+        <a href="https://markets.businessinsider.com/news/stocks/xsite-capital-closes-188-unit-atlanta-multifamily-acquisition-surpassing-100-million-in-real-estate-acquired-in-under-12-months-1035881646" target="_blank">BUSINESS INSIDER</a>
+        <a href="https://ipsnews.net/business/2026/03/02/xsite-capital-closes-188-unit-atlanta-multifamily-acquisition-surpassing-100-million-in-real-estate-acquired-in-under-12-months/" target="_blank">INTER PRESS SERVICE</a>
       </div>
     </div>
   </div>
@@ -911,36 +876,36 @@ button{cursor:pointer;font-family:inherit;}
   </div>
 </section>
 
-<!-- COMMUNITY / TESTIMONIALS -->
-<section class="community">
-  <div class="community__inner">
-    <div class="community__kicker">Our community</div>
-    <h2 class="community__title">XSITE has helped over <em>500+ professionals</em> change the way they think about money.</h2>
-    <p class="community__sub">XSITE Capital's success is a testament to the unwavering trust and support of our community of investors. We express our deepest gratitude for your belief in our vision and endeavors.</p>
-    <div class="tcards">
-      <div class="tcard">
-        <p class="tcard__q">"The day I stop doing the work is the day I stop earning. Investing has allowed me to see the power of passive income – I see the distributions monthly."</p>
-        <div class="tcard__attr"><div class="tcard__av"></div><div><div class="tcard__name">Martial Lekane</div><div class="tcard__role">Investor</div></div></div>
+<!-- VANGUARD MENTORSHIP -->
+<section class="vanguard" id="academy">
+  <div class="vanguard__inner">
+    <div class="vanguard__grid">
+      <div>
+        <div class="sec-eye">Mentorship</div>
+        <p class="vanguard__pre">Build your own Multifamily behemoth</p>
+        <h2 class="vanguard__title">The Highly Coveted <em>Vanguard</em><br>1-On-1 Mentorship Program</h2>
+        <p class="vanguard__body">An exclusive mentorship experience for serious investors ready to build their own multifamily portfolio. Our founders work with you directly — deal sourcing, underwriting, capital raising, and closing.</p>
+        <div class="vanguard__cta">
+          <a class="btn btn-primary" href="https://learn.beyond9to5club.com/formvanguard" target="_blank">Check if You Qualify</a>
+        </div>
       </div>
-      <div class="tcard">
-        <p class="tcard__q">"Great works of humanity for you and your team, keep up the amazing work, we are proud."</p>
-        <div class="tcard__attr"><div class="tcard__av"></div><div><div class="tcard__name">Monica N.</div><div class="tcard__role">Investor</div></div></div>
-      </div>
-      <div class="tcard">
-        <p class="tcard__q">"Amazing team! I can't wait to see how they outperform your expectations and grow your investment. Blessed to partner with XSITE Capital Investment!"</p>
-        <div class="tcard__attr"><div class="tcard__av"></div><div><div class="tcard__name">Lyla Scott</div><div class="tcard__role">Investor</div></div></div>
-      </div>
-      <div class="tcard">
-        <p class="tcard__q">"The beauty of XSITE Capital is they held my hand at every step of the way. I asked questions, I called at odd hours, and they were always there."</p>
-        <div class="tcard__attr"><div class="tcard__av"></div><div><div class="tcard__name">Dr. Nkem Ezeamama</div><div class="tcard__role">Physician &amp; Investor</div></div></div>
-      </div>
-      <div class="tcard">
-        <p class="tcard__q">"The trio of Leslie, Tenny and Julius Oni, will literally hold your hands and guide you through the complexities of Multifamily real estate. You can't go wrong with them."</p>
-        <div class="tcard__attr"><div class="tcard__av"></div><div><div class="tcard__name">Lajide Lawoyin</div><div class="tcard__role">Investor</div></div></div>
-      </div>
-      <div class="tcard">
-        <p class="tcard__q">"I never imagined I could possibly own something like this, but being here today and experiencing this has shown me what is truly possible."</p>
-        <div class="tcard__attr"><div class="tcard__av"></div><div><div class="tcard__name">Jeremy Krebs</div><div class="tcard__role">Investor</div></div></div>
+      <div class="vstats">
+        <div class="vstat">
+          <div class="vstat__num">$9+<span style="font-size:.55em">MM</span></div>
+          <div class="vstat__label">Capital Raised by Mentees</div>
+        </div>
+        <div class="vstat">
+          <div class="vstat__num">28</div>
+          <div class="vstat__label">New Businesses Created</div>
+        </div>
+        <div class="vstat">
+          <div class="vstat__num">$100+<span style="font-size:.55em">MM</span></div>
+          <div class="vstat__label">Assets Mentees Partnered as Co-GP</div>
+        </div>
+        <div class="vstat">
+          <div class="vstat__num">6+<span style="font-size:.55em">yrs</span></div>
+          <div class="vstat__label">Learning Time Saved</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1011,6 +976,41 @@ button{cursor:pointer;font-family:inherit;}
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- COMMUNITY / TESTIMONIALS -->
+<section class="community">
+  <div class="community__inner">
+    <div class="community__kicker">Our community</div>
+    <h2 class="community__title">XSITE has helped over <em>500+ professionals</em> change the way they think about money.</h2>
+    <p class="community__sub">XSITE Capital's success is a testament to the unwavering trust and support of our community of investors. We express our deepest gratitude for your belief in our vision and endeavors.</p>
+    <div class="tcards">
+      <div class="tcard">
+        <p class="tcard__q">"The day I stop doing the work is the day I stop earning. Investing has allowed me to see the power of passive income – I see the distributions monthly."</p>
+        <div class="tcard__attr"><div class="tcard__av"></div><div><div class="tcard__name">Martial Lekane</div><div class="tcard__role">Investor</div></div></div>
+      </div>
+      <div class="tcard">
+        <p class="tcard__q">"Great works of humanity for you and your team, keep up the amazing work, we are proud."</p>
+        <div class="tcard__attr"><div class="tcard__av"></div><div><div class="tcard__name">Monica N.</div><div class="tcard__role">Investor</div></div></div>
+      </div>
+      <div class="tcard">
+        <p class="tcard__q">"Amazing team! I can't wait to see how they outperform your expectations and grow your investment. Blessed to partner with XSITE Capital Investment!"</p>
+        <div class="tcard__attr"><div class="tcard__av"></div><div><div class="tcard__name">Lyla Scott</div><div class="tcard__role">Investor</div></div></div>
+      </div>
+      <div class="tcard">
+        <p class="tcard__q">"The beauty of XSITE Capital is they held my hand at every step of the way. I asked questions, I called at odd hours, and they were always there."</p>
+        <div class="tcard__attr"><div class="tcard__av"></div><div><div class="tcard__name">Dr. Nkem Ezeamama</div><div class="tcard__role">Physician &amp; Investor</div></div></div>
+      </div>
+      <div class="tcard">
+        <p class="tcard__q">"The trio of Leslie, Tenny and Julius Oni, will literally hold your hands and guide you through the complexities of Multifamily real estate. You can't go wrong with them."</p>
+        <div class="tcard__attr"><div class="tcard__av"></div><div><div class="tcard__name">Lajide Lawoyin</div><div class="tcard__role">Investor</div></div></div>
+      </div>
+      <div class="tcard">
+        <p class="tcard__q">"I never imagined I could possibly own something like this, but being here today and experiencing this has shown me what is truly possible."</p>
+        <div class="tcard__attr"><div class="tcard__av"></div><div><div class="tcard__name">Jeremy Krebs</div><div class="tcard__role">Investor</div></div></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1268,3 +1268,4 @@ if(form) form.addEventListener('submit', e => {
 </script>
 </body>
 </html>
+
