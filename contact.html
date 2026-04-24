@@ -187,7 +187,10 @@ button{cursor:pointer;font-family:inherit;}
   transition:border-color .18s,box-shadow .18s;
 }
 .phone-wrap:focus-within{border-color:rgba(184,150,96,.65);box-shadow:0 0 0 3px rgba(184,150,96,.15);}
-.phone-prefix{padding:12px 12px 12px 16px;font-size:14px;color:rgba(245,241,232,.55);border-right:1px solid rgba(217,189,134,.18);white-space:nowrap;flex-shrink:0;}
+.phone-prefix{padding:0;border-right:1px solid rgba(217,189,134,.18);white-space:nowrap;flex-shrink:0;position:relative;}
+.phone-prefix select{appearance:none;-webkit-appearance:none;background:transparent;border:none;outline:none;padding:12px 28px 12px 14px;font-size:14px;color:rgba(245,241,232,.75);cursor:pointer;font-family:var(--fb);letter-spacing:.02em;min-width:90px;}
+.phone-prefix select option{background:#1a2235;color:rgba(245,241,232,.9);}
+.phone-prefix::after{content:"▾";position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:10px;color:rgba(217,189,134,.6);pointer-events:none;}
 .phone-wrap input{background:transparent;border:none;box-shadow:none !important;border-radius:0;flex:1;padding:12px 16px;}
 .phone-wrap input:focus{border-color:transparent;background:transparent;}
 
@@ -437,11 +440,34 @@ button{cursor:pointer;font-family:inherit;}
       <div class="field">
         <label for="phone">Your phone number<span class="req">*</span></label>
         <div class="phone-wrap">
-          <span class="phone-prefix">🇺🇸 &nbsp;+1</span>
+          <div class="phone-prefix">
+            <select id="countryCode" name="countryCode" aria-label="Country code">
+              <option value="+1">🇺🇸 +1</option>
+              <option value="+1-CA">🇨🇦 +1</option>
+              <option value="+44">🇬🇧 +44</option>
+              <option value="+61">🇦🇺 +61</option>
+              <option value="+64">🇳🇿 +64</option>
+              <option value="+353">🇮🇪 +353</option>
+              <option value="+91">🇮🇳 +91</option>
+              <option value="+971">🇦🇪 +971</option>
+              <option value="+65">🇸🇬 +65</option>
+              <option value="+52">🇲🇽 +52</option>
+              <option value="+55">🇧🇷 +55</option>
+              <option value="+234">🇳🇬 +234</option>
+              <option value="+254">🇰🇪 +254</option>
+              <option value="+27">🇿🇦 +27</option>
+              <option value="+33">🇫🇷 +33</option>
+              <option value="+49">🇩🇪 +49</option>
+              <option value="+31">🇳🇱 +31</option>
+              <option value="+46">🇸🇪 +46</option>
+            </select>
+          </div>
           <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required/>
         </div>
       </div>
-      <label for="source">Where did you hear about us?</label>
+
+      <div class="field">
+        <label for="source">Where did you hear about us?</label>
         <select id="source" name="source">
           <option value="" disabled selected>(select)</option>
           <option>Instagram</option>
@@ -620,7 +646,7 @@ if(form) {
           first_name:   data.get('firstName'),
           last_name:    data.get('lastName'),
           email:        data.get('email'),
-          phone:        data.get('phone'),
+          phone:        (data.get('countryCode') || '+1') + ' ' + data.get('phone'),
           accredited:   data.get('accredited'),
           heard_from:   data.get('source'),
           sms_consent:  data.get('smsConsent') === 'on',
