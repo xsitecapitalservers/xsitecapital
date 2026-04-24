@@ -381,6 +381,16 @@ button{cursor:pointer;font-family:inherit;}
   .footer__cols{grid-template-columns:1fr;}
   .ira-hero__inner,.problem__inner,.why__inner,.how__inner,.faq-sec__inner,.ira-form-sec__inner,.advanta__inner,.footer__inner,.footer__bot,.footer__disc{padding-left:20px;padding-right:20px;}
 }
+.phone-wrap{
+  display:flex;align-items:center;
+  background:rgba(255,255,255,.08);border:1px solid rgba(217,189,134,.22);
+  border-radius:10px;overflow:hidden;
+  transition:border-color .18s,box-shadow .18s;
+}
+.phone-wrap:focus-within{border-color:rgba(184,150,96,.65);box-shadow:0 0 0 3px rgba(184,150,96,.15);}
+.phone-prefix{padding:12px 12px 12px 16px;font-size:14px;color:rgba(245,241,232,.55);border-right:1px solid rgba(217,189,134,.18);white-space:nowrap;flex-shrink:0;}
+.phone-wrap input{background:transparent;border:none;box-shadow:none !important;border-radius:0;flex:1;padding:12px 16px;}
+.phone-wrap input:focus{border-color:transparent;background:transparent;}
 </style>
 </head>
 <body>
@@ -761,25 +771,7 @@ button{cursor:pointer;font-family:inherit;}
         </div>
         <div class="form-group">
           <label for="iraPhone">Phone Number *</label>
-          <input type="tel" id="iraPhone" name="phone" placeholder="(555) 000-0000" required/>
-        </div>
-        <div class="form-group">
-          <label for="iraCountry">Country</label>
-          <select id="iraCountry" name="country">
-            <option value="" disabled selected>Select your country</option>
-            <option value="US">🇺🇸 United States</option>
-            <option value="CA">🇨🇦 Canada</option>
-            <option value="GB">🇬🇧 United Kingdom</option>
-            <option value="NG">🇳🇬 Nigeria</option>
-            <option value="GH">🇬🇭 Ghana</option>
-            <option value="KE">🇰🇪 Kenya</option>
-            <option value="ZA">🇿🇦 South Africa</option>
-            <option value="JM">🇯🇲 Jamaica</option>
-            <option value="TT">🇹🇹 Trinidad &amp; Tobago</option>
-            <option value="AU">🇦🇺 Australia</option>
-            <option value="AE">🇦🇪 UAE</option>
-            <option value="OTHER">Other</option>
-          </select>
+          <div class="phone-wrap"><span class="phone-prefix">🇺🇸 &nbsp;+1</span><input type="tel" id="iraPhone" name="phone" placeholder="(555) 000-0000" required/></div>
         </div>
         <div class="form-group">
           <label for="iraAccountType">IRA / Account Type</label>
