@@ -113,6 +113,44 @@ button{cursor:pointer;font-family:inherit;}
 .hero__ghost:hover{color:var(--ink);}
 .hero__bbb{margin-top:28px;display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(17,24,39,.05);border:1px solid var(--hair);font-size:12px;color:var(--ash);}
 
+/* ── NINTH ZERO TEASER ──────────────────────────────── */
+.nz-teaser{
+  position:relative;margin-bottom:14px;border-radius:16px;overflow:hidden;
+  background:linear-gradient(135deg,rgba(17,24,39,.92) 0%,rgba(28,38,56,.95) 60%,rgba(10,16,22,.96) 100%);
+  border:1px solid rgba(217,189,134,.28);
+  padding:16px 20px 16px 52px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  cursor:pointer;text-decoration:none;color:inherit;
+  box-shadow:inset 0 1px 0 rgba(217,189,134,.18),0 8px 28px rgba(17,24,39,.28);
+  transition:border-color .22s, box-shadow .22s;
+}
+.nz-teaser:hover{border-color:rgba(217,189,134,.55);box-shadow:inset 0 1px 0 rgba(217,189,134,.25),0 12px 40px rgba(17,24,39,.38);}
+/* animated gold ambient orb */
+.nz-teaser::before{
+  content:"";position:absolute;left:-18px;top:50%;transform:translateY(-50%);
+  width:60px;height:60px;border-radius:50%;
+  background:radial-gradient(circle,rgba(184,150,96,.55) 0%,rgba(184,150,96,0) 70%);
+  animation:nz-pulse 3s ease-in-out infinite;pointer-events:none;
+}
+@keyframes nz-pulse{
+  0%,100%{opacity:.7;transform:translateY(-50%) scale(1);}
+  50%{opacity:1;transform:translateY(-50%) scale(1.25);}
+}
+.nz-teaser__seal{
+  position:absolute;left:16px;top:50%;transform:translateY(-50%);
+  width:26px;height:26px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(184,150,96,.9),rgba(138,109,60,.7));
+  border:1px solid rgba(217,189,134,.5);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:rgba(255,255,255,.9);flex-shrink:0;
+}
+.nz-teaser__text{flex:1;min-width:0;}
+.nz-teaser__eyebrow{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(217,189,134,.65);margin-bottom:3px;}
+.nz-teaser__title{font-family:var(--fd);font-size:15px;font-weight:400;color:var(--cream);letter-spacing:-.01em;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.nz-teaser__title em{font-style:italic;color:var(--gold-l);}
+.nz-teaser__arrow{font-size:13px;color:rgba(217,189,134,.6);flex-shrink:0;transition:transform .18s,color .18s;}
+.nz-teaser:hover .nz-teaser__arrow{transform:translateX(4px);color:var(--gold-l);}
+
 /* Stat tiles */
 .hero__tiles{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:auto auto auto;gap:14px;perspective:1200px;transition:transform .4s var(--ease);}
 .hero__tiles .tile:nth-child(1){grid-column:1;grid-row:1;}
@@ -652,9 +690,18 @@ button{cursor:pointer;font-family:inherit;}
         <a class="btn btn-primary" href="./contact.html">Get A Free Consultation</a>
         <a class="hero__ghost" href="./assets.html">View portfolio →</a>
       </div>
-      <div class="hero__bbb">★★★★★ &nbsp;BBB Accredited Business</div>
+      <a class="hero__bbb" href="https://www.bbb.org/us/md/columbia/profile/investment-management/xsite-capital-investment-0011-90378819" target="_blank" rel="noopener" style="display:inline-flex;">★★★★★ &nbsp;BBB Accredited Business</a>
     </div>
-    <!-- Right: stat tiles -->
+    <!-- Right: Ninth Zero teaser + stat tiles -->
+    <div>
+    <a class="nz-teaser" href="#ninth-zero">
+      <span class="nz-teaser__seal">◆</span>
+      <div class="nz-teaser__text">
+        <div class="nz-teaser__eyebrow">The Inner Circle</div>
+        <div class="nz-teaser__title">The Order of the <em>Ninth Zero</em></div>
+      </div>
+      <span class="nz-teaser__arrow">→</span>
+    </a>
     <div class="hero__tiles" id="tileStack">
       <a class="tile" id="t1" href="./assets" style="text-decoration:none;color:inherit;display:block;cursor:pointer;">
         <p class="tile__label">Portfolio Value</p>
@@ -682,6 +729,7 @@ button{cursor:pointer;font-family:inherit;}
         </div>
       </div>
     </div>
+    </div><!-- /nz-teaser + tiles wrapper -->
   </div>
   <!-- Ticker -->
   <div class="ticker" style="margin-top:64px;position:relative;z-index:2">
@@ -1027,7 +1075,7 @@ button{cursor:pointer;font-family:inherit;}
 </section>
 
 <!-- ORDER OF THE NINTH ZERO -->
-<section class="nz">
+<section class="nz" id="ninth-zero">
   <div class="nz__inner">
 
     <!-- Header -->
