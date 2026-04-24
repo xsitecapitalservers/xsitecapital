@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Tenny Tolofari | CGO & Co-Founder | XSITE Capital</title>
+<meta name="description" content="Tenny Tolofari is the Chief Growth Officer and Co-Founder of XSITE Capital Investment. Entrepreneur, acquisition specialist, and mentor helping professionals achieve financial freedom."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap"/>
+<style>
+:root{
+  --forest:#0f1d14;--forest-900:#060d09;--forest-700:#162a1b;--forest-500:#1e3a26;
+  --gold:#B89660;--gold-l:#D9BD86;--gold-d:#8A6D3C;
+  --ember:#7A1E2B;--ember-d:#5E1722;
+  --cream:#F5F1E8;--cream-r:#FBF8F1;--cream-s:#ECE6D7;
+  --ink:#14161C;--ink-s:#2A2D36;--ash:#6B6B6B;--hair:#D6D0BF;
+  --fd:'Fraunces',Georgia,serif;--fb:'Inter',-apple-system,system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:var(--fb);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;background:radial-gradient(circle at 18% 28%,rgba(184,150,96,.07) 0%,transparent 55%),radial-gradient(circle at 82% 72%,rgba(17,24,39,.04) 0%,transparent 55%);}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+button{cursor:pointer;font-family:inherit;}
+
+/* NAV */
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);width:calc(100% - 32px);max-width:1280px;height:62px;z-index:200;border-radius:999px;padding:0 8px 0 24px;display:flex;align-items:center;justify-content:space-between;background:rgba(251,248,241,.72);border:1px solid rgba(255,255,255,.75);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 8px 32px rgba(17,24,39,.08);transition:top .28s var(--ease),box-shadow .28s var(--ease);}
+.nav.scrolled{top:8px;}
+.nav__logo img{height:28px;width:auto;display:block;}
+.nav__links{display:flex;align-items:center;gap:1px;}
+.nav__link{padding:7px 13px;font-size:13.5px;font-weight:500;color:var(--ink-s);border-radius:999px;transition:color .15s,background .15s;}
+.nav__link:hover,.nav__link.active{color:var(--ink);background:rgba(255,255,255,.6);}
+.nav__ebook{padding:7px 13px;font-size:13.5px;font-weight:600;color:var(--gold-d);border-radius:999px;transition:background .15s;}
+.nav__ebook:hover{background:rgba(138,109,60,.1);}
+.nav__cta{margin-left:8px;padding:9px 20px;font-size:13.5px;font-weight:600;letter-spacing:.02em;border-radius:999px;border:1px solid rgba(217,189,134,.5);background:linear-gradient(180deg,#96293A 0%,#7A1E2B 55%,#5E1722 100%);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 6px 18px rgba(122,30,43,.35);transition:transform .14s,box-shadow .16s;}
+.nav__cta:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 10px 28px rgba(122,30,43,.48);}
+.nav__ham{display:none;background:none;border:none;padding:8px;color:var(--ink);}
+
+/* MOBILE DRAWER */
+.nav__drawer{position:fixed;top:0;left:0;right:0;z-index:199;background:rgba(251,248,241,.97);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);border-bottom:1px solid var(--hair);padding:88px 24px 32px;transform:translateY(-110%);transition:transform .32s cubic-bezier(.2,.7,.2,1);box-shadow:0 16px 48px rgba(17,24,39,.12);}
+.nav__drawer.open{transform:translateY(0);}
+.nav__drawer-links{display:flex;flex-direction:column;gap:4px;}
+.nav__drawer-link{display:block;padding:13px 16px;border-radius:12px;font-size:15px;font-weight:500;color:var(--ink-s);transition:background .15s,color .15s;}
+.nav__drawer-link:hover{background:rgba(17,24,39,.05);color:var(--ink);}
+.nav__drawer-link.active{color:var(--ink);font-weight:600;}
+.nav__drawer-link--gold{color:var(--gold-d);font-weight:600;}
+.nav__drawer-divider{height:1px;background:var(--hair);margin:12px 0;}
+.nav__drawer-cta{display:block;margin-top:16px;padding:15px;border-radius:14px;text-align:center;font-size:15px;font-weight:600;letter-spacing:.02em;background:linear-gradient(180deg,#96293A 0%,#7A1E2B 55%,#5E1722 100%);color:#fff;border:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 6px 18px rgba(122,30,43,.35);}
+
+/* BIO HERO */
+.bio-hero{padding:130px 40px 80px;position:relative;overflow:hidden;background:linear-gradient(160deg,var(--forest) 0%,var(--forest-900) 100%);}
+.bio-hero::before{content:"";position:absolute;top:-30%;left:-10%;width:60%;height:100%;background:radial-gradient(circle,rgba(217,189,134,.14) 0%,transparent 65%);filter:blur(60px);pointer-events:none;}
+.bio-hero::after{content:"";position:absolute;bottom:-20%;right:-5%;width:40%;height:80%;background:radial-gradient(circle,rgba(30,58,38,.5) 0%,transparent 65%);filter:blur(50px);pointer-events:none;}
+.bio-hero__inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:340px 1fr;gap:72px;align-items:center;position:relative;z-index:1;}
+.bio-hero__photo{border-radius:24px;overflow:hidden;box-shadow:0 32px 72px rgba(0,0,0,.45),0 0 0 1px rgba(217,189,134,.2);aspect-ratio:3/4;}
+.bio-hero__photo img{width:100%;height:100%;object-fit:cover;object-position:50% 0%;}
+.bio-hero__back{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:rgba(217,189,134,.7);margin-bottom:28px;transition:color .15s;}
+.bio-hero__back:hover{color:var(--gold-l);}
+.bio-hero__back svg{transition:transform .15s;}
+.bio-hero__back:hover svg{transform:translateX(-3px);}
+.bio-hero__role-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--forest);background:var(--gold);padding:4px 14px;border-radius:999px;margin-bottom:20px;}
+.bio-hero__name{font-family:var(--fd);font-size:clamp(2.4rem,4.5vw,4rem);font-weight:400;line-height:1.06;letter-spacing:-.025em;color:var(--cream);margin-bottom:8px;}
+.bio-hero__title{font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(217,189,134,.75);margin-bottom:32px;}
+.bio-hero__meta{display:flex;flex-direction:column;gap:10px;margin-bottom:36px;}
+.bio-hero__meta-item{display:flex;align-items:center;gap:10px;font-size:14.5px;color:rgba(245,241,232,.72);}
+.bio-hero__meta-item a{color:rgba(245,241,232,.72);transition:color .15s;}
+.bio-hero__meta-item a:hover{color:var(--gold-l);}
+.bio-hero__meta-icon{width:32px;height:32px;border-radius:50%;background:rgba(217,189,134,.12);border:1px solid rgba(217,189,134,.22);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold-l);}
+.bio-hero__actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;font-family:var(--fb);font-size:14px;font-weight:600;letter-spacing:.02em;border:1px solid rgba(217,189,134,.45);background:linear-gradient(180deg,#96293A 0%,#7A1E2B 55%,#5E1722 100%);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 6px 18px rgba(122,30,43,.38);transition:box-shadow .16s;}
+.btn-primary:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 12px 30px rgba(122,30,43,.52);}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;font-family:var(--fb);font-size:14px;font-weight:600;letter-spacing:.02em;border:1px solid rgba(217,189,134,.3);color:var(--gold-l);transition:background .16s;}
+.btn-ghost:hover{background:rgba(217,189,134,.1);}
+
+/* BIO BODY */
+.bio-body{padding:100px 40px;background:var(--cream-r);}
+.bio-body__inner{max-width:800px;margin:0 auto;}
+.bio-body__eyebrow{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-d);margin-bottom:32px;}
+.bio-body__eyebrow::before{content:"";width:28px;height:1px;background:var(--gold);}
+.bio-body__text{font-size:18px;line-height:1.8;color:var(--ink-s);}
+.bio-body__text p{margin-bottom:22px;}
+.bio-body__text p:last-child{margin-bottom:0;}
+
+/* QUOTE */
+.bio-quote{padding:80px 40px;background:linear-gradient(160deg,var(--forest-700) 0%,var(--forest) 60%,var(--forest-900) 100%);position:relative;overflow:hidden;}
+.bio-quote::before{content:"";position:absolute;top:-20%;left:-10%;width:50%;height:90%;background:radial-gradient(circle,rgba(217,189,134,.12) 0%,transparent 65%);filter:blur(50px);pointer-events:none;}
+.bio-quote__inner{max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+.bio-quote__mark{font-family:var(--fd);font-size:100px;line-height:.6;color:rgba(217,189,134,.2);margin-bottom:16px;display:block;}
+.bio-quote__text{font-family:var(--fd);font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:400;font-style:italic;line-height:1.4;letter-spacing:-.015em;color:var(--cream);}
+.bio-quote__text em{color:var(--gold-l);font-style:normal;}
+
+/* LINKS SECTION */
+.bio-links{padding:100px 40px;background:var(--cream);}
+.bio-links__inner{max-width:1000px;margin:0 auto;}
+.bio-links__title{font-family:var(--fd);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;letter-spacing:-.02em;color:var(--ink);margin-bottom:40px;}
+.bio-links__title em{font-style:italic;color:var(--gold-d);}
+.bio-links__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.bio-link-card{border-radius:20px;padding:28px 32px;background:var(--cream-r);border:1px solid var(--hair);box-shadow:0 1px 3px rgba(17,24,39,.06);transition:transform .2s var(--ease),box-shadow .2s var(--ease);display:flex;flex-direction:column;gap:10px;}
+.bio-link-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(17,24,39,.11);}
+.bio-link-card__tag{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d);background:rgba(184,150,96,.12);border:1px solid rgba(184,150,96,.25);border-radius:999px;padding:3px 10px;align-self:flex-start;}
+.bio-link-card__title{font-family:var(--fd);font-size:1.2rem;font-weight:500;letter-spacing:-.01em;color:var(--ink);line-height:1.2;}
+.bio-link-card__sub{font-size:14px;color:var(--ash);line-height:1.5;}
+.bio-link-card__arrow{margin-top:auto;padding-top:16px;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--gold-d);transition:gap .15s;}
+.bio-link-card:hover .bio-link-card__arrow{gap:10px;}
+
+/* FOOTER */
+@keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.footer{background:linear-gradient(180deg,#070B15 0%,#0d1420 100%);color:var(--cream);position:relative;overflow:hidden;}
+.footer::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 15% 20%,rgba(184,150,96,.08) 0%,transparent 60%);pointer-events:none;}
+.fticker{overflow:hidden;padding:18px 0;border-bottom:1px solid rgba(217,189,134,.18);}
+.fticker__track{display:flex;align-items:center;gap:36px;width:max-content;animation:tick 18s linear infinite;}
+.fticker__item{font-style:italic;font-size:15px;color:rgba(217,189,134,.72);white-space:nowrap;}
+.fticker__dot{width:4px;height:4px;border-radius:50%;background:rgba(217,189,134,.38);}
+.footer__inner{max-width:1280px;margin:0 auto;padding:72px 40px 0;display:grid;grid-template-columns:1.4fr 2fr;gap:80px;position:relative;}
+.footer__brand{display:flex;flex-direction:column;gap:16px;}
+.footer__logo{display:flex;align-items:center;gap:10px;font-family:var(--fd);font-size:22px;font-weight:500;color:var(--cream);}
+.footer__desc{font-size:14.5px;color:rgba(245,241,232,.6);line-height:1.65;max-width:300px;}
+.footer__tag{font-style:italic;font-size:14px;color:rgba(217,189,134,.85);}
+.footer__contact p{font-size:13.5px;color:rgba(245,241,232,.58);line-height:1.85;}
+.footer__contact a{color:rgba(245,241,232,.58);transition:color .15s;}
+.footer__contact a:hover{color:var(--gold-l);}
+.footer__socials{display:flex;gap:10px;}
+.footer__soc{width:34px;height:34px;border-radius:50%;background:rgba(217,189,134,.10);border:1px solid rgba(217,189,134,.22);display:flex;align-items:center;justify-content:center;color:rgba(217,189,134,.72);transition:background .15s,color .15s;}
+.footer__soc:hover{background:rgba(217,189,134,.22);color:var(--gold-l);}
+.footer__cols{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.footer__col h4{font-style:italic;font-size:12.5px;color:rgba(217,189,134,.78);letter-spacing:.08em;margin-bottom:16px;font-weight:500;}
+.footer__col ul{list-style:none;}
+.footer__col li{padding:5px 0;}
+.footer__col li a{font-size:14px;color:rgba(245,241,232,.62);transition:color .15s;}
+.footer__col li a:hover{color:var(--gold-l);}
+.footer__bot{max-width:1280px;margin:52px auto 0;padding:22px 40px 0;border-top:1px solid rgba(217,189,134,.15);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer__copy{font-size:12px;color:rgba(245,241,232,.42);letter-spacing:.03em;}
+.footer__links{display:flex;gap:20px;}
+.footer__links a{font-size:12px;color:rgba(245,241,232,.42);transition:color .15s;}
+.footer__links a:hover{color:rgba(245,241,232,.72);}
+.footer__disc{max-width:1280px;margin:0 auto;padding:22px 40px 40px;font-size:11px;color:rgba(245,241,232,.28);line-height:1.7;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav__links{display:none;}.nav__ham{display:block;}
+  .bio-hero{padding:110px 24px 64px;}
+  .bio-hero__inner{grid-template-columns:1fr;gap:40px;}
+  .bio-hero__photo{max-width:320px;margin:0 auto;}
+  .bio-body{padding:72px 24px;}
+  .bio-quote{padding:64px 24px;}
+  .bio-links{padding:72px 24px;}
+  .bio-links__grid{grid-template-columns:1fr;}
+  .footer__inner{grid-template-columns:1fr;gap:40px;padding:56px 24px 0;}
+  .footer__cols{grid-template-columns:repeat(2,1fr);}
+  .footer__bot{flex-direction:column;text-align:center;padding:20px 24px 0;}
+  .footer__disc{padding:20px 24px 32px;}
+}
+@media(max-width:500px){
+  .bio-hero__actions{flex-direction:column;}
+  .footer__cols{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a class="nav__logo" href="./index.html">
+    <img src="./logo/XSITE Gold.png" alt="XSITE Capital"/>
+  </a>
+  <div class="nav__links">
+    <a class="nav__link" href="./index.html">HOME</a>
+    <a class="nav__link active" href="./team.html">TEAM</a>
+    <a class="nav__link" href="./assets.html">ASSETS</a>
+    <a class="nav__link" href="./faq.html">FAQ</a>
+    <a class="nav__link" href="./retirewise.html">RetireWise</a>
+    <a class="nav__link" href="./webinars.html">WEBINARS</a>
+    <a class="nav__link" href="https://learn.beyond9to5club.com" target="_blank">LEARN</a>
+    <a class="nav__ebook" href="https://learn.beyond9to5club.com/ebook" target="_blank">Free eBook</a>
+    <a class="nav__cta" href="./contact.html">Get A Free Consultation</a>
+  </div>
+  <button class="nav__ham" id="navHam" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 7h16M3 11h16M3 15h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+  </button>
+</nav>
+<div class="nav__drawer" id="navDrawer" aria-hidden="true">
+  <div class="nav__drawer-links">
+    <a class="nav__drawer-link" href="./index.html">HOME</a>
+    <a class="nav__drawer-link active" href="./team.html">TEAM</a>
+    <a class="nav__drawer-link" href="./assets.html">ASSETS</a>
+    <a class="nav__drawer-link" href="./faq.html">FAQ</a>
+    <a class="nav__drawer-link" href="./retirewise.html">RetireWise</a>
+    <a class="nav__drawer-link" href="./webinars.html">WEBINARS</a>
+    <a class="nav__drawer-link" href="https://learn.beyond9to5club.com" target="_blank">LEARN</a>
+    <div class="nav__drawer-divider"></div>
+    <a class="nav__drawer-link nav__drawer-link--gold" href="https://learn.beyond9to5club.com/ebook" target="_blank">Free eBook</a>
+    <a class="nav__drawer-cta" href="./contact.html">Get A Free Consultation</a>
+  </div>
+</div>
+
+<!-- BIO HERO -->
+<section class="bio-hero">
+  <div class="bio-hero__inner">
+    <div class="bio-hero__photo">
+      <img src="./team_photos/tenny-web.jpg" alt="Tenny Tolofari"/>
+    </div>
+    <div class="bio-hero__content">
+      <a class="bio-hero__back" href="./team.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg> Back to Team</a>
+      <div class="bio-hero__role-badge">CGO</div>
+      <h1 class="bio-hero__name">Tenny Tolofari</h1>
+      <p class="bio-hero__title">Chief Growth Officer · Head of Acquisitions · Mentor</p>
+      <div class="bio-hero__meta">
+        <div class="bio-hero__meta-item">
+          <div class="bio-hero__meta-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          Charlotte, NC
+        </div>
+        <div class="bio-hero__meta-item">
+          <div class="bio-hero__meta-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <a href="mailto:ttolofari@xsitecapital.com">ttolofari@xsitecapital.com</a>
+        </div>
+      <div class="bio-hero__meta-item">
+        <div class="bio-hero__meta-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.12 1.2 2 2 0 012.1 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.45-.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <a href="tel:+1202-569-5072">+1 202-569-5072</a>
+      </div>
+        <div class="bio-hero__meta-item">
+          <div class="bio-hero__meta-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div>
+          <a href="https://www.linkedin.com/in/tenny-tolofari" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+      <div class="bio-hero__actions">
+        <a class="btn-primary" href="./contact.html">Invest with XSITE</a>
+        <a class="btn-ghost" href="https://learn.beyond9to5club.com/formvanguard" target="_blank">Apply for Mentorship</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIO BODY -->
+<section class="bio-body">
+  <div class="bio-body__inner">
+    <div class="bio-body__eyebrow">About Tenny</div>
+    <div class="bio-body__text">
+      <p>As a leader, entrepreneur, and mentor, I've dedicated my career to helping professionals break free from financial limitations and discover the transformative power of real estate investing.</p><p>I'm the Chief Growth Officer &amp; Head of Acquisitions and a Co-Founder of XSITE Capital Investment LLC, where I identify high-potential multifamily real estate opportunities that create long-term value for our investors.</p><p>My expertise also extends to the cybersecurity field, where I've supported industry giants like Boeing and Deloitte. This background sharpened my ability to analyze risk, think strategically, and execute with precision — skills I bring to every acquisition.</p><p>My work is driven by the belief that financial freedom is not reserved for a select few — it's a right we all can achieve with the right guidance, tools, and determination. Together with my team, we've created pathways for countless professionals to grow their wealth and change their financial futures.</p><p>Outside of work, I enjoy fishing, dancing, golf, and basketball, but my greatest joy comes from spending time with my wife and three wonderful children. If you're ready to transform your financial future, I'm here to guide you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="bio-quote">
+  <div class="bio-quote__inner">
+    <span class="bio-quote__mark">&ldquo;</span>
+    <p class="bio-quote__text">Tenacity is the core of my beliefs. Never stop trying, never give up.</p>
+  </div>
+</section>
+
+<!-- LINKS -->
+<section class="bio-links">
+  <div class="bio-links__inner">
+    <h2 class="bio-links__title">Work with <em>Tenny</em></h2>
+    <div class="bio-links__grid">
+      <a class="bio-link-card" href="https://www.xsitecapital.com/contact.html" target="_blank">
+        <span class="bio-link-card__tag">Investing</span>
+        <div class="bio-link-card__title">Become an Investor</div>
+        <div class="bio-link-card__sub">Make your money work for you. Join 400+ professionals building passive income through multifamily real estate.</div>
+        <span class="bio-link-card__arrow">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="bio-link-card" href="https://learn.beyond9to5club.com/formvanguard" target="_blank">
+        <span class="bio-link-card__tag">Mentorship</span>
+        <div class="bio-link-card__title">Apply for the Vanguard Program</div>
+        <div class="bio-link-card__sub">Learn how to transform your 9-to-5 into a flourishing investment business.</div>
+        <span class="bio-link-card__arrow">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="bio-link-card" href="https://learn.beyond9to5club.com/ebook" target="_blank">
+        <span class="bio-link-card__tag">Free Resource</span>
+        <div class="bio-link-card__title">Get the Free Passive Income eBook</div>
+        <div class="bio-link-card__sub">Learn why passive investing is critical for 9-to-5 professionals.</div>
+        <span class="bio-link-card__arrow">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="bio-link-card" href="https://calendly.com/d/csvd-c2h-f5g/xsite-investment-discovery-call" target="_blank">
+        <span class="bio-link-card__tag">Discovery Call</span>
+        <div class="bio-link-card__title">Book a Discovery Call</div>
+        <div class="bio-link-card__sub">Speak directly with the XSITE team about your investment goals.</div>
+        <span class="bio-link-card__arrow">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="fticker"><div class="fticker__track">
+    <span class="fticker__item">Abundance.</span><span class="fticker__dot"></span>
+    <span class="fticker__item">Honesty.</span><span class="fticker__dot"></span>
+    <span class="fticker__item">Integrity.</span><span class="fticker__dot"></span>
+    <span class="fticker__item">Humility.</span><span class="fticker__dot"></span>
+    <span class="fticker__item">Tenacity.</span><span class="fticker__dot"></span>
+    <span class="fticker__item">Abundance.</span><span class="fticker__dot"></span>
+    <span class="fticker__item">Honesty.</span><span class="fticker__dot"></span>
+    <span class="fticker__item">Integrity.</span><span class="fticker__dot"></span>
+    <span class="fticker__item">Humility.</span><span class="fticker__dot"></span>
+    <span class="fticker__item">Tenacity.</span><span class="fticker__dot"></span>
+  </div></div>
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <div class="footer__logo"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><defs><linearGradient id="fl" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D9BD86"/><stop offset="100%" stop-color="#8A6D3C"/></linearGradient></defs><ellipse cx="16" cy="16" rx="13.5" ry="8.5" stroke="url(#fl)" stroke-width="1.5" fill="none"/><path d="M8 20 L13.5 13 L17.5 17 L23.5 10" stroke="url(#fl)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M19.5 10 L23.5 10 L23.5 14" stroke="url(#fl)" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> XSITE <em style="font-style:italic">Capital</em></div>
+      <p class="footer__desc">Creating legacy wealth for busy professionals through multifamily real estate investing.</p>
+      <p class="footer__tag">"Welcome to the good life."</p>
+      <div class="footer__contact">
+        <p>5457 Twin Knolls Road, Suite 300<br>Columbia, Maryland 21045</p>
+        <p><a href="mailto:contact@xsitecapital.com">contact@xsitecapital.com</a></p>
+        <p><a href="tel:+13019002625">+1 (301) 900-2625</a></p>
+      </div>
+      <div class="footer__socials">
+        <a class="footer__soc" href="https://www.instagram.com/xsitecapital/" target="_blank" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg></a>
+        <a class="footer__soc" href="https://www.facebook.com/xsitecapital/" target="_blank" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a class="footer__soc" href="https://www.linkedin.com/company/xsite-capital" target="_blank" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a class="footer__soc" href="https://www.youtube.com/channel/UCNvz8u_zTGOjsNW3hAt2pvg" target="_blank" aria-label="YouTube"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer__cols">
+      <div class="footer__col"><h4>Firm</h4><ul>
+        <li><a href="./team.html">Team</a></li><li><a href="./assets.html">Assets</a></li>
+        <li><a href="./faq.html">FAQ</a></li><li><a href="./webinars.html">Webinars</a></li>
+        <li><a href="./privacy.html">Privacy Policy</a></li>
+      </ul></div>
+      <div class="footer__col"><h4>Invest</h4><ul>
+        <li><a href="./contact.html">Get a Free Consultation</a></li>
+        <li><a href="https://calendly.com/d/csvd-c2h-f5g/xsite-investment-discovery-call" target="_blank">Book A Discovery Call</a></li>
+        <li><a href="./ira.html">401K / IRA Investing</a></li>
+      </ul></div>
+      <div class="footer__col"><h4>Learn</h4><ul>
+        <li><a href="https://learn.beyond9to5club.com" target="_blank">XSITE Academy</a></li>
+        <li><a href="https://learn.beyond9to5club.com/ebook" target="_blank">Free eBook</a></li>
+        <li><a href="https://learn.beyond9to5club.com/formvanguard" target="_blank">Vanguard Program</a></li>
+        <li><a href="./retirewise.html">RetireWise Calculator</a></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="footer__bot">
+    <p class="footer__copy">© 2026 XSITE Capital Investment LLC. All Rights Reserved.</p>
+    <div class="footer__links"><a href="./privacy.html">Privacy Policy</a><a href="./contact.html">Contact</a></div>
+  </div>
+  <div class="footer__disc">Disclaimer: Any of the information contained herein does not constitute an offer to sell, or a solicitation of an offer to buy, any security, or any interest in an XSITE Capital investment opportunity. Past performance does not predict future returns, and there is no assurance that any XSITE Capital investment will achieve its objectives or avoid significant losses.</div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 36), {passive:true});
+const ham = document.getElementById('navHam');
+const drawer = document.getElementById('navDrawer');
+function closeDrawer(){ham.classList.remove('open');drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+if(ham && drawer){
+  ham.addEventListener('click', () => {
+    const isOpen = drawer.classList.contains('open');
+    if(isOpen){closeDrawer();}
+    else{ham.classList.add('open');drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+  });
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+  document.addEventListener('click', e => {if(drawer.classList.contains('open')&&!drawer.contains(e.target)&&!ham.contains(e.target)){closeDrawer();}});
+}
+</script>
+</body>
+</html>

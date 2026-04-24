@@ -36,3 +36,12 @@ services:
       - type: rewrite
         source: /money-week
         destination: /money-week/index.html
+      - type: rewrite
+        source: /julius
+        destination: /julius.html
+      - type: rewrite
+        source: /leslie
+        destination: /leslie.html
+      - type: rewrite
+        source: /tenny
+        destination: /tenny.html
