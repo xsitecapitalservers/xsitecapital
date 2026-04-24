@@ -1038,7 +1038,7 @@ button{cursor:pointer;font-family:inherit;}
 
     <!-- Video -->
     <div class="nz__video-wrap">
-      <video autoplay muted loop playsinline preload="none">
+      <video id="nzVideo" autoplay muted loop playsinline controls preload="metadata">
         <source src="https://pub-68989bd4060d43fa8b57ed2f93892825.r2.dev/The%20XSITE%20Weekend.mov" type="video/mp4">
       </video>
     </div>
@@ -1517,6 +1517,24 @@ if(form) form.addEventListener('submit', e => {
     requestAnimationFrame(draw);
   }
   requestAnimationFrame(draw);
+})();
+
+/* ── NINTH ZERO VIDEO — reliable autoplay ────────────── */
+(function(){
+  var v = document.getElementById('nzVideo');
+  if(!v) return;
+  function tryPlay(){
+    var p = v.play();
+    if(p && p.catch) p.catch(function(){ /* blocked by browser policy — controls visible so user can manually start */ });
+  }
+  if(v.readyState >= 2){ tryPlay(); }
+  else { v.addEventListener('loadeddata', tryPlay, {once:true}); }
+  // IntersectionObserver: re-trigger play when video scrolls into view
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting) tryPlay(); });
+    }, {threshold:0.25}).observe(v);
+  }
 })();
 
 /* ── TICKER RESTART (always start from position 0) ─── */
