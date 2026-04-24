@@ -31,7 +31,7 @@ img{display:block;max-width:100%;}
 button{cursor:pointer;font-family:inherit;}
 
 /* ── NAV ─────────────── exact match to index.html ──── */
-.nav{
+.nav{overflow:hidden;
   position:fixed;top:16px;left:50%;transform:translateX(-50%);
   width:calc(100% - 32px);max-width:1280px;height:62px;z-index:200;
   border-radius:999px;padding:0 8px 0 0;
@@ -43,7 +43,7 @@ button{cursor:pointer;font-family:inherit;}
 }
 .nav.scrolled{top:8px;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 16px 48px rgba(17,24,39,.13);}
 .nav__logo{display:flex;align-items:stretch;align-self:stretch;}
-.nav__logo img{height:24px;width:auto;display:block;}.nav__logo-pill{background:var(--forest-500);border-radius:31px 999px 999px 31px;padding:0 20px 0 18px;display:flex;align-items:center;align-self:stretch;}
+.nav__logo img{height:24px;width:auto;display:block;}.nav__logo-pill{background:var(--forest-500);border-radius:0 999px 999px 0;padding:0 20px 0 19px;display:flex;align-items:center;align-self:stretch;margin-left:-1px;}
 .nav__links{display:flex;align-items:center;gap:1px;}
 .nav__link{padding:7px 13px;font-size:13.5px;font-weight:500;color:var(--ink-s);border-radius:999px;transition:color .15s,background .15s;}
 .nav__link:hover,.nav__link.active{color:var(--ink);background:rgba(255,255,255,.6);}
