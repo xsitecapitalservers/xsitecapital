@@ -74,6 +74,30 @@ button{cursor:pointer;font-family:inherit;}
 @keyframes ambient{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-3%,2%,0) scale(1.05)}100%{transform:translate3d(2%,-2%,0) scale(1.02)}}
 .hero__inner{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0 40px;width:100%;display:grid;grid-template-columns:1.2fr 1fr;gap:72px;align-items:center;}
 
+/* ── HERO TEXTURE ───────────────────────────────────── */
+.hero__texture{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  width:100%;height:100%;
+}
+.hero__grain{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  opacity:.028;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size:180px 180px;
+  animation:grain-drift 8s steps(1) infinite;
+}
+@keyframes grain-drift{
+  0%  {background-position:  0%   0%}
+  12% {background-position: 30%  15%}
+  25% {background-position: 60%   5%}
+  37% {background-position: 20%  60%}
+  50% {background-position: 80%  35%}
+  62% {background-position: 10%  80%}
+  75% {background-position: 55%  20%}
+  87% {background-position: 40%  70%}
+ 100% {background-position:  0%   0%}
+}
+
 .hero__badge{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border-radius:999px;margin-bottom:28px;background:rgba(184,150,96,.12);border:1px solid rgba(184,150,96,.35);}
 .hero__badge-pill{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--forest);background:var(--gold);padding:3px 9px;border-radius:999px;}
 .hero__badge-text{font-size:13px;font-weight:500;color:var(--gold-d);}
@@ -606,6 +630,8 @@ button{cursor:pointer;font-family:inherit;}
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero__bg"></div>
+  <canvas class="hero__texture" id="heroTexture" aria-hidden="true"></canvas>
+  <div class="hero__grain" aria-hidden="true"></div>
   <div class="hero__inner">
     <!-- Left -->
     <div>
@@ -1378,6 +1404,51 @@ if(form) form.addEventListener('submit', e => {
   form.style.display='none';
   document.getElementById('ctaSuccess').style.display='flex';
 });
+
+/* ── HERO TEXTURE CANVAS ────────────────────────────── */
+(function(){
+  var canvas = document.getElementById('heroTexture');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+
+  function resize(){
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  /* Warm light blobs — position, radius, color, drift speed, phase offset */
+  var blobs = [
+    { x:.18, y:.35, r:.52, h:217, s:189, l:134, a:.13, sp:0.00006, ph:0.0  },
+    { x:.55, y:.15, r:.40, h:232, s:212, l:168, a:.09, sp:0.00009, ph:1.8  },
+    { x:.08, y:.72, r:.44, h:200, s:170, l:110, a:.10, sp:0.00007, ph:3.4  },
+    { x:.38, y:.55, r:.35, h:245, s:220, l:185, a:.07, sp:0.00012, ph:5.1  },
+    { x:.72, y:.28, r:.38, h:184, s:150, l: 96, a:.08, sp:0.00005, ph:2.6  },
+  ];
+
+  function draw(ts){
+    var w = canvas.width, h = canvas.height;
+    ctx.clearRect(0,0,w,h);
+    blobs.forEach(function(b){
+      var ox = 0.07 * Math.sin(ts * b.sp * Math.PI * 2 + b.ph);
+      var oy = 0.06 * Math.cos(ts * b.sp * Math.PI * 2 + b.ph * 1.4);
+      var cx = (b.x + ox) * w;
+      var cy = (b.y + oy) * h;
+      var r  = b.r * Math.min(w, h) * 0.72;
+      var pulse = 1 + 0.06 * Math.sin(ts * b.sp * Math.PI * 4 + b.ph);
+      r *= pulse;
+      var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+      g.addColorStop(0,   'rgba('+b.h+','+b.s+','+b.l+','+b.a+')');
+      g.addColorStop(0.5, 'rgba('+b.h+','+b.s+','+b.l+','+(b.a*.4)+')');
+      g.addColorStop(1,   'rgba('+b.h+','+b.s+','+b.l+',0)');
+      ctx.fillStyle = g;
+      ctx.fillRect(0,0,w,h);
+    });
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
 
 /* ── TICKER RESTART (always start from position 0) ─── */
 document.addEventListener('DOMContentLoaded', function() {
