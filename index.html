@@ -67,54 +67,29 @@ button{cursor:pointer;font-family:inherit;}
 
 /* ── HERO ───────────────────────────────────────────── */
 .hero{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:130px 0 0;}
-.hero__bg{
-  position:absolute;inset:-25%;z-index:0;filter:blur(24px);
-  background:radial-gradient(55% 65% at 25% 25%,rgba(217,189,134,.22) 0%,transparent 60%),
-             radial-gradient(50% 60% at 78% 75%,rgba(17,24,39,.10) 0%,transparent 60%),
-             linear-gradient(180deg,#F8F4EC 0%,#EDE7D5 100%);
-  animation:ambient 32s ease-in-out infinite alternate;
+.hero__video{
+  position:absolute;inset:0;z-index:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;pointer-events:none;
 }
-@keyframes ambient{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-3%,2%,0) scale(1.05)}100%{transform:translate3d(2%,-2%,0) scale(1.02)}}
+.hero__overlay{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(160deg,rgba(8,16,10,.62) 0%,rgba(13,24,16,.50) 50%,rgba(6,12,8,.68) 100%);
+}
 .hero__inner{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0 40px;width:100%;display:grid;grid-template-columns:1.2fr 1fr;gap:72px;align-items:center;}
 
-/* ── HERO TEXTURE ───────────────────────────────────── */
-.hero__texture{
-  position:absolute;inset:0;z-index:1;pointer-events:none;
-  width:100%;height:100%;
-}
-/* diagonal golden-hour light sweep */
-.hero__sweep{
-  position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;
-}
-.hero__sweep::after{
-  content:'';
-  position:absolute;top:0;bottom:0;
-  left:-60%;width:60%;
-  background:linear-gradient(115deg,
-    transparent 0%,
-    rgba(217,189,134,.09) 35%,
-    rgba(255,250,235,.20) 50%,
-    rgba(217,189,134,.09) 65%,
-    transparent 100%);
-  mix-blend-mode:screen;
-  animation:hero-sweep 20s linear infinite;
-}
-@keyframes hero-sweep{
-  0%  {transform:translateX(0)}
-  100%{transform:translateX(380%)}
-}
+
 
 .hero__badge{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border-radius:999px;margin-bottom:28px;background:rgba(184,150,96,.12);border:1px solid rgba(184,150,96,.35);}
 .hero__badge-pill{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--forest);background:var(--gold);padding:3px 9px;border-radius:999px;}
-.hero__badge-text{font-size:13px;font-weight:500;color:var(--gold-d);}
+.hero__badge-text{font-size:13px;font-weight:500;color:var(--gold-l);}
 
-.hero__title{font-family:var(--fd);font-size:clamp(3rem,5.6vw,5.8rem);font-weight:400;line-height:1.03;letter-spacing:-.025em;color:var(--ink);}
-.hero__title em{font-style:italic;font-weight:500;color:var(--gold-d);}
-.hero__sub{margin-top:10px;font-family:var(--fd);font-size:clamp(1.2rem,1.8vw,1.55rem);font-weight:300;color:var(--ink-s);line-height:1.4;letter-spacing:-.01em;}
+.hero__title{font-family:var(--fd);font-size:clamp(3rem,5.6vw,5.8rem);font-weight:400;line-height:1.03;letter-spacing:-.025em;color:rgba(245,241,232,.95);}
+.hero__title em{font-style:italic;font-weight:500;color:var(--gold-l);}
+.hero__sub{margin-top:10px;font-family:var(--fd);font-size:clamp(1.2rem,1.8vw,1.55rem);font-weight:300;color:rgba(245,241,232,.75);line-height:1.4;letter-spacing:-.01em;}
 .hero__actions{margin-top:40px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
-.hero__ghost{font-size:15px;font-weight:500;color:var(--ink-s);transition:color .15s;}
-.hero__ghost:hover{color:var(--ink);}
-.hero__bbb{margin-top:28px;display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(17,24,39,.05);border:1px solid var(--hair);font-size:12px;color:var(--ash);}
+.hero__ghost{font-size:15px;font-weight:500;color:rgba(245,241,232,.70);transition:color .15s;}
+.hero__ghost:hover{color:rgba(245,241,232,1);}
+.hero__bbb{margin-top:28px;display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);font-size:12px;color:rgba(245,241,232,.70);}
 
 /* ── NINTH ZERO TEASER ──────────────────────────────── */
 .nz-teaser{
@@ -675,9 +650,10 @@ button{cursor:pointer;font-family:inherit;}
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero__bg"></div>
-  <canvas class="hero__texture" id="heroTexture" aria-hidden="true"></canvas>
-  <div class="hero__sweep" aria-hidden="true"></div>
+  <video class="hero__video" autoplay muted loop playsinline>
+    <source src="https://pub-68989bd4060d43fa8b57ed2f93892825.r2.dev/XSITE%20Weekend%20Video%20Web-HEVC%20Cellular%20medium%20(3G%20or%20lower).mov" type="video/mp4">
+  </video>
+  <div class="hero__overlay"></div>
   <div class="hero__inner">
     <!-- Left -->
     <div>
@@ -1461,116 +1437,7 @@ if(form) form.addEventListener('submit', e => {
   document.getElementById('ctaSuccess').style.display='flex';
 });
 
-/* ── HERO TEXTURE CANVAS (window grid + motes) ───────── */
-(function(){
-  var canvas = document.getElementById('heroTexture');
-  if(!canvas) return;
-  var ctx = canvas.getContext('2d');
-  var t0 = performance.now();
 
-  function resize(){
-    canvas.width  = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  /* ── Deterministic PRNG ── */
-  var seed = 1;
-  function rnd(){ seed=(seed*9301+49297)%233280; return seed/233280; }
-
-  /* ── Window grid — 14 cols × 7 rows ── */
-  var COLS=14, ROWS=7, cells=[];
-  for(var r=0;r<ROWS;r++){
-    for(var c=0;c<COLS;c++){
-      cells.push({r:r,c:c,
-        phase:rnd()*Math.PI*2,
-        rate: 0.25+rnd()*0.45,
-        baseOn:rnd(),
-        jx:(rnd()-.5)*0.004,
-        jy:(rnd()-.5)*0.004,
-      });
-    }
-  }
-
-  /* ── Gold dust motes — 28 particles ── */
-  seed=17;
-  var motes=[];
-  for(var i=0;i<28;i++){
-    motes.push({
-      x0:rnd(), y0:rnd(),
-      dx:(30+rnd()*120)/1920,
-      ph:rnd()*Math.PI*2,
-      rate:0.15+rnd()*0.4,
-      sz:1.2+rnd()*3.2,
-      op:0.22+rnd()*0.35,
-      vy:(4+rnd()*10)/1080,
-    });
-  }
-
-  function draw(){
-    var w=canvas.width, h=canvas.height;
-    var t=(performance.now()-t0)/1000;
-    ctx.clearRect(0,0,w,h);
-
-    /* window grid */
-    var mX=0.0625*w, mY=0.139*h;
-    var gW=w-mX*2, gH=h-mY*2;
-    var cW=gW/COLS, cH=gH/ROWS;
-    var wW=cW*0.44, wH=cH*0.62;
-
-    for(var i=0;i<cells.length;i++){
-      var ce=cells[i];
-      var s=Math.sin(t*ce.rate+ce.phase);
-      var on=Math.max(0,s)*(0.3+ce.baseOn*0.7)*0.55;
-      var x=mX+ce.c*cW+(cW-wW)/2+ce.jx*w;
-      var y=mY+ce.r*cH+(cH-wH)/2+ce.jy*h;
-      var fop=0.10+on*0.12;
-
-      /* warm glow halo when lit */
-      if(on>0.05){
-        var pad=Math.max(wW,wH)*1.5;
-        var gr=ctx.createRadialGradient(x+wW/2,y+wH/2,0,x+wW/2,y+wH/2,pad);
-        gr.addColorStop(0,'rgba(217,189,134,'+(on*0.16)+')');
-        gr.addColorStop(1,'rgba(217,189,134,0)');
-        ctx.fillStyle=gr;
-        ctx.fillRect(x-pad,y-pad,wW+pad*2,wH+pad*2);
-      }
-
-      /* pane */
-      ctx.fillStyle='rgba(217,189,134,'+(on*0.42)+')';
-      ctx.fillRect(x,y,wW,wH);
-
-      /* frame */
-      ctx.strokeStyle='rgba(138,109,60,'+(fop*0.75)+')';
-      ctx.lineWidth=0.7;
-      ctx.strokeRect(x,y,wW,wH);
-
-      /* mullions */
-      ctx.strokeStyle='rgba(138,109,60,'+(fop*1.35)+')';
-      ctx.lineWidth=0.55;
-      ctx.beginPath();
-      ctx.moveTo(x,       y+wH*0.5); ctx.lineTo(x+wW,    y+wH*0.5);
-      ctx.moveTo(x+wW*0.5,y        ); ctx.lineTo(x+wW*0.5,y+wH    );
-      ctx.stroke();
-    }
-
-    /* gold dust motes */
-    for(var i=0;i<motes.length;i++){
-      var m=motes[i];
-      var mx=(m.x0+Math.sin(t*m.rate+m.ph)*m.dx)*w;
-      var my=((m.y0-t*m.vy)%1+1)%1*h;
-      var tw=0.6+0.4*Math.sin(t*(m.rate*2.5)+m.ph*1.3);
-      ctx.beginPath();
-      ctx.arc(mx,my,m.sz,0,Math.PI*2);
-      ctx.fillStyle='rgba(217,189,134,'+(m.op*tw)+')';
-      ctx.fill();
-    }
-
-    requestAnimationFrame(draw);
-  }
-  requestAnimationFrame(draw);
-})();
 
 /* ── NINTH ZERO VIDEO — reliable autoplay ────────────── */
 (function(){
